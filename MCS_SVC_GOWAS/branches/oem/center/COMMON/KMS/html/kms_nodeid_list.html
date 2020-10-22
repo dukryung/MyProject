@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $("#node_status").val(document.getElementById('selected_nodekey_status').value).prop("selected", true);
+
+});
+
+
+
+function nodeid_list_search() {
+  document.getElementById("search_form").action = "/nodeid/management/";
+  document.getElementById('search_form').submit();
+}
+
+function nodeid_group_delete () {
+  var delete_list_add_init_flag = 0;
+  var delete_list = "";
+  
+  var check_arrary =  document.getElementsByName("node_id_checkbox[]");
+  var check_arrary_length = check_arrary.length;             
+
+  for(i = 0; i < check_arrary_length; i++)
+  {
+    if (check_arrary[i].checked) {
+      if (delete_list_add_init_flag == 0) {
+        delete_list_add_init_flag = 1;
+        delete_list += check_arrary[i].value;
+      } else {
+        delete_list += "," + check_arrary[i].value;
+      }
+    }
+  } 
+
+
+  if (delete_list == "") {
+    alert ("삭제될 대상이 체크되지 않았습니다.");
+    return;
+  }
+
+  var send_json_data = {"action_mode" : "DELETE_LIST",
+                        "user_id" : "nodata",
+                        "node_key" : "nodata",
+                        "node_id" : delete_list}
+
+  $.ajax({
+      async: false,
+      url: "/nodeid/delete_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              //alert ("parsing return data (succ) :" + jsonObject.MsgValue);
+              alert("Node ID가 정상적으로 삭제되었습니다.");
+              location.href = "/nodeid/management/";
+              return
+            } else {
+              //alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              alert("Node ID 삭제가 정상적으로 처리되지 않았습니다.");
+              return
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            //alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            alert("Node ID 삭제가 정상적으로 처리되지 않았습니다.");
+            return
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          //alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          alert("Node ID 삭제가 정상적으로 처리되지 않았습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+  });
+  return;
+}
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>Node ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>Node ID Management</h1>
+          <form id="search_form">
+			<div class="search_area">                
+                <label>
+					<strong>User ID</strong>					
+					<input id="user_id" name="user_id" type="text" class="s10" value="{{.SearchParamUserID}}">
+				</label>
+				<label>
+					<strong>User Key</strong>
+					<input id="node_key" name="node_key" type="text" clsss="s20" value="{{.SearchParamUserKey}}">	
+				</label>
+				<label>
+					<strong>Node ID</strong>					
+					<input id="node_id" name="node_id" type="text" clsss="s20" value="{{.SearchParamUserNodeID}}">
+				</label>
+				<label>
+					<strong>Status</strong>					
+					<select id="node_status" name="node_status" class="s15">
+						<option value="">----No Select----</option>
+						<option value="ENABLE">ENABLE</option>
+						<option value="DISABLE">DISABLE</option>
+					</select>					
+					<input id="selected_nodekey_status" name="selected_nodekey_status" type="hidden" clsss="s20" value="{{.SearchParamUserNodeStatus}}">	
+				</label>				
+				<button id="search" onclick="nodeid_list_search();" type="button">Search</button>				
+            </div>
+        </form>    
+			<hr />
+			<table class="table_fixed">
+            <colgroup>
+				<col width="4%"><col width="10%"><col><col width="15%"><col width="10%"><col width="15%"><col width="8%"><col width="8%"><col width="86"><col width="86"><col width="86">
+            </colgroup>
+			<thead>
+				<tr>
+					<th></th>
+					<th>User ID</th>
+					<th>User Key</th>
+					<th>Node ID</th>
+					<th>Create Date</th>
+					<th>Update Date</th>
+					<th>Status</th>
+					<th>License</th>
+					<th>Create</th>
+					<th>Modify</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+        {{ range .NodeID }}
+				<tr>
+					<td><input type="checkbox" id="node_id_checkbox" name="node_id_checkbox[]" value="{{.NodeID}}"></td>
+					<td> {{.UserID}} </td>
+					<td> {{.UserKey}} </td>
+					<td> {{.NodeID}} </td>
+					<td> {{.CreateDate}} </td>
+					<td> {{.UpdateDate}} </td>
+					<td> {{.NodeStatus}} </td>
+					<td><button type="button" class="s" onClick="location.href='{{.NodeIDLicenseLinkURL}}'">License</button></td>
+					<td><button type="button" class="s" onClick="location.href='{{.NodeIDCreateLinkURL}}'">Create</button></td>
+					<td><button type="button" class="s" onClick="location.href='{{.NodeIDModifyLinkURL}}'">Modify</button></td>
+					<td><button type="button" class="s" onClick="location.href='{{.NodeIDDeleteLinkURL}}'">Delete</button></td>
+				</tr>
+        {{ end }}
+			</tbody>
+			</table>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button id="group_node_id_delete" type="button" onClick="nodeid_group_delete()">Delete</button>
+				</div>
+                <span class="paginate_complex">
+                  <a class="direction prev" href={{.TempletePage.TempleteViewBeginPage}}><span></span><span></span> 처음</a>
+                  <a class="direction prev" href={{.TempletePage.TempleteViewPrevPage}}><span></span> 이전</a>
+                  {{ range .TempletePage.TempleteViewPageList}}
+                    {{.}}
+                  {{ end }}
+                  <a class="direction next" href={{.TempletePage.TempleteViewNextPage}}>다음 <span></span></a>
+                  <a class="direction next" href={{.TempletePage.TempleteViewEndPage}}>끝 <span></span><span></span></a>
+                </span>
+				<div class="bg_r">
+          <!--
+					<button type="button" class="green" onClick="location.href='kms_NodeId_Create.html'">Create</button>
+          -->
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

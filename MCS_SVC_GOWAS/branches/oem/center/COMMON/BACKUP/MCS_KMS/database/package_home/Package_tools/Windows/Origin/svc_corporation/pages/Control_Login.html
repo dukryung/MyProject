@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <script type="text/javascript">
+      function Key_Check() {
+        if(event.keyCode == 13) {
+          document.getElementById('lg').submit();
+        }
+      }
+    </script>
+
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+    <script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="/pages/jquery.validate.js"></script>
+	<script type="text/javascript" src="/pages/Node_Setting.html.js"></script>
+
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+	<div class="login_wrap">
+		<div class="login_bg">
+			<div class="login_con">
+				<h1>Node Control Server</h1>
+				<form id="lg" action="/logging/" method="post">
+					<div class="login_input">
+						<input type="text" name="id" value="admin" readonly />
+						<input id="Password" type="password" name="pwd" placeholder="Password" reserve="length" min="6" max="20"  onkeydown="JavaScript:Key_Check();"/>
+					</div>	
+                    <hr />
+                    <p class="btn_login"><span><a href="#" onclick="document.getElementById('lg').submit();">Login</a></span></p>
+				</form>
+			</div>
+		</div>	
+	</div>
+</div>
+</body>
+</html>

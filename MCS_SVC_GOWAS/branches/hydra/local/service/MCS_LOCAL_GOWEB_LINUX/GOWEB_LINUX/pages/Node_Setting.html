@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+	<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="/pages/jquery.validate.js"></script>
+	<script type="text/javascript" src="/pages/Node_Setting.html.js?ver=2"></script>
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<header><h1>Smart Multi Line</h1></header>
+		<section>
+			<div class="path">
+				<ul>
+					<li><a href="">Smart Multi Line</a></li>
+					<li><a href="">Setting</a></li>
+				</ul>
+			</div>
+			<nav>
+				<h1>Smart Multi Line</h1>
+                <ul>
+                  <li class="current"><a href="/setting">Setting</a></li>
+                  {{.NodeClientStatMenu}}
+                  {{.NodeServerStatMenu}}                  
+                </ul>
+			</nav>
+			<article id ="main">
+				<h1>Setting</h1>
+				<div id="PasswordChange">
+					<h2>Password Change</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+						</colgroup>
+						<tbody>
+              <input id="PV_Version" type="hidden" value="{{.PV_Version}}">
+              <input id="PV_Method" type="hidden" value="{{.PV_Method}}">
+              <input id="PV_SessionType" type="hidden" value="{{.PV_SessionType}}">
+              <input id="PV_MessageType" type="hidden" value="{{.PV_MessageType}}">
+              <input id="PV_ControlAddress" type="hidden" value="{{.PV_ControlServerAddress}}" readonly>
+              <input id="PV_UserKey" type="hidden" value="{{.PV_UserKey}}" readonly>
+              <input id="PV_NodeID" type="hidden" value="{{.PV_NodeID}}" readonly>
+              <input id="PV_MacTotal" type="hidden" value="{{.PV_MacTotalString}}" readonly>
+              <input id="PV_CurrentSeq" type="hidden" value="{{.PV_CurrentSeq}}" readonly>
+              <input id="PV_NextSeq" type="hidden" value="{{.PV_NextSeq}}" readonly>
+              <input id="PV_UserKeyEncrypt" type="hidden" value="" readonly>
+              <input id="PV_NodeIDEncrypt" type="hidden" value="" readonly>
+              <input id="PV_AuthKey" type="hidden" value="" readonly>
+			  <input id="PV_AuthToken" type="hidden" value="" readonly>
+			  <input id="PV_UserKeyID" type="hidden" value="{{.PV_UserKeyID}}" readonly>
+			  <input id="PV_DeviceID" type="hidden" value="{{.PV_DeviceID}}" readonly>
+              <input id="PV_ResponseCode" type="hidden" readonly value="" >
+			  <input id="PV_ResponseCurrentSeq" type="hidden" readonly value="" >
+			  <input id="Statistic_Server_Ip" type="hidden" readonly  value="{{.Control_Server_IP}}"/>
+			  <input id="Statistic_Server_Port" type="hidden" readonly value="{{.Control_Server_Port}}"/>			  								
+			  <input id="KMS_Address" type="hidden" readonly value="{{.KMS_Address}}"/>
+			  <input id="KMS_Port" type="hidden" readonly value="{{.KMS_Port}}"/>
+			  <input id="Statistic_Send_Control_Server" type="hidden" readonly value="{{.Statistic_Send_Control_Server}}"/>
+			  <input id="Statistic_Send_Cycle" type="hidden" class="s100" readonly value="{{.Control_Server_Send_Interval}}"/>
+						</tbody>
+						<tbody>
+							<tr>
+								<th>Password to Change</th>
+                                <td><input id="Password" type="text" class="s100" reserve="length" min="6" max="20" msg="패스워드는 6자 이상 20자 이하로 입력하세요" value="{{.Password}}" /></td>
+							</tr>
+							<tr>
+								<th>Verifying Password to Change</th>
+                                <td><input id="Verifying_Password" type="text" class="s100" group="all" value="{{.VerifyingPassword}}"/></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr />
+				<div id="Default">
+					<h2>Default</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>Maximum Connections</th>
+                                <td><input id="Maximum_ConnectionCount" type="text" class="s100" reserve="between" min="128" max="16384" msg="숫자 128 - 16384 까지만 입력이 가능 합니다." group="all" value="{{.Max_Conn}}"/></td>
+							</tr>
+							<tr>
+								<th>Receive Buffer Size</th>
+								<td class="unit">
+                                  <input id="Recv_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="2147483647" msg="숫자 16384 - 2147483647 까지만 입력이 가능 합니다." group="all" value="{{.Recv_Buffer_Size}}" />
+									<span>byte</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Send Buffer Size</th>
+								<td class="unit">
+                                  <input  id="Send_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="2147483647" msg="숫자 16384 - 2147483647 까지만 입력이 가능 합니다." group="all" value="{{.Send_Buffer_Size}}" />
+									<span>byte</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Timeout of Connect</th>
+								<td class="unit">
+                                  <input id="Connection_Timeout"  type="text" class="s100" reserve="between" min="1" max="60" msg="숫자 1 - 60 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Connect}}" />
+									<span>sec</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Timeout of Client</th>
+								<td class="unit">
+                                  <input id="Client_Reconnect_Timeout" type="text" class="s100" reserve="between" min="1" max="4294967295" msg="숫자 1 - 4294967295 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Client}}" />
+									<span>sec</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Timeout of Server</th>
+								<td class="unit">
+                                  <input id="Server_Reconnect_Timeout" type="text" class="s100" reserve="between" min="1" max="4294967295" msg="숫자 1 - 4294967295 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Server}}"/>
+									<span>sec</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr />
+				<div id="LogFile">
+					<h2>Log File</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>Limit Size of Storage for Log</th>
+								<td class="unit">
+                                  <input id="Limit_Size_Log_Storage" type="text" class="s100" reserve="between" min="0" max="100" msg="숫자 0 - 100 까지만 입력이 가능 합니다." group="all" value="{{.Disk_Limit}}" />
+									<span>%</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Max Size of 1 Log file</th>
+								<td class="unit">
+                                  <input id="Maxsize_Per_Logfile" type="text" class="s100" reserve="between" min="1" max="1024" msg="숫자 1 - 1024 까지만 입력이 가능 합니다." group="all" value="{{.Max_Size}}" />
+									<span>MB</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Log file Path</th>
+								<td class="unit word">
+                                  <input id="Logfile_Path" type="text" class="s100" reserve="special ko en number space length" min="3" max="100" msg="숫자 3 - 100 까지만 입력이 가능 합니다." group="all" value="{{.LogPath}}"/>
+								</td>
+							</tr>
+							<tr>
+								<th>Error log file Path</th>
+								<td class="unit word">
+                                  <input id="Err_Logfile_Path" type="text" class="s100" reserve="ko en number space length" min="3" max="100" msg="글자 3 - 100 까지만 입력이 가능 합니다." group="all" value="{{.ErrorPath}}"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr />
+				<div id="Statistics">
+					<h2>Statistics</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+							<col width="150">
+						</colgroup>
+						<tbody>
+                            <tr>
+								<th>Statistics Collection Cycle</th>
+								<td class="unit" colspan="2">
+                                  <input id="Statistic_Collection_Cycle" type="text" class="s100" reserve="between" min="1" max="60" msg="숫자 1 - 60 까지만 입력이 가능 합니다." group="all" value="{{.Interval}}"/ readonly>
+									<span>sec</span>
+								</td>
+							</tr>														
+						</tbody>
+					</table>
+				</div>
+				<hr />
+				<div id="NodeSetting">
+					<h2>SML Setting</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+						</colgroup>
+						<tbody>
+							
+							<tr>
+								<th>SML Buffer Size</th>
+								<td class="unit">
+                                  <input id="Bridge_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="52428800" msg="숫자 16384 - 52428800 까지만 입력이 가능 합니다." group="all" value="{{.Buffer_Size}}"/>
+									<span>byte</span>
+								</td>
+							</tr>
+							<tr>
+								<th>Encrypt Mode</th>
+								<td>
+									<select id="Encrypt_Mode">
+                                        {{ range .EncModeSelectHTMLList}}
+                                        {{.Value_HTML}}
+                                        {{ end }}
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>Change IP for Client Mode</th>
+								<td>
+									<select id="Change_Client_Ip" >
+                                        {{ range .ChangeIPSelectHTMLList }}
+                                        {{.Value_HTML}}
+                                        {{ end }}
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr />
+                <div id="NodeID">
+					<h2>SML ID Setting</h2>
+					<table class="input">
+						<colgroup>
+							<col width="250">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>SML ID</th>
+								<td class="unit">
+                                  <input id="Node_ID" type="text" class="s100"
+                                  reserve="uuid" maxlength="42" msg="uuid만 입력이
+                                  가능 합니다. ex
+                                  00000000-00000000-00000-00000-000000000000" group="all"
+                                                                        value="{{.Node_ID}}"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr />	                        
+                {{ range .FrontBackHTMLList }}
+                {{ .Value_HTML }}
+                {{ end }}
+                <!--
+				<div id="Frontend">
+					<div data-SiteType="1">
+						<h2>Frontend
+							<div>
+								<button type="button" class="green" act="btnFrontendAdd">Add</button>
+							</div>
+						</h2>
+						<table class="input">
+							<colgroup>
+								<col width="250">
+								<col>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>Symbol</th>
+									<td><input type="text" class="s100" Frontendsymbol reserve="ko en number space length" min="2" max="32" msg="글자 2 - 32 까지만 입력이 가능 합니다." group="all" /></td>
+								</tr>
+								<tr>
+									<th>Bind Port</th>
+									<td><input type="text" class="s100" FrontendPort reserve="between" min="1" max="65535" msg="숫자 1 - 65535 까지만 입력이 가능 합니다." group="all" /></td>
+								</tr>
+								<tr>
+									<th>Node Mode</th>
+									<td>
+										<select Node_Mode>
+												<option>선택해주세요</option>
+												<option value="1">Node Client</option>
+												<option value="2">Node Server</option>
+										</select>
+										<button type="button" act="btnFrontendConfirm" >Confirm</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+                        <div data-SiteType="2">
+                            <h2>
+                                Backend
+                                <div>
+                                    <button type="button" act="btnBackEndAdd" class="green">Add</button>
+                                    <button type="button" act="btnBackEndDelete" >Delete</button>
+                                </div>
+                            </h2>
+                            <table class="input">
+                                <colgroup>
+                                    <col width="250">
+                                    <col width="210">
+                                    <col>
+                                    <col width="150">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th>Server</th>
+                                        <td>
+                                            <select class="s100" LAN_interface>
+                                                <option value="OS_Default">OS Default</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" class="s100" placeholder="IPAddress" BackendIP reserve="ipv4 " min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+                                        <td><input type="text" class="s100" placeholder="Bind Port" BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all" /> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+					</div>
+				</div>
+                -->
+				<div class="paginate_group">
+					<div class="bg_r">
+						<button type="button" act="btnCancel" >cancel</button>
+						<button type="button" class="green" act="btnSave" >save</button>
+					</div>
+				</div>
+			</article>
+		</section>
+	</div>
+	<footer>
+		<span>Copyright ⓒ 2019 innogskorea.crop. All right reserved.</span>
+	</footer>
+
+	<!--Frontend Binding-->
+	<script type="text/x-jquery-tmpl" id="tmplFrontend">
+		<div data-SiteType="1">
+			<hr />
+			<h2>Frontend
+				<div>
+					<button type="button" act="btnFrontEndRemove">Delete</button>
+				</div>
+			</h2>
+			<table class="input">
+				<colgroup>
+					<col width="250">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>Symbol</th>
+                        <td><input type="text" class="s100" Frontendsymbol reserve="ko en number space length" min="2" max="32" msg="글자 2 - 32 까지만 입력이 가능 합니다." group="all" /></td>
+					</tr>
+					<tr>
+						<th>Bind Port</th>
+						<td><input type="text" class="s100" FrontendPort reserve="between" min="1" max="65535" msg="숫자 1 - 65535 까지만 입력이 가능 합니다." group="all" /></td>
+					</tr>
+					<tr>
+						<th>Node Mode</th>
+						<td>
+							<select Node_Mode>
+                                {{.FrontendNodeMode}}
+							</select>
+							<button type="button" act="btnFrontendConfirm" >Confirm</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</script>
+
+	<!--BackOffice Binding-->
+	<script type="text/x-jquery-tmpl" id="Backend">
+		<div data-SiteType="2" Node_mode="1">
+			<h2>
+				Backend
+				<div>
+					<button type="button" act="btnBackEndAdd" class="green">+</button>
+					<button type="button" act="btnBackEndDelete" >-</button>
+				</div>
+			</h2>
+			<table class="input">
+				<colgroup>
+					<col width="250">
+					<col width="210">
+					<col>
+					<col width="150">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>Server</th>
+						<td>
+							<select class="s100" LAN_interface>
+								<option value="OS_Default">OS Default</option>
+                                {{ range .NICNAMEHTMLList }}
+                                {{.Value_HTML }}
+                                {{ end }}
+							</select>
+						</td>
+						<td><input type="text" class="s100" placeholder="IPAddress" BackendIP reserve="ipv4 " min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+						<td><input type="text" class="s100" placeholder="Bind Port" BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all" /> </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</script>
+
+		<!--BackOffice Binding-->
+		<script type="text/x-jquery-tmpl" id="Backend2">
+			<div data-SiteType="2" Node_mode="2">
+				<h2>Backend</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col width="210">
+						<col>
+						<col width="150">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Server</th>
+							<td>
+                                <select class="s100" LAN_interface >
+                                    <option value="OS_Default">OS Default</option>
+                                    {{ range .NICNAMEHTMLList }}
+                                    {{.Value_HTML }}
+                                    {{ end }}
+                                </select>
+							</td>
+							<td><input type="text" class="s100" placeholder="IPAddress" BackendIP  reserve="ipv4" min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+							<td><input type="text" class="s100" placeholder="Bind Port" BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</script>
+
+	<!--BackOffice Server Add--> 
+	<script type="text/x-jquery-tmpl" id="tmplBackendServerList">
+		<tr>
+			<th>Server</th>
+			<td>
+				<select class="s100" LAN_interface>
+					<option value="OS_Default">OS Default</option>
+                    {{ range .NICNAMEHTMLList }}
+                    {{.Value_HTML }}
+                    {{ end }}
+				</select>
+			</td>
+			<td><input type="text" class="s100" placeholder="IP Address" BackendIP reserve="ipv4" min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+            <td><input type="text" class="s100" placeholder="Bind Port"  BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all"/></td>
+		</tr>
+	</script>
+</body>
+</html>
+

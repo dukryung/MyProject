@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#user_id_check').on('click',function() {
+    userIDCheckQuery()
+  })
+
+  $('#nodekey_tmp_generate').on('click',function() {
+    nodeKeyTmpGenerate()
+  })
+
+  $('#node_key_create').on('click',function() {
+    nodeKeyCreate()
+  })
+
+  $('#node_key_create_node_id_create').on('click',function() {
+    nodeKeyCreateNodeIDGenerate()
+  })
+
+
+});
+
+function nodeKeyCreate () {
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    document.getElementById("node_key").value = "";
+    document.getElementById("node_key").focus();
+    return;
+  }
+
+  if (document.getElementById("user_id_exist").value != "set") {
+    alert ("User ID 유효성 검사가 되어야 합니다.");
+    document.getElementById("user_id_exist").value = "unset";
+    document.getElementById("user_id").focus();
+    return;
+  }
+
+  if (document.getElementById("node_key").value.length < 4) {
+    alert ("User Key 길이가 유효하지 않습니다.");
+    document.getElementById("node_key").value = "";
+    document.getElementById("node_key").focus();
+    return;
+  }
+
+  if (document.getElementById("node_id_count").value.length <= 0) {
+    alert ("Node ID 개수가 유효하지 않습니다.");
+    document.getElementById("node_id_count").value = "0";
+    document.getElementById("node_id_count").focus();
+    return;
+  } else {
+    if (parseInt(document.getElementById("node_id_count").value) <= 0 || parseInt(document.getElementById("node_id_count").value) > 100) {
+      alert ("Node ID 개수가 유효하지 않습니다.\n(유효한 범위: 1 ~ 100)");
+      document.getElementById("node_id_count").value = "0";
+      document.getElementById("node_id_count").focus();
+      return;
+    } 
+  }
+
+  if (document.getElementById("period_use_type_select").value == "novalue") {
+    alert ("User Key 만료 기간이 유효하지 않습니다.");
+    document.getElementById("period_use_type_select").focus();
+    return;
+  }
+
+  $('#nodekey_tmp_generate').attr('disabled', true);
+  $('#node_key_create').attr('disabled', true);
+  $('#node_key_create_node_id_create').attr('disabled', true);
+
+  var send_json_data = {"action_mode" : "SET",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_count" : $('#node_id_count').val(),
+                        "period_of_use" : $('#period_use_type_select').val()};
+  
+  $.ajax({
+      async: false,
+      url: "/nodekey/create_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          $('#nodekey_tmp_generate').attr('disabled', false);
+          $('#node_key_create').attr('disabled', false);
+          $('#node_key_create_node_id_create').attr('disabled', false);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert ("User Key가 발급되었습니다.");
+              location.href = "/nodekey/management/";
+            } else {
+              alert ("User Key 발급이 실패되었습니다.");
+            }
+          } else {
+            alert ("User Key 발급이 실패되었습니다.");
+          }
+        },
+      error: 
+
+        function(xml_request, text_status, error_thrown) {
+          $('#nodekey_tmp_generate').attr('disabled', false);
+          $('#node_key_create').attr('disabled', false);
+          $('#node_key_create_node_id_create').attr('disabled', false);
+
+          alert ("User Key 발급이 실패되었습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          document.getElementById("user_id_exist").value = "unset"
+        },
+  });
+}
+
+function nodeKeyCreateNodeIDGenerate () {
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    document.getElementById("node_key").value = "";
+    document.getElementById("node_key").focus();
+    return;
+  }
+
+  if (document.getElementById("user_id_exist").value != "set") {
+    alert ("User ID 유효성 검사가 되어야 합니다.");
+    document.getElementById("user_id_exist").value = "unset";
+    document.getElementById("user_id").focus();
+    return;
+  }
+
+  if (document.getElementById("node_key").value.length < 4) {
+    alert ("User Key 길이가 유효하지 않습니다.");
+    document.getElementById("node_key").value = "";
+    document.getElementById("node_key").focus();
+    return;
+  }
+
+  if (document.getElementById("node_id_count").value.length <= 0) {
+    alert ("Node ID 개수가 유효하지 않습니다.");
+    document.getElementById("node_id_count").value = "0";
+    document.getElementById("node_id_count").focus();
+    return;
+  } else {
+    if (parseInt(document.getElementById("node_id_count").value) <= 0 || parseInt(document.getElementById("node_id_count").value) > 100) {
+      alert ("Node ID 개수가 유효하지 않습니다.\n(유효한 범위: 0 ~ 100)");
+      document.getElementById("node_id_count").value = "0";
+      document.getElementById("node_id_count").focus();
+      return;
+    } 
+  }
+
+  if (document.getElementById("period_use_type_select").value == "novalue") {
+    alert ("User Key 만료 기간이 유효하지 않습니다.");
+    document.getElementById("period_use_type_select").focus();
+    return;
+  }
+
+  $('#nodekey_tmp_generate').attr('disabled', true);
+  $('#node_key_create').attr('disabled', true);
+  $('#node_key_create_node_id_create').attr('disabled', true);
+
+  var send_json_data = {"action_mode" : "SET",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_count" : $('#node_id_count').val(),
+                        "period_of_use" : $('#period_use_type_select').val()};
+  
+  $.ajax({
+      async: false,
+      url: "/nodekey/create_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          $('#nodekey_tmp_generate').attr('disabled', false);
+          $('#node_key_create').attr('disabled', false);
+          $('#node_key_create_node_id_create').attr('disabled', false);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert ("User Key가 발급되었습니다.");
+              location.href = "/nodeid/create_input/?user_id=" + $('#user_id').val() + "&node_key=" + $('#node_key').val();
+            } else {
+              alert ("User Key 발급이 실패되었습니다.");
+            }
+          } else {
+            alert ("User Key 발급이 실패되었습니다.");
+          }
+        },
+      error: 
+
+        function(xml_request, text_status, error_thrown) {
+          $('#nodekey_tmp_generate').attr('disabled', false);
+          $('#node_key_create').attr('disabled', false);
+          $('#node_key_create_node_id_create').attr('disabled', false);
+
+          alert ("User Key 발급이 실패되었습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          document.getElementById("user_id_exist").value = "unset"
+        },
+  });
+
+}
+
+
+function userIDCheckQuery () {
+
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("유효하지 않은 ID 입니다.\n(최소길이는 8자리 이상)");
+    document.getElementById("user_id").value = "";
+    document.getElementById("user_id_exist").value = "unset"
+    document.getElementById("user_id").focus();
+    return;
+  }
+  
+  var send_json_data = {"user_id" : $('#user_id').val(),
+                        "action_mode" : "CREATE_NODEKEY"};
+
+  $.ajax({
+      async: false,
+      url: "/userid/ajax/userid_check/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+
+            if (jsonObject.MsgCode == "1011") {
+              document.getElementById("user_id_exist").value = "set";
+              alert("유효한 User ID 입니다.")
+            } else if (jsonObject.MsgCode == "1090") {
+              document.getElementById("user_id_exist").value = "unset";
+              alert("유효하지 않은 User ID 입니다.\n(일반권한 User ID는 자신의 User ID만을 사용할 수 있습니다.)")
+            } else {
+              document.getElementById("user_id_exist").value = "unset";
+              alert("유효하지 않은 User ID 입니다.)")
+            }
+          } else {
+            alert("User ID 검증하는데 오류가 발생하였습니다.")
+            document.getElementById("user_id_exist").value = "unset";
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("ID 검증하는데 오류가 발생하였습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)")
+          document.getElementById("user_id_exist").value = "unset";
+        },
+      beforeSend: 
+        function () {
+          document.getElementById("user_id_exist").value = "unset";
+        },
+  });
+}
+
+
+function nodeKeyTmpGenerate () {
+  $('#nodekey_tmp_generate').attr('disabled', true);
+
+  var send_json_data = {"action_mode" : "GET",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#user_key').val()};
+  $.ajax({
+      async: false,
+      url: "/nodeid/ajax/generate_nodekey/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          $('#nodekey_tmp_generate').attr('disabled', false);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              document.getElementById("node_key").value = jsonObject.MsgValue;
+              return;
+            } else {
+              alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              return;
+            }
+          } else {
+            alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            return;
+          }
+        },
+      error: 
+
+        function(xml_request, text_status, error_thrown) {
+          $('#nodekey_tmp_generate').attr('disabled', false);
+          alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+        },
+  });
+}
+
+function userkeyCreateCancel (){
+  location.href = "/userkey/management/";
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User Key</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Key Mangement Create</h1>			
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+            <tr>
+              <th>User ID</th>
+              <td>
+                <div class="float_btn">
+                  <input id="user_id" type="text" class="s100" value="{{.NodeKeyData.UserID}}">
+                  <input id="user_id_exist" type="hidden" value="unset">
+                  <button id="user_id_check" type="button" class="gray">ID Verification</button>
+                </div>
+              </td>
+            </tr>
+        <tr>
+				  <th>User Key</th>
+          <td>
+            <div class="float_btn">
+              <input id="node_key" type="text" class="s100" value="{{.NodeKeyData.NodeKeyNew}}" readonly>
+              <button id="nodekey_tmp_generate" type="button" class="gray">Generate</button>
+            </div>
+				  </td>
+			  </tr>
+			<tr>
+				<th>Node ID Count</th>
+				<td><input id="node_id_count" type="text" class="s100" value="0"></td>
+			</tr>
+			<tr>
+				<th>Period of Use</th>
+				<td>
+					<select id="period_use_type_select">
+						<option value="novalue">No Select</option>
+						<option value="1095">3 year</option>
+						<option value="730">2 year</option>
+						<option value="365">1 year</option>
+						<option value="180">180 days</option>
+						<option value="30">30 days</option>
+					</select>
+				</td>
+			</tr>
+<!--
+			<tr>
+				<th>Start Date</th>
+				<td>
+					<select>
+						<option>Today</option>
+					</select>
+					<select>
+						<option></option>
+					</select>
+					<select>
+						<option></option>
+					</select>
+					<select>
+						<option></option>
+					</select>
+				</td>
+			</tr>           
+-->
+            </tbody>
+            </table>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="userkeyCreateCancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button id="node_key_create" type="button" class="green">Create</button>
+					<button id="node_key_create_node_id_create" type="button" class="green">Create &amp; Node ID Generate</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

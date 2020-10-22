@@ -1,0 +1,343 @@
+<!doctype html>
+
+
+    <script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+
+      function tableRowspan(tr_group) {
+        var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group),
+          $rowspan3 = $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group)
+		  , $rowspan6 = $('td.col_6', tr_group), $rowspan7 = $('td.col_7', tr_group), $rowspan8 = $('td.col_8', tr_group)
+		  , $rowspan9 = $('td.col_9', tr_group), $rowspan10 = $('td.col_10', tr_group), $rowspan11 = $('td.col_11', tr_group)
+		  , $rowspan12 = $('td.col_12', tr_group), $rowspan13 = $('td.col_13', tr_group), $rowspan14 = $('td.col_14', tr_group)
+		  , $rowspan15 = $('td.col_15', tr_group), $rowspan16 = $('td.col_16', tr_group), $rowspan17 = $('td.col_17', tr_group)
+		  , $rowspan18 = $('td.col_18', tr_group);
+
+        $($rowspan0[0]).attr('rowspan', tr_group.length);
+        $($rowspan1[0]).attr('rowspan', tr_group.length);
+        $($rowspan2[0]).attr('rowspan', tr_group.length);
+        $($rowspan3[0]).attr('rowspan', tr_group.length);
+        $($rowspan4[0]).attr('rowspan', tr_group.length);
+        $($rowspan5[0]).attr('rowspan', tr_group.length);
+		$($rowspan6[0]).attr('rowspan', tr_group.length);
+		$($rowspan7[0]).attr('rowspan', tr_group.length);
+		$($rowspan8[0]).attr('rowspan', tr_group.length);
+		$($rowspan9[0]).attr('rowspan', tr_group.length);
+		$($rowspan10[0]).attr('rowspan', tr_group.length);
+		$($rowspan11[0]).attr('rowspan', tr_group.length);
+		$($rowspan12[0]).attr('rowspan', tr_group.length);
+		$($rowspan13[0]).attr('rowspan', tr_group.length);
+		$($rowspan14[0]).attr('rowspan', tr_group.length);
+		$($rowspan15[0]).attr('rowspan', tr_group.length);
+		$($rowspan16[0]).attr('rowspan', tr_group.length);
+		$($rowspan17[0]).attr('rowspan', tr_group.length);
+		$($rowspan18[0]).attr('rowspan', tr_group.length);
+
+
+        if(tr_group.length > 1){
+          $($rowspan0).not($rowspan0[0]).remove();
+          $($rowspan1).not($rowspan1[0]).remove();
+          $($rowspan2).not($rowspan2[0]).remove();
+          $($rowspan3).not($rowspan3[0]).remove();
+          $($rowspan4).not($rowspan4[0]).remove();
+          $($rowspan5).not($rowspan5[0]).remove();
+		  $($rowspan6).not($rowspan6[0]).remove();
+		  $($rowspan7).not($rowspan7[0]).remove();
+		  $($rowspan8).not($rowspan8[0]).remove();
+		  $($rowspan9).not($rowspan9[0]).remove();
+		  $($rowspan10).not($rowspan10[0]).remove();
+		  $($rowspan11).not($rowspan11[0]).remove();
+		  $($rowspan12).not($rowspan12[0]).remove();
+		  $($rowspan13).not($rowspan13[0]).remove();
+		  $($rowspan14).not($rowspan14[0]).remove();
+		  $($rowspan15).not($rowspan15[0]).remove();
+		  $($rowspan16).not($rowspan16[0]).remove();
+		  $($rowspan17).not($rowspan17[0]).remove();
+		  $($rowspan18).not($rowspan18[0]).remove();
+
+        };
+      };
+
+function removeRowspan(tr_group){
+  var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 =
+    $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group)
+	, $rowspan6 = $('td.col_6', tr_group), $rowspan7 = $('td.col_7', tr_group), $rowspan8 = $('td.col_8', tr_group)
+	, $rowspan9 = $('td.col_9', tr_group), $rowspan10 = $('td.col_10', tr_group), $rowspan11 = $('td.col_11', tr_group)
+	, $rowspan12 = $('td.col_12', tr_group), $rowspan13 = $('td.col_13', tr_group), $rowspan14 = $('td.col_14', tr_group)
+	, $rowspan15 = $('td.col_15', tr_group), $rowspan16 = $('td.col_16', tr_group), $rowspan17 = $('td.col_17', tr_group)
+	, $rowspan18 = $('td.col_18', tr_group);
+  
+  $($rowspan0[0]).removeAttr('rowspan');
+  $($rowspan1[0]).removeAttr('rowspan');
+  $($rowspan2[0]).removeAttr('rowspan');
+  $($rowspan3[0]).removeAttr('rowspan');
+  $($rowspan4[0]).removeAttr('rowspan');
+  $($rowspan5[0]).removeAttr('rowspan');
+  $($rowspan6[0]).removeAttr('rowspan');
+  $($rowspan7[0]).removeAttr('rowspan');
+  $($rowspan8[0]).removeAttr('rowspan');
+  $($rowspan9[0]).removeAttr('rowspan');
+  $($rowspan10[0]).removeAttr('rowspan');
+  $($rowspan11[0]).removeAttr('rowspan');
+  $($rowspan12[0]).removeAttr('rowspan');
+  $($rowspan13[0]).removeAttr('rowspan');
+  $($rowspan14[0]).removeAttr('rowspan');
+  $($rowspan15[0]).removeAttr('rowspan');
+  $($rowspan16[0]).removeAttr('rowspan');
+  $($rowspan17[0]).removeAttr('rowspan');
+  $($rowspan18[0]).removeAttr('rowspan');
+
+};
+
+function eventonclick(arg) {
+  var $tr = $(arg).closest("tr");
+  var groupId = $tr.attr("data-groupId");
+  var tr_data = $('#stat_table tr[data-groupId=' + groupId + '][data-first=0]');
+  var tr_group = $('#stat_table tr[data-groupId=' + groupId + ']');
+
+  if (tr_data.css('display') == 'none') {
+    $(arg).text('-');
+    tr_data.show();
+    tableRowspan(tr_group);
+  } else {
+    $(arg).text('+');
+    tr_data.hide()
+    removeRowspan(tr_group);
+  };
+};
+
+function portMaxValue(arg) {
+  arg.value = arg.value.replace(/\D/g, '');
+  if (arg.value > 65535) {
+    alert ("Port 범위는 1 ~ 65535")
+    arg.value = "";
+  } else if (arg.value == 0) {
+    arg.value = "";
+  }
+};
+
+/*
+function ipCheckValidation(arg) {
+  if(((/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+  (/^$/.test(arg.value))) == false)
+  {
+    alert ("IP Version 4 형식으로 입력 하세요 \nex) \"xxx.xxx.xxx.xxx\" or \"xxx.xxx.xxx\" or \"xxx.xxx\" or \"xxx\"");
+    arg.value=""
+  }
+}
+*/
+function dateCheckValidation(arg) {
+  if(((/^([0-9][0-9][0-9][0-9])\-(0[0-9]|1[0-2])\-(0[1-9]|[1-2][0-9]|3[0-1])\ ([0-1][0-9]|2[0-3])\:([0-5][0-9])\:([0-5][0-9])$/.test(arg.value)) ||
+    (/^$/.test(arg.value))) == false)
+  {
+    alert ("날짜 형식은 연-월-일 시:분:초 입니다 \nex) \"YYYY-MM-DD hh:mm:ss\"");
+    arg.value=""
+  }
+}
+
+function uuidCheckValidation(arg){
+if(((/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,13}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,8}-[0-9a-zA-Z]{1,8}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}$/.test(arg.value))||(/^$/.test(arg.value))) == false)
+  {
+   alert ( "uuid 8-8-5-5-12 형식으로 입력하세요 \nex) \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\" or \"xxxxxxxx-xxxx-xxxx-xxxx\" or \"xxxxxxxx-xxxx-xxxx\" or \"xxxxxxxx-xxxx\" or \"xxxxxxxx\"");
+   arg.value=""
+  }
+}
+
+function showNodeCfgDetail(node_id){	
+  var addr = "/node_cfg_detail/"
+ str = location.href;
+ lastidx = str.lastIndexOf("/node_cfg_list");
+
+ url = str.substring(0,lastidx+1);
+ 
+ currenturl= addr + "?node_id=" + node_id;
+
+ //alert ("currenturl : " + currenturl);
+//   url += "?node_id=" + node_id
+   location.href = currenturl;
+//   alert ("url : " + location.href);
+}
+
+function showNodeCfgTempletEdit(node_id){	
+  var addr = "/add_cfg_templet/"
+ str = location.href;
+ lastidx = str.lastIndexOf("/node_cfg_list");
+
+ url = str.substring(0,lastidx+1);
+ 
+ currenturl= addr;
+
+ //alert ("currenturl : " + currenturl);
+//   url += "?node_id=" + node_id
+   location.href = currenturl;
+//   alert ("url : " + location.href);
+}
+
+	</script>
+	<html lang="ko">
+	<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link  rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" >
+<link  rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all">
+<link  rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all">
+<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>Node Control Server</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li><a href="">Node Control Server</a></li>
+				<li><a href="">Node Setting</a></li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>Node Control Server</h1>
+            <ul>
+				{{.NodeClientStatMenu}}
+            	{{.NodeServerStatMenu}}
+            	{{.NodeSettingsList}}
+            </ul>
+        </nav>
+        <article>        	
+			<form id='search' action="/node_cfg_list/?page_num=1" method="post">
+        	<h1>Node Setting</h1>
+			<div class="search_area">				
+				<div class="item">
+					<span class="title">Node ID</span>
+					<span class="condition">
+						<input type="text" name="node_id" style="width: 140px" value="{{.SearchNodeID}}" onBlur="uuidCheckValidation(this);"/>
+					</span>
+				</div>
+				<div class="item">
+					<span class="title">Use of Bridge Router</span>					
+                <span class="condition">
+					<select name="use_bridge">
+						<option>All</option>
+						<!-- <option>Enable</option>
+						<option>Disable</option> -->
+							{{.UseBridgeHTML}}
+					</select>
+				</span>
+				</div>
+				<div class="item">
+					<span class="title">Change IP for Client Mode</span>					
+					<select  name="change_client_ip">
+						<option>All</option>
+						<!-- <option>Enable</option>
+						<option>Disable</option> -->
+						{{.ChangeClientIPHTML}}
+					</select>
+				</div>				
+				<div class="item">
+					<button type="button" class="green" onclick="document.getElementById('search').submit();">Search</button>
+				</div>	
+				<div class="item">                
+                	<button type="button" class="green" onClick="showNodeCfgTempletEdit();">Templet Edit</button>
+				</div>
+				<!-- <div class="item">
+					<select class="s15">
+						<option>none</option>
+					</select>
+					<button type="button">Apply</button>				
+				</div>-->
+			</div>
+			</form>
+			<hr />
+			<table class="table_fixed">
+            <colgroup>
+				<col width="2%"><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col width="70">
+            </colgroup>
+			<thead>
+				<tr>
+					<th rowspan="2"></th>
+					{{.SortNodeID}}
+					<th colspan="3" title="Default Size">Default Size</th>
+					<th colspan="3" title="Timeout">Timeout</th>
+					<th colspan="4" title="Log">Log</th>					
+					{{.SortStatisticsCollectionCycle}}
+					{{.SortUseBridge}}
+					{{.SortNodeBufferSize}}
+					{{.SortEncryptMode}}
+					{{.SortChangeIPMode}}
+					<th rowspan="2">Status</th>
+					<th rowspan="2">Detail</th>
+				</tr>
+				<tr>
+					{{.SortConnections}}
+					{{.SortReceiveBuffer}}
+					{{.SortSendBuffer}}
+					{{.SortConnect}}
+					{{.SortClient}}
+					{{.SortServer}}
+					{{.SortLimitSize}}
+					{{.SortMaxSize}}
+					{{.SortPath}}
+					{{.SortErrPath}}					
+				</tr>
+			</thead>
+			<tbody>			
+					{{ range .Cfginfo }}
+										   
+					<!-- <td class ="col_0"><input type="checkbox"></td> -->
+					<td class ="col_0"></td>
+					<td colspan=3 class="col_1">{{.Node_ID}}</td>
+					<td class="col_2">{{.Maximum_ConnectionCount}}</td>
+					<td class="col_3">{{.Recv_Buf_Size}}</td>
+					<td class="col_4">{{.Send_Buf_Size}}</td>
+					<td class="col_5">{{.Connection_Timeout}}</td>
+					<td class="col_6">{{.Client_Reconnect_Timeout}}</td>
+					<td class="col_7">{{.Server_Reconnect_Timeout}}</td>
+					<td class="col_8">{{.Limit_Size_Log_Storage}}</td>
+					<td class="col_9">{{.Maxsize_Per_Logfile}}</td>
+					<td class="col_10">{{.Logfile_Path}}</td>
+					<td class="col_11">{{.Err_Logfile_Path}}</td>
+					<td class="col_12">{{.Statistic_Collection_Cycle}}</td>
+					<td class="col_13">{{.Bridge_Used}}</td>
+					<td class="col_14">{{.Bridge_Buf_Size}}</td>
+					<td class="col_15">{{.Encrypt_Mode}}</td>
+					<td class="col_16">{{.Change_Client_IP}}</td>					
+					<td class="col_17">{{.Node_Status}}</td>
+					<!-- 
+					<td class="col_18"><button type="button" class="s" onClick="location.href='Node_Setting_Detail.html'">Detail</button></td>
+					-->
+					<td class="col_18"><button type="button" class="s" onClick="showNodeCfgDetail({{.Node_ID}});">Detail</button></td>
+					</tr>
+					{{ end }}											
+				</tbody>			
+			</table>            
+			<div class="paginate_group">                
+				<span class="paginate_complex">
+				  <a class="direction prev" href="{{.FirstPage}}"><span></span><span></span> 처음</a>
+				  <a class="direction prev" href="{{.PrevPage}}"><span></span> 이전</a> 
+				  {{ range .PageNumInfo }}
+				  {{.TagStart}}{{.PageNum}}{{.TagEnd}}
+				  {{ end }}
+				  <!--
+					<strong>2</strong> 
+					<a href="#">3</a> 
+				  -->
+				  <a class="direction next" href="{{.NextPage}}">다음 <span></span></a> 
+				  <a class="direction next" href="{{.LastPage}}">끝 <span></span><span></span></a>
+				</span>			             
+			  </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>Copyright ⓒ 2019 innogskorea.crop. All right reserved.</span>
+</footer>
+</body>
+</html>

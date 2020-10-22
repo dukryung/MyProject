@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all"/>
+  <script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/pages/jquery.tmpl.js"></script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  
+  function LicenseInsert() {
+
+  if ( document.getElementById("resultvalue").value == "Succ") {
+    var filename = document.getElementById("filename").value
+    var send_ajax_data = {"FileName" : filename  }
+    var current_url = document.location.href;
+    var target_url = "";
+
+    target_url = current_url.replace("popup_window_child_input", "insert_license")
+    license_dashboard_url = current_url.replace("popup_window_child_input", "license")
+     $.ajax({
+			    url: target_url,
+			    type: 'POST',
+			    accepts: { mycustomtype: 'application/x-some-custom-type' },
+			    data: JSON.stringify(send_ajax_data),
+          complete: 
+          function (response) {
+             if (response.status == "200") {
+              var jsonObject = JSON.parse(response.responseText);
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            var response_result = jsonObject.result ;
+
+            if (jsonObject.result == "Fail") {
+              alert("저장 실패");
+            opener.document.location.href= license_dashboard_url;
+            self.close();
+            } else {
+              alert("저장 완료");
+            opener.document.location.href= license_dashboard_url;
+            self.close();
+
+            }         
+          } else {
+            alert("HTTP Response Fail")
+          }    
+			    },
+		    	error: function () {
+                alert("저장 실패");
+                opener.document.location.href= license_dashboard_url;
+                self.close();
+			     }
+       });
+   } else {
+            alert("유효하지 않은 파일입니다.");
+            var current_url = document.location.href;
+            license_dashboard_url = current_url.replace("popup_window_child_input", "license")
+            opener.document.location.href= license_dashboard_url;
+            self.close();
+
+      } 
+   }  
+
+  function CancleInsert() {
+    var current_url = document.location.href;
+    license_dashboard_url = current_url.replace("popup_window_child_input", "license")
+    opener.document.location.href= license_dashboard_url;
+    self.close();
+}  
+
+function parentwindow_reflush(){
+  window.opener.location.href="/license/";
+  self.close();
+}
+
+</script>    
+
+
+    <title>Setting License Information</title>
+  </head>
+
+  <body onbeforeunload="parentwindow_reflush();"><div id="wrapper">
+    <!-- pop -->
+    <div class="popWrapper">
+          <div class="bg"></div>
+          <div class="pop_w s800">
+              <header>
+                  <h1><strong>Get New License</strong></h1>
+              </header>
+              <section>
+                 <div>
+                  <h2>I checked the MCSE ID license list below, and when applied, all existing licenses will be discarded and new. Do you want to proceed?</h2>
+                 </div>
+                   <div>
+                    <input type="hidden" id="filename" value={{.FileName}}>
+                   </div>                  
+                  <footer>
+                  <div>
+                    <button type="button" onClick="CancleInsert();" class="btn_close">cancle</button>
+                    <button type="button" id="resultvalue" onClick="LicenseInsert();" class="green" value="{{.Result}}" >confirm</button>
+                  </div>                  
+                </footer> 
+                  <hr />
+              </section>              
+            
+                  <h2><strong>FileName : {{.FileName}}</strong> </h2>
+                  <br>
+                  <h2><strong>Show License File : {{.Result}}</strong> </h2>
+                  <br>
+                  <h2><strong>MCSE License End Date : {{.EndDate}}</strong> </h2>
+                  <br>
+                  <h2><strong>New MCSE ID List</strong> </h2>
+            <div>
+            <ul class="basic">
+              {{range .Nodeid_list}}
+              {{.Nodeid_list}}
+              {{end}}
+            </ul>         
+      </div>
+      
+      <!-- pop end -->
+  </div>
+  </body>
+</html>

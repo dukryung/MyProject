@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+<link rel="stylesheet" href="../../css/codemirror.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.multipleselectbox.js"></script>
+<script src="../../js/codemirror.js"></script>
+<script src="../../js/placeholder.js"></script>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all"/>
+
+</head>
+
+<body><div id="wrapper">
+	<!-- pop -->
+	<div class="popWrapper">
+        <div class="bg"></div>
+        <div class="pop_w s400">
+            <header>
+                <h1>Get New License</h1>
+                <p class="btn_close"><a href="">X</a></p>
+            </header>
+            <section>
+               <div class="box">
+                <p>I checked the MCSE ID license list below, and when applied, all existing licenses will be discarded and new. Do you want to proceed?</p>
+                </div>
+                
+                <hr />
+                <h2>New MCSE License End Date : 2021. 12. 10</h2>
+                <p style="text-align: center">New MCSE ID List</p>
+				<div class="box_overflow_y" style="height: 290px">					
+					<ul class="basic">
+				{{range .NodeIDArr}}
+							{{.NodeID}}						
+				{{ end }}
+					</ul>					
+				</div>				
+            </section>
+            <footer>       
+            <button type="button">cancle</button>
+            <button type="button" class="green">confirm</button>
+            </footer>
+        </div>
+    </div>
+    <!-- pop end -->
+</div>
+</body></html>

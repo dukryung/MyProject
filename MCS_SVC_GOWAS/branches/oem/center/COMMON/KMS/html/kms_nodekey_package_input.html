@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#pkg_windows').on('click',function() {
+    packageWindowsDownload()
+  })
+
+  $('#pkg_linux').on('click',function() {
+    packageLinuxDownload()
+  })
+
+  $('#license_windows_download').on('click',function() {
+    licenseDownload("WINDOWS");
+  })
+
+  $('#license_linux_download').on('click',function() {
+    licenseDownload("LINUX");
+  })
+});
+
+function packageWindowsDownload() {
+  if (document.getElementById("node_id_count").value == "0") {
+    alert("현 User Key에 할당된 Node ID가 없습니다.\n(Node ID는 1개 이상 있어야 Package 생성이 가능합니다.)");
+    return;
+  }
+
+  document.getElementById("action_mode").value = "WINDOWS";
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("invalid user id length");
+    return;
+  }
+  
+  if (document.getElementById("node_key").value.length < 42) {
+    alert ("invalid node key length");
+    return;
+  }
+
+  document.getElementById("node_key_package").action = "/nodekey/package_proc/";
+  document.getElementById("node_key_package").submit();
+}
+
+function packageLinuxDownload() {
+  if (document.getElementById("node_id_count").value == "0") {
+    alert("현 User Key에 할당된 Node ID가 없습니다.\n(Node ID는 1개 이상 있어야 Package 생성이 가능합니다.)");
+    return;
+  }
+
+  document.getElementById("action_mode").value = "LINUX";
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("invalid user id length");
+    return;
+  }
+  
+  if (document.getElementById("node_key").value.length < 42) {
+    alert ("invalid node key length");
+    return;
+  }
+
+  document.getElementById("node_key_package").action = "/nodekey/package_proc/";
+  document.getElementById("node_key_package").submit();
+}
+
+function licenseDownload(os_type) {
+  if (document.getElementById("node_id_count").value == "0") {
+    alert("현 User Key에 할당된 Node ID가 없습니다.\n(Node ID는 1개 이상 있어야 License발급이 가능합니다.)");
+    return;
+  }
+
+  if (os_type == "WINDOWS") {
+    document.getElementById("action_mode").value = "LICENSE_WINDOWS";
+  } else if (os_type == "LINUX") {
+    document.getElementById("action_mode").value = "LICENSE_LINUX";
+  } else {
+    return;
+  }
+
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("invalid user id length");
+    return;
+  }
+  
+  if (document.getElementById("node_key").value.length < 42) {
+    alert ("invalid node key length");
+    return;
+  }
+
+  document.getElementById("node_key_package").action = "/nodekey/license_download_proc/";
+  document.getElementById("node_key_package").submit();
+  return;
+}
+
+function nodeKeyPackageCancel() {
+  location.href = "/nodekey/management/";
+}
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User Key</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Key Mangement Package</h1>			
+		  <form id="node_key_package" name="node_key_package" action="/nodekey/package_proc/" method="post">
+			<table class="input">
+          <colgroup>
+          <col width="25%"><col>
+          </colgroup>
+          <tbody>
+          <tr>
+            <th>Node Client / Server Installer</th>
+            <td>
+              <button id="pkg_windows" type="button" class="green">Windows</button>
+              <button id="pkg_linux" type="button" class="green">Linux</button>
+              <input id="action_mode" name="action_mode" type="hidden" class="s100" value="">
+              <input id="user_id" name="user_id" type="hidden" class="s100" value="{{.NodeKeyPackage.UserID}}">
+              <input id="node_key" name="node_key" type="hidden" class="s100" value="{{.NodeKeyPackage.NodeKey}}">
+              <input id="node_id_count" name="node_id_count" type="hidden" class="s100" value="{{.NodeKeyPackage.NodeIDCount}}">
+				    </td>
+          </tr>
+          <tr>
+				    <th>License File</th>
+				    <td>
+             <button id="license_windows_download" type="button" class="green">Windows Download</button>
+             <button id="license_linux_download" type="button" class="green">Linux Download</button>
+            </td>
+			    </tr>			
+      </tbody>
+      </table>
+      </form>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="nodeKeyPackageCancel();">Cancel</button>
+				</div>				
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

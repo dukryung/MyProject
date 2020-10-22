@@ -1,0 +1,288 @@
+@charset "utf-8";
+html,
+body {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+#wrapper {
+  width: 100%;
+  min-height: 100%;
+  margin-bottom: -36px;
+}
+header {
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  height: 41px;
+  background: #2D3639;
+  min-width: 1163px;
+}
+header h1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 1%;
+  font-weight: normal;
+  font-size: 13px;
+  color: #eee;
+  line-height: 41px;
+}
+section {
+  width: 100%;
+  min-width: 1200px;
+  padding-top: 72px;
+}
+section .path {
+  position: fixed;
+  z-index: 9000;
+  top: 41px;
+  overflow: hidden;
+  width: 100%;
+  padding: 6px;
+  background: #ddd;
+}
+section .path li {
+  float: left;
+  padding-left: 16px;
+  margin-left: 10px;
+  background: url(../images/img/bullet_path.gif) no-repeat 0 50%;
+}
+section .path li:first-child {
+  margin-left: 6px;
+  padding-left: 0;
+  background: none;
+}
+section .path li a {
+  font-size: 12px;
+  text-decoration: none;
+}
+section .path li:last-child a {
+  color: #333;
+}
+section nav {
+  position: fixed;
+  z-index: 10000;
+  width: 200px;
+  height: 100%;
+  padding: 8px 10px 10px 10px;
+  border-right: 1px solid #ddd;
+  background: #fff;
+}
+section nav h1 {
+  padding-bottom: 8px;
+  color: #333;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+section nav ul li {
+  text-align: left;
+  border-top: 1px dotted #bbb;
+}
+section nav ul li a {
+  display: block;
+  padding: 8px 0 8px 20px;
+  font-weight: bold;
+  color: #888;
+  background: url(../images/img/bullet_lnb.gif) no-repeat 10px 18px;
+}
+section nav ul li a:link {
+  text-decoration: none;
+  color: #aaa;
+}
+section nav ul li a:visited {
+  text-decoration: none;
+  color: #aaa;
+}
+section nav ul li:first-child {
+  border: none;
+}
+section nav ul li:hover {
+  cursor: pointer;
+}
+section nav ul li:hover a {
+  color: #4c9a83;
+}
+section nav ul li.current a {
+  color: #333;
+}
+section article {
+  overflow: hidden;
+  padding: 60px 10px 76px 10px;
+  margin-left: 220px;
+}
+section article .button_area {
+  position: fixed;
+  top: 71px;
+  z-index: 8000;
+  width: 100%;
+  height: 43px;
+  padding: 8px 10px;
+  margin-left: -20px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  box-sizing: border-box;
+}
+section article .button_area .fr {
+  float: right;
+  margin-right: 210px;
+}
+section h1 {
+  position: relative;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 1.4em;
+  color: #4b4b4b;
+  text-align: left;
+  background: url(../images/img/bullet_h1.gif) no-repeat 0 30%;
+  line-height: 1.4em;
+}
+section h2 {
+  position: relative;
+  padding: 10px 0 6px;
+  font-weight: normal;
+  color: #666;
+  font-size: 1.3em;
+}
+section h2 div {
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+section h2 div button {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+section .search_area {
+  position: relative;
+  overflow: hidden;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f7f7f7;
+}
+section .search_area .item {
+  float: left;
+}
+section .search_area .item input,
+section .search_area .item select,
+section .search_area .item textarea {
+  padding: 3px 2px;
+  border: 1px solid #cccdcd;
+  vertical-align: middle;
+  font-size: 13px;
+  box-sizing: border-box;
+  background: #fff;
+}
+section .search_area .item input {
+  padding: 4px 2px;
+  width: 50px;
+}
+section .search_area .item span {
+  vertical-align: middle;
+}
+section .search_area .item .title {
+  margin-right: 10px;
+  font-weight: bold;
+}
+section .search_area .item .condition select + input {
+  width: 100px;
+}
+section .search_area .item .condition select + input + input {
+  width: 40px;
+}
+section .search_area .item + .item {
+  margin-left: 20px;
+}
+@media all and (max-width: 1199px) {
+  section nav {
+    width: 192px;
+    padding: 12px;
+  }
+  section article {
+    width: 960px;
+    padding: 60px 12px 76px 12px;
+    margin-left: 216px;
+  }
+  section article .button_area {
+    padding: 7px 10px;
+    margin-left: -11px;
+  }
+  section .path {
+    width: 1200px;
+  }
+}
+footer {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  margin: 0 auto;
+  z-index: 10000;
+  text-align: center;
+  background: #2D3639;
+}
+footer span {
+  display: inline-block;
+  margin-top: 9px;
+  color: #999;
+}
+.login_wrap {
+  padding-top: 350px;
+}
+.login_wrap .login_bg {
+  height: 380px;
+  background: #2d3639;
+}
+.login_wrap .login_bg .login_con {
+  position: relative;
+  width: 400px;
+  height: 380px;
+  margin: 0 auto;
+}
+.login_wrap .login_bg .login_con h1 {
+  padding-top: 42px;
+  font-size: 43px;
+  font-weight: bold;
+  color: #fff;
+}
+.login_wrap .login_bg .login_con .login_input {
+  display: inline-block;
+  width: 392px;
+  height: 121px;
+  margin-top: 40px;
+  padding-left: 55px;
+  background: url(../images/img/login_input.gif) no-repeat;
+}
+.login_wrap .login_bg .login_con .login_input input {
+  width: 300px;
+  padding: 5px;
+  margin-top: 9px;
+  font-size: 20px;
+  border: none;
+}
+.login_wrap .login_bg .login_con .login_input input + input {
+  margin-top: 29px;
+}
+.login_wrap .login_bg .login_con .id_save {
+  padding: 15px 0 30px 0;
+  color: #999;
+}
+.login_wrap .login_bg .login_con .id_save input {
+  vertical-align: middle;
+}
+.login_wrap .login_bg .login_con .btn_login span a {
+  display: block;
+  width: 392px;
+  padding: 15px 0 20px 0;
+  background: #54ab91;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.login_wrap .login_bg .login_con .btn_login span a:hover {
+  background: #326757;
+}

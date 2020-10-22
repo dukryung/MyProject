@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+
+<script type="text/javascript">
+
+function query_encript_encode_user_key () {
+  if (document.getElementById("user_key").value.length == 0) {
+    alert ("유효하지 않은 user_key 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#user_key').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/package/v1.0/key_encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n" +
+                    "output: setting <input name=\"user_key_encode\"> \n");
+            if (jsonObject.code == "200") {
+              document.getElementById("user_key_encode").value = jsonObject.output;
+              document.getElementById("pkg_user_key").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+
+function query_encript_encode_mcse_id () {
+
+  alert ("currently only supports empty values");
+  return;
+
+  if (document.getElementById("mcse_id").value.length == 0) {
+    alert ("유효하지 않은 mcse_id 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#mcse_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/package/v1.0/key_encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n" +
+                    "output: setting <input name=\"mcse_id_encode\"> \n");
+            if (jsonObject.code == "200") {
+              document.getElementById("mcse_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_auth_token() {
+
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key").value.length == 0) {
+    alert ("유효하지 않은 user_key 입니다.");
+    return;
+  }
+
+  //if (document.getElementById("mcse_id").value.length == 0) {
+  //  alert ("유효하지 않은 mcse_id 입니다.");
+  //  return;
+  //}
+
+  if (document.getElementById("auth_key").value.length == 0) {
+    alert ("유효하지 않은 auth_key 입니다.");
+    return;
+  }
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "user_key" : $('#user_key').val(),
+                        "mcse_id" : $('#node_id').val(),
+                        "auth_key" : $('#auth_key').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/package/v1.0/key_derivation/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "output: setting <input name=\"auth_token\"> \n");
+            if (jsonObject.code == "200") {
+              document.getElementById("auth_token").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_auth_key() {
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("platform_type").value.length == 0) {
+    alert ("유효하지 않은 platform_type 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_encode 입니다.");
+    return;
+  }
+
+  //if (document.getElementById("mcse_id_encode").value.length == 0) {
+  //  alert ("유효하지 않은 mcse_id_encode 입니다.");
+  //  return;
+  //}
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "platform_type" : $('#platform_type').val(),
+                        "user_key" : $('#user_key_encode').val(),
+                        "mcse_id" : $('#node_id_encode').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/package/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            response_json_msg = "[ json response information ]\n\n" +
+                                "version:" + jsonObject.version + "\n" +
+                                "method:" + jsonObject.method + "\n" +
+                                "sessiontype:" + jsonObject.sessiontype + "\n" +
+                                "seperator:" + jsonObject.seperator+ "\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n" +
+                                "code:" + jsonObject.code + "\n" +
+                                "message:" + jsonObject.message + "\n" +
+                                "authkey:" + jsonObject.auth_key + "\n" +
+                                "expiretime:" + jsonObject.expiretime + "\n";
+
+            document.getElementById("response_all_message").value = response_json_msg;
+            document.getElementById("auth_key").value = jsonObject.auth_key;
+
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function Send() {
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("platform_type").value.length == 0) {
+    alert ("유효하지 않은 platform_type 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_encode 입니다.");
+    return;
+  }
+
+  /*---------------------------------------------------------------------
+  if (document.getElementById("mcse_id_encode").value.length == 0) {
+    alert ("유효하지 않은 mcse_id_encode 입니다.");
+    return;
+  }
+  ---------------------------------------------------------------------*/
+
+  if (document.getElementById("auth_key").value.length == 0) {
+    alert ("유효하지 않은 auth_key 입니다.");
+    return;
+  }
+
+  if (document.getElementById("auth_token").value.length == 0) {
+    alert ("유효하지 않은 auth_token 입니다.");
+    return;
+  }
+
+
+  if (document.getElementById("pkg_user_id").value.length == 0) {
+    alert ("유효하지 않은 pkg_user_id 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_user_key").value.length == 0) {
+    alert ("유효하지 않은 pkg_user_key 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_platform_type").value.length == 0) {
+    alert ("유효하지 않은 pkg_platform_type 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_mcse_max_count").value.length == 0) {
+    alert ("유효하지 않은 pkg_mcse_max_count 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_home_path").value.length == 0) {
+    alert ("유효하지 않은 pkg_home_path 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_unique_sub_path").value.length == 0) {
+    alert ("유효하지 않은 pkg_unique_sub_path 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_filename").value.length == 0) {
+    alert ("유효하지 않은 pkg_filename 입니다.");
+    return;
+  }
+
+  if (document.getElementById("pkg_product_name").value.length == 0) {
+    alert ("유효하지 않은 pkg_product_name 입니다.");
+    return;
+  }
+
+
+  var pkg_msg = {
+    "user_id" : $('#pkg_user_id').val(),
+    "user_key" : $('#pkg_user_key').val(),   
+    "platform_type" : $('#pkg_platform_type').val(),   
+    "mcse_max_count" : $('#pkg_mcse_max_count').val(),   
+    "pkg_pkg_end_year" : $('#pkg_pkg_end_year').val(),   
+    "pkg_pkg_end_month" : $('#pkg_pkg_end_month').val(),   
+    "pkg_pkg_end_day" : $('#pkg_pkg_end_day').val(),   
+    "pkg_home_path" : $('#pkg_home_path').val(),   
+    "pkg_unique_sub_path" : $('#pkg_unique_sub_path').val(),   
+    "pkg_filename" : $('#pkg_filename').val(),   
+    "pkg_product_name" : $('#pkg_product_name').val(),   
+  };
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "platform_type" : $('#platform_type').val(),
+                        "user_key" : $('#user_key_encode').val(),
+                        "mcse_id" : $('#node_id_encode').val(),
+                        "auth_key" : $('#auth_key').val(),
+                        "auth_token" : $('#auth_token').val(),
+                        "package" : pkg_msg}
+  $.ajax({
+      async: false,
+      url: "/auth_api/package/v1.0/",
+      timeout:10000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            response_json_msg = "[ json response information ]\n\n" +
+                                "version:" + jsonObject.version + "\n" +
+                                "method:" + jsonObject.method + "\n" +
+                                "sessiontype:" + jsonObject.sessiontype + "\n" +
+                                "seperator:" + jsonObject.seperator+ "\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n" +
+                                "code:" + jsonObject.code + "\n" +
+                                "message:" + jsonObject.message + "\n" +
+                                "pkg_result_device_full_path:" + jsonObject.pkg_result_device_full_path + "\n" +
+                                "pkg_create_device_full_path:" + jsonObject.pkg_create_device_full_path + "\n";
+
+            document.getElementById("response_all_message").value = response_json_msg;
+
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function Cancel () {
+  document.getElementById("user_key").value = "";
+  document.getElementById("user_key_encode").value = "";
+  document.getElementById("mcse_id").value = "";
+  document.getElementById("mcse_id_encode").value = "";
+  document.getElementById("auth_key").value = "";
+  document.getElementById("auth_token").value = "";
+  document.getElementById("response_all_message").value = "";
+
+  document.getElementById("pkg_user_id").value = "";
+  document.getElementById("pkg_user_key").value = "";
+  document.getElementById("pkg_platform_type").value = "";
+  document.getElementById("pkg_mcse_max_count").value = "";
+  document.getElementById("pkg_pkg_end_year").value = "";
+  document.getElementById("pkg_pkg_end_month").value = "";
+  document.getElementById("pkg_pkg_end_day").value = "";
+  document.getElementById("pkg_home_path").value = "";
+  document.getElementById("pkg_unique_sub_path").value = "";
+  document.getElementById("pkg_filename").value = "";
+  document.getElementById("pkg_product_name").value = "";
+}
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>Service GoWAS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+            <li>Service Debugger</li>
+            <li>Package</li>
+          </ul>
+        </div>
+        <nav>
+        	<h1>Package</h1>
+            <ul>
+            {{.MainMenu.Provisioning}}
+            {{.MainMenu.Statistics}}
+            {{.MainMenu.Package}}
+            {{.MainMenu.AuthAssociation}}
+            {{.MainMenu.AuthAssociationDashboard}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+          </div>
+        	<h1>Package Debugger</h1>			
+			<table class="input">
+        <colgroup>
+        <col width="15%"><col>
+        </colgroup>
+          <tbody>
+            <tr>
+              <th>Version</th>
+              <td><input id="version" name="version" type="text" class="s100" value="1.0"></td>
+            </tr>
+            <tr>
+              <th>Method</th>
+              <td><input id="method" name="method" type="text" class="s100" value="auth"></td>
+            </tr>
+            <tr>
+              <th>Session Type</th>
+              <td><input id="sessiontype" name="sessiontype" type="text" class="s100" value="package"></td>
+            </tr>
+            <tr>
+              <th>Seperator</th>
+              <td><input id="seperator" name="seperator" type="text" class="s100" value="create"></td>
+            </tr>
+            <tr>
+              <th>Message Type</th>
+              <td><input id="msgtype" name="msgtype" type="text" class="s100" value="request"></td>
+            </tr>
+            <tr>
+              <th>Platform Type</th>
+              <td><input id="platform_type" name="platform_type" type="text" class="s100" value="linux"></td>
+            </tr>
+            <tr>
+              <th>User Key</th>
+              <td>
+                <div class="float_btn">
+              <input id="user_key" name="user_key" type="text" class="s100" value="e537606a-8e44-4400-a10d-67015c9db4ed">
+              <button type="button" class="gray" onClick="query_encript_encode_user_key();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="user_key_encode" name="user_key_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Mcse ID</th>
+              <td>
+                <div class="float_btn">
+              <input id="mcse_id" name="mcse_id" type="text" class="s100" value="">
+              <button type="button" class="gray" onClick="query_encript_encode_mcse_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="mcse_id_encode" name="mcse_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Auth Key</th>
+              <td>
+                <div class="float_btn">
+                  <input id="auth_key" name="auth_key" type="text" class="s100" value="" readonly>
+                  <button type="button" class="gray" onClick="query_encript_encode_auth_key();">Query Auth Key (Remote SVC GoWAS Query)</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Auth Token</th>
+              <td>
+                <div class="float_btn">
+                  <input id="auth_token" name="auth_token" type="text" class="s100" value="" readonly>
+                  <button type="button" class="gray" onClick="query_encript_encode_auth_token();">Hasing AuthToken (Local Query)</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Package INFO : user_id </th>
+              <td><input id="pkg_user_id" name="pkg_user_id" type="text" class="s100" value="test_user_id"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : user_key </th>
+              <td><input id="pkg_user_key" name="pkg_user_key" type="text" class="s100" value=""></td>
+            </tr>
+            <tr>
+              <th>Package INFO : platform_type</th>
+              <td><input id="pkg_platform_type" name="pkg_platform_type" type="text" class="s100" value="linux"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : mcse_max_count</th>
+              <td><input id="pkg_mcse_max_count" name="pkg_mcse_max_count" type="text" class="s100" value="1000"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_pkg_end_year</th>
+              <td><input id="pkg_pkg_end_year" name="pkg_pkg_end_year" type="text" class="s100" value=""></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_pkg_end_month</th>
+              <td><input id="pkg_pkg_end_month" name="pkg_pkg_end_month" type="text" class="s100" value=""></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_pkg_end_day</th>
+              <td><input id="pkg_pkg_end_day" name="pkg_pkg_end_day" type="text" class="s100" value=""></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_home_path</th>
+              <td><input id="pkg_home_path" name="pkg_home_path" type="text" class="s100" value="F:\PACKAGE_HOME"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_unique_sub_path</th>
+              <td><input id="pkg_unique_sub_path" name="pkg_unique_sub_path" type="text" class="s100" value="24"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_filename</th>
+              <td><input id="pkg_filename" name="pkg_filename" type="text" class="s100" value="mcse"></td>
+            </tr>
+            <tr>
+              <th>Package INFO : pkg_product_name</th>
+              <td><input id="pkg_product_name" name="pkg_product_name" type="text" class="s100" value="MCSE"></td>
+            </tr>
+            <tr>
+              <th>Response All Message</th>
+              <td>
+                <textarea id="response_all_message" name="content" cols="80" rows="15" value=""></textarea> 
+              </td>
+            </tr>
+            <tr>
+              <th>Response Code Description</th>
+              <td>
+                <textarea id="response_code_message" name="content" cols="80" rows="20" value="" readonly>
+                [ Response Code Class ]
+                200: auth success
+
+                610 : json parameter parsing error
+                611: json parameter is null
+                612: json parameter is invalid 
+
+                620: json parameter decript error
+
+                630: db processing error (reason: not founded tuple)
+                631: db processing error (reason: empty value)
+                632: db processing error (reason: not founed oem expiretime)
+
+                640: auth error (reason: auth token already exist)
+                641: auth error (reason: token is not exist)
+                642: auth error (reason: token is mismatching)
+                643: auth error (reason: authtoken has expired)
+                643: failed to generate auth key
+                644: failed to generate auth token
+                </textarea> 
+              </td>
+            </tr>
+          </tbody>
+      </table>
+        <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="Cancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button type="button" onClick="Send();" class="green">Send</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>KMS Auth Test</span>
+</footer>
+</body>
+</html>

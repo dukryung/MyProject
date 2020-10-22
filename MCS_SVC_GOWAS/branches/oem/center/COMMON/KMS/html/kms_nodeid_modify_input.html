@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#nodeid_conform_license').on('click',function() {
+    nodeIDModifyProcConfirmLicense()
+  })
+
+  $('#nodeid_conform').on('click',function() {
+    nodeIDModifyProcComfirm()
+  })
+});
+
+function nodeIDModifyProcComfirm () {
+  if (document.getElementById("node_id_old").value.length <= 0) {
+    alert ("Old Node ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_id_new").value.length <= 0) {
+    alert ("New Node ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("user_id").value.length <= 0) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key").value.length <= 0) {
+    alert ("User Key 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  var send_json_data = {"node_id_old" : $('#node_id_old').val(),
+                        "node_id_new" : $('#node_id_new').val(),
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val()};
+
+  $.ajax({
+      async: false,
+      url: "/nodeid/modify_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              //alert ("parsing return data (succ) :" + jsonObject.MsgValue);
+              alert("Node ID가 변경되었습니다.");
+              location.href = "/nodeid/management/";
+              return;
+            } else {
+              //alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              alert("Node ID 변경하는데 실패되었습니다.");
+              return;
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            //alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            alert("Node ID 변경하는데 실패되었습니다.");
+            return;
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          //alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          alert("Node ID 변경하는데 실패되었습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+  });
+  return;
+}
+
+
+function nodeIDModifyProcConfirmLicense () {
+  if (document.getElementById("node_id_old").value.length <= 0) {
+    alert ("Old Node ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_id_new").value.length <= 0) {
+    alert ("New Node ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("user_id").value.length <= 0) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key").value.length <= 0) {
+    alert ("User Key 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  var send_json_data = {"node_id_old" : $('#node_id_old').val(),
+                        "node_id_new" : $('#node_id_new').val(),
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val()};
+
+  $.ajax({
+      async: false,
+      url: "/nodeid/modify_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              //alert ("parsing return data (succ) :" + jsonObject.MsgValue);
+              alert("Node ID가 변경되었습니다.\n(license page로 이동합니다.)");
+              location.href = "/nodekey/license/?user_id=" + $('#user_id').val() + "&node_key=" + $('#node_key').val();
+              return;
+            } else {
+              //alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              alert("Node ID 변경하는데 실패되었습니다.");
+              return;
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            //alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            alert("Node ID 변경하는데 실패되었습니다.");
+            return;
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          //alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          alert("Node ID 변경하는데 실패되었습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+  });
+  return;
+}
+
+function nodeIDModifyCancel () {
+  //window.history.back()
+  location.href = "/nodeid/management/";
+}
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>Node ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>Node ID Management Modify</h1>			
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+            <tr>
+              <th>Current Node ID</th>
+              <td>
+              {{.NodeData.NodeIDOld}}
+              <input id="node_id_old" name="node_id_old" type="hidden" value="{{.NodeData.NodeIDOld}}" class="s100">
+            </td>
+            </tr>
+            <tr>
+				      <th>New Node ID</th>
+              <td>
+              {{.NodeData.NodeIDNew}}
+              <input id="node_id_new" name="node_id_new" type="hidden" value="{{.NodeData.NodeIDNew}}" class="s100">
+              <input id="user_id" name="user_id" type="hidden" value="{{.NodeData.UserID}}" class="s100">
+              <input id="node_key" name="node_key" type="hidden" value="{{.NodeData.NodeKey}}" class="s100">
+              </td>
+			      </tr>
+            </tbody>
+            </table>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="nodeIDModifyCancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button id="nodeid_conform_license" type="button" class="green">Confirm &amp; License</button>
+					<button id="nodeid_conform" type="button" class="green">Confirm</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

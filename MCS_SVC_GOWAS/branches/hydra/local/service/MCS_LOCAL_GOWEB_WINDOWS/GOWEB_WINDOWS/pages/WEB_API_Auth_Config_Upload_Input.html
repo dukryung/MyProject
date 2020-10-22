@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all"/>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<!--
+<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+
+function UserKeyEncoding(userkey) {
+  var return_value = "";
+
+  if (userkey == "") {
+    alert ("유효하지 않은 user_key 입니다.");
+    return return_value;
+  }
+
+  var send_json_data = {"input" : userkey};
+
+  $.ajax({
+      async: false,
+      url: "/auth_api_encode_value/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            //alert ("json data \n" + 
+            //        "code:" + jsonObject.code + "\n" +
+            //        "msg:" + jsonObject.message + "\n" +
+            //        "input:" + jsonObject.input + "\n" +
+            //        "output: response value -> setup \n");
+            if (jsonObject.code == "200") {
+              return_value = jsonObject.output;
+            } else {
+              return_value = "";
+            }
+          } else {
+            return_value = "";
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          return_value = "";
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+
+  return return_value;
+}
+
+function AuthKeyQuery (url, version, method, sessiontype, msgtype, userkey){
+  var AuthKeyValue = ""
+
+  if (url == "") {
+    alert ("유효하지 않은 control server url 입니다.");
+    return AuthKeyValue;
+  }
+
+  if (version != "1.0") {
+    alert ("유효하지 않은 version 입니다.");
+    return AuthKeyValue;
+  }
+
+  if (method != "Auth") {
+    alert ("유효하지 않은 method 입니다.");
+    return AuthKeyValue;
+  }
+
+  if (sessiontype != "ConfigData") {
+    alert ("유효하지 않은 session_type 입니다.");
+    return AuthKeyValue;
+  }
+
+  if (msgtype != "request") {
+    alert ("유효하지 않은 message_type 입니다.");
+    return AuthKeyValue;
+  }
+
+  if (userkey == "") {
+    alert ("유효하지 않은 user_key 입니다.");
+    return AuthKeyValue;
+  }
+
+  var send_json_data = {"version" : version,
+                        "method" : method,
+                        "sessiontype" : sessiontype,
+                        "msgtype" : msgtype,
+                        "userkey" : userkey};
+
+  $.ajax({
+      async: false,
+      url: url + "/auth_api/provisioning/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            //alert ("json data \n" + 
+            //        "code:" + jsonObject.code + "\n" +
+            //        "msg:" + jsonObject.message + "\n" +
+            //        "input:" + jsonObject.input + "\n" +
+            //        "output: response value -> setup \n");
+            if (jsonObject.code == "200") {
+              AuthKeyValue = jsonObject.authkey;
+            } else {
+              AuthKeyValue = "";
+            }
+          } else {
+            AuthKeyValue = "";
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          AuthKeyValue = "";
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+
+  return AuthKeyValue;
+}
+
+function AuthTokenQuery(method, sessiontype, userkey, authkey) {
+  var return_value = "";
+
+  if (method != "Auth") {
+    alert ("유효하지 않은 method 입니다.");
+    return return_value;
+  }
+
+  if (sessiontype != "ConfigData") {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return return_value;
+  }
+
+  if (userkey == "") {
+    alert ("유효하지 않은 userkey 입니다.");
+    return return_value;
+  }
+
+  if (authkey == "") {
+    alert ("유효하지 않은 authkey 입니다.");
+    return return_value;
+  }
+
+  var send_json_data = {"method" : method,
+                        "sessiontype" : sessiontype,
+                        "userkey" : userkey,
+                        "authkey" : authkey};
+
+  $.ajax({
+      async: false,
+      url: "/auth_api_encode_authtoken/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            //alert ("json data \n" + 
+            //        "code:" + jsonObject.code + "\n" +
+            //        "msg:" + jsonObject.message + "\n" +
+            //        "input:" + jsonObject.input + "\n" +
+            //        "output: response value -> setup \n");
+            if (jsonObject.code == "200") {
+              return_value = jsonObject.output;
+            } else {
+              return_value = "";
+            }
+          } else {
+            return_value = "";
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          return_value = "";
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+
+  return return_value;
+}
+
+function ConfigDataUpload (url, version, method, sessiontype, msgtype, userkey, authkey, authtoken, data) {
+  var return_value = "";
+
+  if (url == "") {
+    alert ("유효하지 않은 control server url 입니다.");
+    return return_value;
+  }
+
+  if (version != "1.0") {
+    alert ("유효하지 않은 version 입니다.");
+    return return_value;
+  }
+
+  if (method != "Auth") {
+    alert ("유효하지 않은 method 입니다.");
+    return return_value;
+  }
+
+  if (sessiontype != "ConfigData") {
+    alert ("유효하지 않은 session_type 입니다.");
+    return return_value;
+  }
+
+  if (msgtype != "request") {
+    alert ("유효하지 않은 message_type 입니다.");
+    return return_value;
+  }
+
+  if (userkey == "") {
+    alert ("유효하지 않은 user_key 입니다.");
+    return return_value;
+  }
+
+  if (authkey == "") {
+    alert ("유효하지 않은 auth_key 입니다.");
+    return return_value;
+  }
+
+  if (authtoken == "") {
+    alert ("유효하지 않은 auth_token 입니다.");
+    return return_value;
+  }
+
+  if (data == "") {
+    alert ("유효하지 않은 data 입니다.");
+    return return_value;
+  }
+
+  var send_json_data = {"version" : version,
+                        "method" : method,
+                        "sessiontype" : sessiontype,
+                        "msgtype" : msgtype,
+                        "userkey" : userkey,
+                        "authkey" : authkey,
+                        "authtoken" : authtoken,
+                        "data" : data};
+
+  $.ajax({
+      async: false,
+      url: url + "/auth_api/provisioning/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            response_json_msg = "[ json response information ]\n\n" +
+                                "method:" + jsonObject.method + "\n" +
+                                "sessiontype:" + jsonObject.sessiontype + "\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n" +
+                                "code:" + jsonObject.code + "\n" +
+                                "msg:" + jsonObject.msg + "\n" +
+                                "authkey:" + jsonObject.authkey + "\n" +
+                                "expiretime:" + jsonObject.expiretime + "\n" +
+                                "data:" + jsonObject.data + "\n";
+
+            document.getElementById("response_all_message").value = response_json_msg;
+
+            return_value = jsonObject.data;
+          } else {
+            alert("HTTP Response Fail")
+            return_value = "";
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          return_value = "";
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+  return return_value;
+}
+
+function Send () {
+
+  var RemoteURL = document.getElementById("control_server_address").value;
+  var Version = document.getElementById("version").value;
+  var Method = document.getElementById("method").value; 
+  var SessionType = document.getElementById("session_type").value;
+  var MessageType =  document.getElementById("message_type").value;
+  var UserKeyInputValue = document.getElementById("user_key").value;
+  var UserKeyEncodeValue = UserKeyEncoding(UserKeyInputValue);
+
+  if (UserKeyEncodeValue == "") {
+    alert ("Failed to UserKey Encryption");
+    return;
+  } else {
+    //alert ("UserKey Encoding Value : " + UserKeyEncodeValue);
+  }
+
+  var AuthKeyReturnValue = AuthKeyQuery(RemoteURL, Version, Method, SessionType, MessageType, UserKeyEncodeValue);
+
+  if (AuthKeyReturnValue == "") {
+    alert ("Failed to AuthKey Query");
+    return;
+  } else {
+    //alert ("AuthKey Query Value : " + AuthKeyReturnValue);
+    document.getElementById("auth_key").value = AuthKeyReturnValue;
+  }
+
+  var AuthTokenReturnValue = AuthTokenQuery(Method, SessionType, UserKeyInputValue, AuthKeyReturnValue);
+
+  if (AuthTokenReturnValue == "") {
+    alert ("Failed to AuthToken Query");
+    return;
+  } else {
+    //alert ("AuthToken Query Value : " + AuthTokenReturnValue);
+    document.getElementById("auth_token").value = AuthTokenReturnValue;
+  }
+
+  var ConfigRequestData = document.getElementById("request_provisioning_data").value;
+
+  if (AuthTokenReturnValue == "") {
+    alert ("ConfigRequest Data is null");
+    return;
+  } else {
+    //alert ("ConfigRequest: " + ConfigRequestData);
+  }
+
+  var ConfigResponseData = ConfigDataUpload (RemoteURL, Version, Method, SessionType, MessageType, UserKeyEncodeValue, AuthKeyReturnValue, AuthTokenReturnValue, ConfigRequestData);
+  if (AuthTokenReturnValue == "") {
+    alert ("Failed to ConfigData Uploading");
+    return;
+  } else {
+    //alert ("ConfigResponse : " + ConfigResponseData);
+  }
+  
+  if (ConfigResponseData != "") {
+    document.getElementById("response_provisioning_data").value = ConfigResponseData;
+  }
+
+  return;
+}
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>WEB Auth API</h1>               
+	</header>
+    <section>
+        <nav>
+        	<h1>Config Upload</h1>
+        </nav>
+        <article>
+        	<div class="button_area">                
+          </div>
+        	<h1>WEB API Test Input</h1>
+          
+		  <form id="userid_create_form" action="/userid/create_proc/" method="post">
+			<table class="input">
+        <colgroup>
+        <col width="15%"><col>
+        </colgroup>
+          <tbody>
+            <tr>
+              <th>Control Server Address</th>
+              <td><input id="control_server_address" name="control_server_address" type="text" class="s30" value=""> (ex: remote host -> http://192.168.111.111:8080)</td>
+            </tr>
+            <tr>
+              <th>Version</th>
+              <td><input id="version" name="version" type="text" class="s100" value="1.0"></td>
+            </tr>
+            <tr>
+              <th>Method</th>
+              <td><input id="method" name="method" type="text" class="s100" value="Auth"></td>
+            </tr>
+            <tr>
+              <th>SessionType</th>
+              <td><input id="session_type" name="session_type" type="text" class="s100" value="ConfigData"></td>
+            </tr>
+            <tr>
+              <th>Message Type</th>
+              <td><input id="message_type" name="message_type" type="text" class="s100" value="request"></td>
+            </tr>
+            <tr>
+              <th>User Key</th>
+              <td>
+                <div class="float_btn">
+              <input id="user_key" name="user_key" type="text" class="s100" value="TC7rcr8v-00000002-aeLlO-CzqAk-N3WJmTTRV0Bu">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Auth Key</th>
+              <td><input id="auth_key" name="auth_key" type="text" class="s100"></td>
+            </tr>
+            <tr>
+              <th>Auth Token</th>
+              <td><input id="auth_token" name="auth_token" type="text" class="s100"></td>
+            </tr>
+            <tr>
+              <th>Request Provisioning Data</th>
+              <td>
+                <textarea id="request_provisioning_data" name="request_provisioning_data" cols="100" rows="20" value=""></textarea> 
+              </td>
+            </tr>
+            <tr>
+              <th>Response Provisioning Data</th>
+              <td>
+                <textarea id="response_provisioning_data" name="response_provisioning_data" cols="100" rows="20" value=""></textarea> 
+              </td>
+            </tr>
+            <tr>
+              <th>Response All Message</th>
+              <td>
+                <textarea id="response_all_message" name="content" cols="100" rows="10" value=""></textarea> 
+              </td>
+            </tr>
+            <tr>
+              <th>Response Code Description</th>
+              <td>
+                <textarea id="response_code_message" name="content" cols="100" rows="20" value="" readonly>
+                [ Response Code Class ]
+                200: auth success
+
+                610 : json parameter parsing error
+                611: json parameter is null
+                612: json parameter is invalid 
+
+                620: json parameter decript error
+
+                630: db processing error (reason: not founded tuple)
+                631: db processing error (reason: empty value)
+                632: db processing error (reason: not founed oem expiretime)
+
+                640: auth error (reason: auth token already exist)
+                641: auth error (reason: token is not exist)
+                642: auth error (reason: token is mismatching)
+                643: auth error (reason: authtoken has expired)
+                643: failed to generate auth key
+                644: failed to generate auth token
+                </textarea> 
+              </td>
+            </tr>
+          </tbody>
+      </table>
+		  </form>
+        <div class="paginate_group">
+				<div class="bg_r">
+					<button type="button" onClick="Send();" class="green">Save</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>Copyright ⓒ 2019 KMS. All right reserved.</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <script type="text/javascript">
+      function Key_Check() {
+        if(event.keyCode == 13) {
+          document.getElementById('login').submit();
+        }
+      }
+    </script>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+	<div class="login_wrap">
+		<div class="login_bg">
+			<div class="login_con">
+				<h1>MCS Key Management</h1>
+				<form id="login" action="/logging/" method="post">
+					<div class="login_input">
+						<input type="text" name="id" placeholder="Username"/>
+						<input type="password" name="password" placeholder="password"/>
+					</div>	
+          <hr></hr>
+          <p class="btn_login"><span><a href="#" onclick="document.getElementById('login').submit();">Login</a></span></p>
+				</form>
+			</div>
+		</div>	
+	</div>
+</div>
+</body>
+</html>

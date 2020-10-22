@@ -1,0 +1,4 @@
+CC=mips-openwrt-linux-gccgo CGO_ENABLED=1 GCCGO=mips-openwrt-linux-gccgo GOOS=linux GOARCH=mips go build -x -compiler=gccgo -gccgoflags='-static-libgo -s' stat_web_server.go
+
+openwrt 이미지 빌드시 openwrt/package 디렉토리에서 svn co svn://192.168.1.27/sec/Smart-MCS/Openwrt_Package/stat_web_server 를 실행 후 make menuconfig 에서 Statistics -> stat web server 체크하고 make 하여 다시 이미지를 빌드
+openwrt 이미지 빌드시 openwrt/package 디렉토리에서 svn co svn://192.168.1.27/sec/Smart-MCS/Openwrt_Package/mcse 를 실행 후 make menuconfig 에서 Statistics -> mcse 체크하고 make 하여 다시 이미지를 빌드

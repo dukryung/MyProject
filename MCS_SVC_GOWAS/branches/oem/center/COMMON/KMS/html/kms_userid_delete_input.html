@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#user_delete_action').on('click',function() {
+    userDeleteProc()
+  })
+});
+
+function userDeleteProc () {
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("invalid user id length");
+    return;
+  }
+
+  var send_json_data = {"user_id" : $('#user_id').val()};
+
+  $.ajax({
+      async: false,
+      url: "/userid/delete_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert("사용자 정보가 삭제되었습니다.");
+              location.href = "/userid/management/";
+              return
+            } else {
+              alert("사용자 정보가 삭제 오륲가 발생하였습니다.");
+              return
+            }
+          } else {
+            alert("사용자 정보가 삭제 오륲가 발생하였습니다.");
+            return
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("사용자 정보가 삭제 오륲가 발생하였습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {}
+  });
+  return;
+}
+
+function userDeleteCancelBackMove () {
+  //window.history.back()
+  location.href = "/userid/management/";
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Management Delete</h1>
+			<table class="input">
+        <colgroup>
+        <col width="25%"><col>
+        </colgroup>
+        <tbody>
+        {{ range .UserData }}
+          <tr>
+            <th>User ID</th>
+            <td><input id="user_id" name="user_id" type="text" class="s100" value="{{.UserID}}" readonly></td>
+          </tr>
+        {{ end }}
+        </tbody>
+      </table>
+        <div class="paginate_group">
+				  <div class="bg_l">
+					  <button id="user_delete_cancel" type="button" onClick="userDeleteCancelBackMove();">Cancel</button>
+				  </div>                
+				  <div class="bg_r">
+					  <button id="user_delete_action" type="button" class="green">Delete</button>
+				  </div>
+        </div>
+      </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

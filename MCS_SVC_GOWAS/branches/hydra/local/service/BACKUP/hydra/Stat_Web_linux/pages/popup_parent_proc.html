@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<script>
+
+my_window = null;
+
+   function open_pop(arg1, arg2, myWidth, myHeight){
+      var frmPop= document.frmPopup;
+      var url = '/popup_window_child_input/';
+
+      var left = (screen.width - myWidth -800) / 2;
+      var top = (screen.height - myHeight- 1200) / 4;
+      
+      my_window = window.open('','popupView','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width=' + myWidth + ', height=' + myHeight + ', top=' + top + ', left=' + left);  
+            frmPop.action = url;
+      frmPop.target = 'popupView'; //window,open()의 두번째 인수와 같아야 하며 필수다.  
+      frmPop.report_result.value = document.getElementById("rsp_result").value;
+      frmPop.report_nodeid_list.value = document.getElementById("rsp_nodeid_list").value;
+      frmPop.report_enddate.value = document.getElementById("rsp_report_enddate").value;
+      frmPop.report_filename.value = document.getElementById("rsp_report_filename").value;
+      frmPop.submit();         
+   }
+   function check()
+{
+	if(my_window && !my_window.closed)
+		my_window.focus();
+}
+</script>
+<html>
+   <body onload="open_pop();" onfocus="check();">
+   
+      <!-- <button onclick=" myPopup ('/popup_window_child_input/', 'web', 1050, 550);">Open Qries.com</button> -->
+      <!-- Parent Reflush HTML -->
+      <form name="frmPopup" method="POST">
+         <input type="hidden" id="report_result" name="report_result">
+         <input type="hidden" id="report_nodeid_list" name="report_nodeid_list">
+         <input type="hidden" id="report_enddate" name="report_enddate">
+         <input type="hidden" id="report_filename" name="report_filename">
+      </form>      
+      <input type="hidden" id="rsp_result" name="rsp_result" value="{{.Result}}" readonly>
+      <br>
+      <input type="hidden" id="rsp_nodeid_list" name="rsp_nodeid_list" value="{{.Nodeid_list}}" readonly>
+      <br>
+      <input type="hidden" id="rsp_report_enddate" name="rsp_report_enddate" value="{{.EndDate}}" readonly>
+      <br>
+      <input type="hidden" id="rsp_report_filename" name="rsp_report_filename" value="{{.FileName}}" readonly>
+   </body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#node_key_confirm').on('click',function() {
+    node_key_regenerate_confirm()
+  })
+});
+
+function node_key_regenerate_confirm() {
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("User ID 값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_old").value.length < 8) {
+    alert ("Old User Key 값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_old").value.length < 8) {
+    alert ("New User Key 값이 유효하지 않습니다.");
+    return;
+  }
+  
+  $('#node_key_confirm').attr('disabled', true);
+
+  var send_json_data = {"action_mode" : "NODE_KEY_REGENERATE",
+                        "user_id" : $('#user_id').val(),
+                        "node_key_old" : $('#node_key_old').val(),
+                        "node_key_new" : $('#node_key_new').val()};
+  
+  $.ajax({
+      async: false,
+      url: "/nodekey/recreate_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert ("새로운 User Key로 변경되었습니다. \n(" + jsonObject.MsgValue + ")");
+              $('#node_key_confirm').attr('disabled', false);
+              location.href = "/nodekey/management/";
+              return;
+            } else {
+              alert ("User Key 변경이 처리되지 않았습니다.");
+              $('#node_key_confirm').attr('disabled', false);
+              return;
+            }
+          } else {
+            alert ("User Key 변경이 처리되지 않았습니다.");
+            $('#node_key_confirm').attr('disabled', false);
+            return;
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert ("User Key 변경이 처리되지 않았습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          $('#node_key_confirm').attr('disabled', false);
+        },
+  });
+  return;
+}
+
+function nodeKeyRegenerateCancel() {
+  location.href = "/nodekey/management/";
+}
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User Key</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Key Mangement Regenerate</h1>
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <input id="user_id" name="user_id" type="hidden" class="s100" value="{{.NodeKeyRegenerate.UserID}}">
+            <tbody>
+            <tr>
+                <th>Current User Key</th>
+                <td>
+                    {{.NodeKeyRegenerate.NodeKeyOld}}
+                    <input id="node_key_old" name="node_key_old" type="hidden" class="s100" value="{{.NodeKeyRegenerate.NodeKeyOld}}">
+                </td>
+            </tr>
+            <tr>
+				<th>Regenerate User Key</th>
+				<td>
+            {{.NodeKeyRegenerate.NodeKeyNew}}
+            <input id="node_key_new" name="node_key_new" type="hidden" class="s100" value="{{.NodeKeyRegenerate.NodeKeyNew}}">
+        </td>
+			</tr>
+			<tr>
+				<th>Caution</th>
+				<td>If you confirm, you will need to reinstall the MCSE Client and MCSE Server, and you will need to change the MCSS settings again.</td>
+			</tr>			           
+            </tbody>
+            </table>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="nodeKeyRegenerateCancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">					
+					<button id="node_key_confirm" type="button" class="green">Confirm</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

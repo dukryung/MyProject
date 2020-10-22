@@ -1,0 +1,30 @@
+2020/04/10 10:18:39.728129 Stat_Web_windows.go:13265: here is in ProvisioningDownloadLocalPorcess
+2020/04/10 10:18:39.731125 Stat_Web_windows.go:13184: userkey [UserKey]
+UserKey = "f5a2642c-0d46-4f3f-a7ea-236e1d281cb0"
+
+
+2020/04/10 10:18:41.756916 Stat_Web_windows.go:13296: Post http://127.0.0.1:8888/auth_api/provisioning/v1.0/: dial tcp 127.0.0.1:8888: connectex: No connection could be made because the target machine actively refused it.
+2020/04/10 10:18:48.522441 Stat_Web_windows.go:941: Local Web Server GET
+2020/04/10 10:18:49.757142 Stat_Web_windows.go:13265: here is in ProvisioningDownloadLocalPorcess
+2020/04/10 10:18:49.757142 Stat_Web_windows.go:13184: userkey [UserKey]
+UserKey = "f5a2642c-0d46-4f3f-a7ea-236e1d281cb0"
+
+
+2020/04/10 10:18:51.785718 Stat_Web_windows.go:13296: Post http://127.0.0.1:8888/auth_api/provisioning/v1.0/: dial tcp 127.0.0.1:8888: connectex: No connection could be made because the target machine actively refused it.
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:7775: Login POST
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:7618: Forbidden String: false
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:7625: admin123
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:7636: Valid Password: admin123
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:927: PlainText admin123 -> 66c15d77da3c7f6b1c807151f4d3c6705ae721619f427073
+2020/04/10 10:18:57.502652 Stat_Web_windows.go:7830:  Result count :  1
+2020/04/10 10:18:57.535564 Stat_Web_windows.go:2292: Server Statistics /statistics/server/?page_num=1&sort=0
+2020/04/10 10:18:57.535564 Stat_Web_windows.go:961: [admin=MTU4NjQ4MTUzN3xEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18btPbdn0r8kExEVRi6fNffj-6xzfoHR201kF8aiEM_Gk=]
+2020/04/10 10:18:57.536570 Stat_Web_windows.go:971: Cookies Name: admin
+2020/04/10 10:18:57.536570 Stat_Web_windows.go:2661: alskdjflksajdflkjsalfdkjsladkfjlaskdjflksjadfl: 1
+2020/04/10 10:18:59.787546 Stat_Web_windows.go:13265: here is in ProvisioningDownloadLocalPorcess
+2020/04/10 10:18:59.787546 Stat_Web_windows.go:13184: userkey [UserKey]
+UserKey = "f5a2642c-0d46-4f3f-a7ea-236e1d281cb0"
+
+
+2020/04/10 10:19:01.804682 Stat_Web_windows.go:13296: Post http://127.0.0.1:8888/auth_api/provisioning/v1.0/: dial tcp 127.0.0.1:8888: connectex: No connection could be made because the target machine actively refused it.
+2020/04/10 10:19:09.447577 Stat_Web_windows.go:14264: Stopped.

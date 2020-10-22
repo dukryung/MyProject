@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#user_modify_action').on('click',function() {
+    userModifyProc()
+  })
+});
+
+function userModifyProc () {
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    document.getElementById("user_id").value = "";
+    return;
+  }
+
+  if (document.getElementById("user_new_password").value.length < 8) {
+    alert ("New Password 길이가 유효하지 않습니다.");
+    document.getElementById("user_new_password").value = "";
+    document.getElementById("user_new_password").focus();
+    return;
+  }
+
+  if (document.getElementById("user_new_confirm_password").value.length < 8) {
+    alert ("Confirm Password 길이가 유효하지 않습니다.");
+    document.getElementById("user_new_confirm_password").value = "";
+    document.getElementById("user_new_confirm_password").focus();
+    return;
+  }
+
+  //if (document.getElementById("user_new_password").value.length != document.getElementById("user_new_confirm_password").value.length) { 
+  if (document.getElementById("user_new_password").value != document.getElementById("user_new_confirm_password").value) { 
+    alert ("New Password와 Confirm Password 가 일치하지 않습니다.");
+    document.getElementById("user_new_confirm_password").value = "";
+    document.getElementById("user_new_password").value = "";
+    document.getElementById("user_new_password").focus();
+    return;
+  }
+
+  if (document.getElementById("user_email").value.length <= 0) {
+    alert ("Email 정보가 유효하지 않습니다.");
+    document.getElementById("user_email").value = "";
+    document.getElementById("user_email").focus();
+    return;
+  }
+
+  if (document.getElementById("user_property").value != "ADMIN" && document.getElementById("user_property").value != "NORMAL") {
+    alert ("유효하지 않은 Property 값입니다.\n(" + document.getElementById("user_property").value + ")");
+    document.getElementById("user_property").focus();
+    return;
+  }
+
+  if (document.getElementById("user_status").value != "ENABLE" && document.getElementById("user_status").value != "DISABLE") {
+    alert ("유효하지 않은 Status 값입니다.\n(" + document.getElementById("user_status").value + ")");
+    document.getElementById("user_property").focus();
+    return;
+  }
+
+  if (document.getElementById("user_program_name").value.length <= 0) {
+    alert ("사용자 프로그램 이름이 유효하지 않습니다.\n(기본값으로 변경됩니다.)");
+    document.getElementById("user_program_name").value = "OptimalConnectNode";
+    return;
+  }
+
+  var send_json_data = {"user_id" : $('#user_id').val(),
+                        "user_new_password" : $('#user_new_password').val(),
+                        "user_new_confirm_password" : $('#user_new_confirm_password').val(),
+                        "user_email" : $('#user_email').val(),
+                        "user_property" : $('#user_property').val(),
+                        "user_status" : $('#user_status').val(),
+                        "user_program_name" : $('#user_program_name').val()
+                        };
+
+  $.ajax({
+      async: false,
+      url: "/userid/modify_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert ("User 정보가 수정되었습니다.");
+              location.href = "/userid/management/?page_num=1&page_sort=_UserKeySort";
+            } else if (jsonObject.MsgCode == "1090") {
+              alert ("현 사용자 계정은 관리자 권한으로 변경할 수 없습니다.");
+              location.href = "/userid/management/?page_num=1&page_sort=_UserKeySort";
+            } else {
+              alert ("User 정보를 수정하는데 실패하였습니다.");
+            }
+          } else {
+            alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+        },
+
+      beforeSend: 
+        function () {}
+  });
+  return;
+}
+
+function userModifyCancel () {
+  /*
+  document.getElementById("user_new_password").value = "";
+  document.getElementById("user_new_confirm_password").value = "";
+  document.getElementById("user_email").value = "";
+  document.getElementById("user_program_name").value = "OptimalConnectNode";
+  document.getElementById("user_property").options[0].selected = true;
+  document.getElementById("user_status").options[0].selected = true;
+  */
+  //input_password = "<tr><th>Current Password</th><td><input id="user_current_password" name="user_current_password" type="password" class="s100" value=""></td></tr><tr>";
+  //document.getElementById("input_current_password").innerHTML = input_password;
+  location.href = "/userid/management/";
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Management Modify</h1>
+			<table class="input">
+      <colgroup>
+      <col width="25%"><col>
+      </colgroup>
+      <tbody>
+      <tr>
+				<th>User ID</th>
+				<td><input id="user_id" name="user_id" type="text" class="s100" value="{{.UserData.UserID}}" readonly></td>
+			</tr>
+      <!-- <p id="input_current_password"></p> -->
+			<tr>
+				<th>New Password</th>
+				<td><input id="user_new_password" name="user_new_password" type="password" class="s100" value=""></td>
+			</tr>
+			<tr>
+				<th>Confirm Password</th>
+				<td><input id="user_new_confirm_password" name="user_new_confirm_password" type="password" class="s100" value=""></td>
+			</tr>
+			<tr>
+				<th>New E-mail</th>
+				<td><input id="user_email" name="user_email" type="email" class="s100" value=""></td>
+			</tr>
+			<tr>
+				<th>Property</th>
+				<td>
+          <select id="user_property" name="user_property" class="s100">
+            <option value="novalue">---- Choice User Property ----</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="NORMAL">GENERAL</option>
+          </select>
+				</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>
+          <select id="user_status" name="user_status" class="s100">
+            <option value="novalue">---- Choice User Status ----</option>
+            <option value="ENABLE">ENABLE</option>
+            <option value="DISABLE">DISABLE</option>
+          </select>
+				</td>
+			</tr>            
+      <!--
+			<tr>
+				<th>Program Name</th>
+			</tr>
+      -->
+        <input id="user_program_name" name="user_program_name" type="hidden" value="OptimalConnectNode" class="s100" readonly>
+      </tbody>
+      </table>
+        <div class="paginate_group">
+				  <div class="bg_l">
+					  <button id="user_modify_cancel" type="button" onClick="userModifyCancel();">Cancel</button>
+				  </div>                
+				  <div class="bg_r">
+					  <button id="user_modify_action" type="button" class="green">Modify</button>
+				  </div>
+        </div>
+      </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

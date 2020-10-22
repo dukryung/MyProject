@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/pages/jquery.validate.js"></script>
+<script type="text/javascript" src="/pages/Trial_Selection.html.js"></script>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<!-- 
+<script type="text/javascript">
+function changeActionURL() {
+	var rate_value;
+	alert('4004010230102300123012030');
+	if (document.getElementById('select_1').checked) {
+  		rate_value = document.getElementById('select_1').value;
+	} else if (document.getElementById('select_2').checked) {
+		rate_value = document.getElementById('select_2').value;
+	}
+
+	var forma = document.getElementById('myForm');
+	//forma.action += "?action=add&actiondata0=" + rate_value;
+	//forma.action += "?version=" + rate_value;
+	
+	
+}
+</script>
+ -->
+</head>
+<body>
+	
+<div id="wrapper">
+	<div class="login_wrap">
+		<div class="login_bg">
+			<div class="login_con">
+				<h1>Smart Multi-Line</h1>
+				<!-- <form action="/login/" method="post" id="myForm" onsubmit="changeActionURL();"></form> -->
+					<div class="selection">
+						<p><label><input type="radio" id="select_1" name="select_v" class="select_v" value="1"> Use Trial Version</label></p>
+						<p><label><input type="radio" id="select_2" name="select_v" class="select_v" value="2"> Use MCS Service</label></p>
+					</div>
+					<input id="TR_Version" type="hidden" name="tr_version" value="{{.TR_Version}}" readonly>
+              		<input id="TR_Method" type="hidden" name="tr_method" value="{{.TR_Method}}" readonly>
+					<input id="TR_SessionType" type="hidden" name="tr_sessiontype" value="{{.TR_SessionType}}" readonly>
+					<input id="TR_Seperator" type="hidden" name="tr_seperator" value="{{.TR_Seperator}}" readonly>
+					<input id="TR_MessageType" type="hidden" name="tr_messagetype" value="{{.TR_MessageType}}" readonly>
+					<input id="TR_MsgSeq" type="hidden" name="tr_msgseq" value="{{.TR_MsgSeq}}" readonly>
+					<input id="TR_SN1" type="hidden" name="tr_sn1" value="{{.TR_SN1}}" readonly>
+					<input id="TR_SN2" type="hidden" name="tr_sn2" value="{{.TR_SN2}}" readonly>
+					<input id="TR_SN3" type="hidden" name="tr_sn3" value="{{.TR_SN3}}" readonly>
+					<input id="TR_ControlServerAddress" type="hidden" name="tr_controladdress" value="{{.TR_ControlServerAddress}}" readonly>
+					<input id="TR_SVCtype" type="hidden" name="tr_svctype" value="{{.TR_SVCtype}}" readonly>
+					<input id="TR_Scenariostate" type="hidden" name="tr_scenariostate" value="{{.TR_Scenariostate}}" readonly>
+					<input id="TR_AuthKey" type="hidden" value="">
+					<input id="TR_AuthToken" type="hidden" value="">
+					<input id="TR_ResponseCode" type="hidden" value="" readonly>
+					<input id="TR_TrialID" type="hidden" value="" readonly>
+					<input id="DBAuthCode" type="hidden" name="dbauthcode" value="{{.DBAuthCode}}" readonly>
+					<p class="btn_login"><span><button type="button" act="btnverconfirm" >Confirm</button></span></p>
+				<!-- </form> -->
+			</div>
+		</div>	
+	</div>
+</div>
+</body>
+</html>
+<!-- -->

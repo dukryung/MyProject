@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User Key</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>Email Information of User Key License</h1>			
+
+		  <form id="node_key_license" name="node_key_license" action="" method="post">
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>User ID</th>
+                <td>{{.NodeKeyLicense.UserID}}</td>
+            </tr>
+            <tr>
+                <th>User Key</th>
+                <td>{{.NodeKeyLicense.NodeKey}}</td>
+            </tr>
+            <tr>
+				<th>Node ID Count</th>
+				<td> {{.NodeKeyLicense.NodeIDCount}} / {{.NodeKeyLicense.NodeIDMaxCount}} </td>
+			</tr>
+			<tr>
+				<th>End Date</th>
+				<td> {{.NodeKeyLicense.EndDate}}  </td>
+			</tr>
+			<tr>
+				<th>License Keys</th>
+				<td>
+					<div class="ol_list">
+						<ol>
+              {{ range .NodeKeyLicense.NodeID}}
+							<li> {{.}} </li>
+              {{ end }}
+						</ol>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>Email SMTP Send Result</th>
+				<td> {{.NodeKeyLicense.ResultMsg}} </td>
+			</tr>
+      </tbody>
+        <input id="action_mode" name="action_mode" type="hidden" class="s100" value="">
+        <input id="user_id" name="user_id" type="hidden" class="s100" value="{{.NodeKeyLicense.UserID}}">
+        <input id="node_key" name="node_key" type="hidden" class="s100" value="{{.NodeKeyLicense.NodeKey}}">
+      </table>
+      </form>
+            <div class="paginate_group">
+				<div class="bg_l">
+				  <!-- <button type="button" onClick="location.href='kms_userKey.html'">Cancel</button> -->
+				</div>                
+				<div class="bg_r">					
+          <!--
+					<button id="license_email" type="button" class="green" >E-mail</button>
+					<button id="license_download" type="button" class="green" >Download</button>
+          -->
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

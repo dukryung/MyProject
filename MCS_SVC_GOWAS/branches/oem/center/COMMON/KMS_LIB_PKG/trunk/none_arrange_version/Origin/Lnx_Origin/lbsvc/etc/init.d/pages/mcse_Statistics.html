@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+
+      function tableRowspan(tr_group) {
+        var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 = $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group), $rowspan6 = $('td.col_6', tr_group);
+        $($rowspan0[0]).attr('rowspan', tr_group.length);
+        $($rowspan1[0]).attr('rowspan', tr_group.length);
+        $($rowspan2[0]).attr('rowspan', tr_group.length);
+        $($rowspan3[0]).attr('rowspan', tr_group.length);
+        $($rowspan4[0]).attr('rowspan', tr_group.length);
+        $($rowspan5[0]).attr('rowspan', tr_group.length);
+        $($rowspan6[0]).attr('rowspan', tr_group.length);
+
+        if(tr_group.length > 1){
+          $($rowspan0).not($rowspan0[0]).remove();
+          $($rowspan1).not($rowspan1[0]).remove();
+          $($rowspan2).not($rowspan2[0]).remove();
+          $($rowspan3).not($rowspan3[0]).remove();
+          $($rowspan4).not($rowspan4[0]).remove();
+          $($rowspan5).not($rowspan5[0]).remove();
+          $($rowspan6).not($rowspan6[0]).remove();
+        };
+      };
+
+function removeRowspan(tr_group){
+  var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 = $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group), $rowspan6 = $('td.col_6', tr_group);
+  $($rowspan0[0]).removeAttr('rowspan');
+  $($rowspan1[0]).removeAttr('rowspan');
+  $($rowspan2[0]).removeAttr('rowspan');
+  $($rowspan3[0]).removeAttr('rowspan');
+  $($rowspan4[0]).removeAttr('rowspan');
+  $($rowspan5[0]).removeAttr('rowspan');
+  $($rowspan6[0]).removeAttr('rowspan');
+};
+
+function eventonclick(arg) {
+  var $tr = $(arg).closest("tr");
+  var groupId = $tr.attr("data-groupId");
+  var tr_data = $('#stat_table tr[data-groupId=' + groupId + '][data-first=0]');
+  var tr_group = $('#stat_table tr[data-groupId=' + groupId + ']');
+
+  if (tr_data.css('display') == 'none') {
+    $(arg).text('-');
+    tr_data.show();
+    tableRowspan(tr_group);
+  } else {
+    $(arg).text('+');
+    tr_data.hide()
+    removeRowspan(tr_group);
+  };
+};
+<!-- var obj  -->
+  <!-- obj.Items = [{'groupId':1,'num':1,'data1':1,'data2':2,'data3':3},{'groupId':1,'num':2,'data1':1,'data2':2,'data3':3},{'groupId':1,'num':2,'data1':1,'data2':2,'data3':3}] -->
+
+    </script>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all"/>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>        
+        <h1>Hydra MSCE</h1>               
+      </header>
+      <section>
+        <div class="path">
+          <ul>            
+            <li><a href="">MCSE</a></li>
+            <li><a href="">Setting</a></li>
+          </ul>
+        </div>
+        <nav>
+          <h1>MCSE</h1>
+          <ul>
+            <li><a href="/setting">Setting</a></li>
+            <li class="current"><a href="/statistics">Statistics</a></li>
+          </ul>
+        </nav>
+        <article>
+          <div class="button_area">                
+            <div class="fr">
+              <button type="button">Cancel</button>
+              <button type="button" class="green">Save</button>
+            </div>
+          </div>
+          <h1>Statistics</h1>
+          <form id='search' action="/statistics/?page_num=1&sort=0" method="post">
+            <div class="search_area">                
+              <div class="item">
+                <span class="title">Time</span>
+                <span class="condition">
+                  <input type="text" style="width: 140px" name="start_time" value="{{.SearchStartTime}}"/> ~ <input type="text" style="width: 140px" name="end_time" value="{{.SearchEndTime}}"/>
+                </span>
+              </div>
+              <div class="item">
+                <span class="title">Client</span>
+                <span class="condition">
+                  <input type="text" name="client_ip" style="width: 120px" value="{{.SearchClientIP}}"/>
+                </span>
+              </div>
+              <div class="item">
+                <span class="title">NIC</span>
+                <span class="condition">
+                  <select>
+                    <option>All</option>
+                  </select>
+                  :&nbsp;<input type="text" name="nic_ip" value="{{.SearchNICIP}}"/>
+                </span>
+              </div>
+              <div class="item">
+                <span class="title">Proxy</span>
+                <span class="condition">
+                  <select>
+                    <option>All</option>
+                  </select>
+                  :&nbsp;<input type="text" name="proxy_ip" value="{{.SearchProxyIP}}"/>
+                </span>
+              </div>
+              <div class="item">
+                <span class="title">Server</span>
+                <span class="condition">
+                  <input type="text" name="server_ip" style="width: 120px" value="{{.SearchServerIP}}"/>
+                  :&nbsp;<input type="text" name="server_port" value="{{.SearchServerPort}}"/>
+                </span>
+              </div>
+              <div class="item">
+                <button type="button" class="green"
+                  onclick="document.getElementById('search').submit();">Search</button>
+              </div>
+            </div>
+          </form>
+          <hr />
+          <table class="table_fixed" id="stat_table">
+            <colgroup>
+              <col width="5%"><col width="15%"><col width="15%"><col width="15%"><col width="5%"><col width="15%"><col width="5%"><col width="15%"><col width="15%"><col width="15%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th></th>
+                <th>{{.SortTime}}</th>
+                <th>{{.SortProxyIP}}</th>
+                <th>{{.SortMCSEIP}}</th>
+                <th>{{.SortMCSEPort}}</th>
+                <th>{{.SortServerIP}}</a></th>
+                <th>{{.SortServerPort}}</th>
+                <th>{{.SortClientIP}}</a></th>
+                <th>Inbound</th>
+                <th>Outbound</th>
+              </tr>
+            </thead>
+            {{ range .StatInfo }}
+            <tr style="display:{{.StatCommon.TrInfo.Style}};" data-groupId="{{.StatCommon.TrInfo.DataGroupID}}" data-first="{{.StatCommon.TrInfo.DataFirst}}">
+              <td class="col_0"><a href="#" onClick="eventonclick(this)">+</a></td>
+              <td class="col_1">{{.StatCommon.Time}}</td>
+              <td class="col_2">{{.StatCommon.Proxy_IP_Str}}</td>
+              <td class="col_3">{{.StatCommon.MCSE_IP_Str}}</td>
+              <td class="col_4">{{.StatCommon.MCSE_Listen_Port}}</td>
+              <td class="col_5">{{.StatCommon.Server_IP_Str}}</td>
+              <td class="col_6">{{.StatCommon.Server_Listen_Port}}</td>
+              <td>{{.StatData.Client_IP_Str}}</td>
+              <td>{{.StatData.Inbound}}</td>
+              <td>{{.StatData.Outbound}}</td>
+            </tr>
+            {{ end }}
+          </table>
+          <div class="paginate_group">                
+            <span class="paginate_complex">
+              <a class="direction prev" href="{{.FirstPage}}"><span></span><span></span> 처음</a>
+              <a class="direction prev" href="{{.PrevPage}}"><span></span> 이전</a> 
+              {{ range .PageNumInfo }}
+                {{.TagStart}}{{.PageNum}}{{.TagEnd}}
+              {{ end }}
+              <!--
+              <strong>2</strong> 
+              <a href="#">3</a> 
+              -->
+              <a class="direction next" href="{{.NextPage}}">다음 <span></span></a> 
+              <a class="direction next" href="{{.LastPage}}">끝 <span></span><span></span></a>
+            </span>                
+          </div>
+        </article>
+      </section>
+    </div>
+    <footer>
+      <span>Copyright ⓒ 2019 innogskorea.crop. All right reserved.</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#node_key_modify').on('click',function() {
+    nodeKeyModify()
+  })
+});
+
+
+function nodeKeyModify() {
+  if (document.getElementById("user_id").value.length <= 0) {
+    alert ("User ID 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key").value.length <= 0) {
+    alert ("User Key 길이가 유효하지 않습니다.");
+    return;
+  }
+
+  /*------------------------------------------------------------------------------------
+  if (document.getElementById("node_key_node_id_current_count").value.length <= 0) {
+    alert ("현 Node ID Count 값이 유효하지 않습니다.");
+    return;
+  }
+  -------------------------------------------------------------------------------------*/
+
+  if (document.getElementById("node_key_node_id_modify_count").value.length <= 0) {
+    alert ("수정될 Node ID Count 값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_node_id_max_count").value.length <= 0) {
+    alert ("invalid node_key_node_id_max_count length");
+    return;
+  }
+
+  if (parseInt(document.getElementById("node_key_node_id_modify_count").value) < parseInt(document.getElementById("node_key_node_id_current_count").value)) {
+    alert ("유효하지 않은 Node ID Count 값입니다.\n(사용가능한 범위 : 현재보다 큰 숫자 ~ 100)");
+    return;
+  }
+
+  if (parseInt(document.getElementById("node_key_node_id_modify_count").value) > parseInt(document.getElementById("node_key_node_id_max_count").value)) {
+    alert ("유효하지 않은 Node ID Count 값입니다.\n(사용가능한 범위 : 현재보다 큰 숫자 ~ 100)");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_current_year").value.length <= 0) {
+    alert ("현 End Date의 Year값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_current_month").value.length <= 0) {
+    alert ("현 End Date의 Month값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_current_day").value.length <= 0) {
+    alert ("현 End Date의 Day값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_modify_year").value.length <= 0) {
+    alert ("수정될 End Date의 Year값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_modify_month").value.length <= 0) {
+    alert ("수정될 End Date의 Month값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_enddate_modify_day").value.length <= 0) {
+    alert ("수정될 End Date의 Day값이 유효하지 않습니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_current_status").value != "ENABLE" && document.getElementById("node_key_current_status").value != "DISABLE") {
+    alert ("현 Status 값이 유훃한 값이 아닙니다.");
+    return;
+  }
+
+  if (document.getElementById("node_key_modify_status").value != "ENABLE" && document.getElementById("node_key_modify_status").value != "DISABLE") {
+    alert ("수정될 Status 값이 유훃한 값이 아닙니다.");
+    return;
+  }
+
+  var send_json_data = {"user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_key_node_id_max_count" : $('#node_key_node_id_max_count').val(),
+                        "node_key_node_id_current_count" : $('#node_key_node_id_current_count').val(),
+                        "node_key_enddate_current_year" : $('#node_key_enddate_current_year').val(),
+                        "node_key_enddate_current_month" : $('#node_key_enddate_current_month').val(),
+                        "node_key_enddate_current_day" : $('#node_key_enddate_current_day').val(),
+                        "node_key_current_status" : $('#node_key_current_status').val(),
+                        "node_key_node_id_modify_count" : $('#node_key_node_id_modify_count').val(),
+                        "node_key_enddate_modify_year" : $('#node_key_enddate_modify_year').val(),
+                        "node_key_enddate_modify_month" : $('#node_key_enddate_modify_month').val(),
+                        "node_key_enddate_modify_day" : $('#node_key_enddate_modify_day').val(),
+                        "node_key_modify_status" : $('#node_key_modify_status').val()}
+
+  $.ajax({
+      async: false,
+      url: "/nodekey/modify_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              alert ("User Key 정보가 수정되었습니다.");
+              location.href = "/nodekey/management/";
+              return
+            } else {
+              alert ("User Key 정보가 수정되지 않았습니다.");
+              return
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            alert ("User Key 정보가 수정되지 않았습니다.\n(오류가 발생하였습니다.)");
+            return
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("User Key를 수정할 수 없습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+  });
+  return;
+}
+
+function nodeKeyModifyCancel () {
+  location.href = "/nodekey/management/";
+}
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User Key</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User Key Mangement Modify</h1>			
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+            <input id="user_id" type="hidden" class="s100" value="{{.NodeKeyData.UserID}}">
+            <input id="node_key" type="hidden" class="s100" value="{{.NodeKeyData.NodeKey}}">
+            <input id="node_key_node_id_max_count" type="hidden" class="s100" value="{{.NodeKeyData.NodeIDMaxCount}}">
+            <tr>
+                <th>User ID</th>
+                <td>{{.NodeKeyData.UserID}}</td>
+            </tr>
+            <tr>
+				<th>User Key</th>
+				<td>{{.NodeKeyData.NodeKey}}</td>
+			</tr>
+			<tr>
+				<th>Node ID Count</th>
+				<td>{{.NodeKeyData.NodeIDCount}} / {{.NodeKeyData.NodeIDMaxCount}} &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="node_key_node_id_modify_count" type="text" class="s10" value="{{.NodeKeyData.NodeIDCount}}">
+            <input id="node_key_node_id_current_count" type="hidden" class="s100" value="{{.NodeKeyData.NodeIDCount}}">
+        </td>
+			</tr>			
+			<tr>
+				<th>End Date</th>
+				<td>
+					<input id="node_key_enddate_modify_year" type="text" value="{{.NodeKeyData.EndDateYear}}" class="s50px"> -
+					<input id="node_key_enddate_modify_month" type="text" value="{{.NodeKeyData.EndDateMonth}}" class="s50px"> -
+					<input id="node_key_enddate_modify_day" type="text" value="{{.NodeKeyData.EndDateDay}}" class="s50px">
+					<input id="node_key_enddate_current_year" type="hidden" value="{{.NodeKeyData.EndDateYear}}" class="s50px"> 
+					<input id="node_key_enddate_current_month" type="hidden" value="{{.NodeKeyData.EndDateMonth}}" class="s50px"> 
+					<input id="node_key_enddate_current_day" type="hidden" value="{{.NodeKeyData.EndDateDay}}" class="s50px">
+				</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>
+					<select id="node_key_modify_status" class="s100">
+						<option value="ENABLE">Enable</option>
+						<option value="DISABLE">Disable</option>
+            <input id="node_key_current_status" type="hidden" class="s100" value="{{.NodeKeyData.Status}}">
+					</select>
+				</td>
+			</tr>
+            </tbody>
+            </table>
+            <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="nodeKeyModifyCancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button id="node_key_modify" type="button" class="green">Modify</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

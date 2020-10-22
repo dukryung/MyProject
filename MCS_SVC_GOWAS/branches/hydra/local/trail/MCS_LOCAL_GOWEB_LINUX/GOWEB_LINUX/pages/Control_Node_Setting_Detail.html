@@ -1,0 +1,606 @@
+<!doctype html>
+
+	<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="/pages/jquery.validate.js"></script>
+	<script type="text/javascript" src="/pages/Control_Node_Setting_Detail.html.js"></script>
+    <script type="text/javascript">
+
+      function tableRowspan(tr_group) {
+        var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group),
+          $rowspan3 = $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group)
+		  , $rowspan6 = $('td.col_6', tr_group), $rowspan7 = $('td.col_7', tr_group), $rowspan8 = $('td.col_8', tr_group)
+		  , $rowspan9 = $('td.col_9', tr_group), $rowspan10 = $('td.col_10', tr_group), $rowspan11 = $('td.col_11', tr_group)
+		  , $rowspan12 = $('td.col_12', tr_group), $rowspan13 = $('td.col_13', tr_group), $rowspan14 = $('td.col_14', tr_group)
+		  , $rowspan15 = $('td.col_15', tr_group), $rowspan16 = $('td.col_16', tr_group), $rowspan17 = $('td.col_17', tr_group)
+		  , $rowspan18 = $('td.col_18', tr_group);
+
+        $($rowspan0[0]).attr('rowspan', tr_group.length);
+        $($rowspan1[0]).attr('rowspan', tr_group.length);
+        $($rowspan2[0]).attr('rowspan', tr_group.length);
+        $($rowspan3[0]).attr('rowspan', tr_group.length);
+        $($rowspan4[0]).attr('rowspan', tr_group.length);
+        $($rowspan5[0]).attr('rowspan', tr_group.length);
+		$($rowspan6[0]).attr('rowspan', tr_group.length);
+		$($rowspan7[0]).attr('rowspan', tr_group.length);
+		$($rowspan8[0]).attr('rowspan', tr_group.length);
+		$($rowspan9[0]).attr('rowspan', tr_group.length);
+		$($rowspan10[0]).attr('rowspan', tr_group.length);
+		$($rowspan11[0]).attr('rowspan', tr_group.length);
+		$($rowspan12[0]).attr('rowspan', tr_group.length);
+		$($rowspan13[0]).attr('rowspan', tr_group.length);
+		$($rowspan14[0]).attr('rowspan', tr_group.length);
+		$($rowspan15[0]).attr('rowspan', tr_group.length);
+		$($rowspan16[0]).attr('rowspan', tr_group.length);
+		$($rowspan17[0]).attr('rowspan', tr_group.length);
+		$($rowspan18[0]).attr('rowspan', tr_group.length);
+
+
+        if(tr_group.length > 1){
+          $($rowspan0).not($rowspan0[0]).remove();
+          $($rowspan1).not($rowspan1[0]).remove();
+          $($rowspan2).not($rowspan2[0]).remove();
+          $($rowspan3).not($rowspan3[0]).remove();
+          $($rowspan4).not($rowspan4[0]).remove();
+          $($rowspan5).not($rowspan5[0]).remove();
+		  $($rowspan6).not($rowspan6[0]).remove();
+		  $($rowspan7).not($rowspan7[0]).remove();
+		  $($rowspan8).not($rowspan8[0]).remove();
+		  $($rowspan9).not($rowspan9[0]).remove();
+		  $($rowspan10).not($rowspan10[0]).remove();
+		  $($rowspan11).not($rowspan11[0]).remove();
+		  $($rowspan12).not($rowspan12[0]).remove();
+		  $($rowspan13).not($rowspan13[0]).remove();
+		  $($rowspan14).not($rowspan14[0]).remove();
+		  $($rowspan15).not($rowspan15[0]).remove();
+		  $($rowspan16).not($rowspan16[0]).remove();
+		  $($rowspan17).not($rowspan17[0]).remove();
+		  $($rowspan18).not($rowspan18[0]).remove();
+
+        };
+      };
+
+function removeRowspan(tr_group){
+  var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 =
+    $('td.col_3', tr_group), $rowspan4 = $('td.col_4', tr_group), $rowspan5 = $('td.col_5', tr_group)
+	, $rowspan6 = $('td.col_6', tr_group), $rowspan7 = $('td.col_7', tr_group), $rowspan8 = $('td.col_8', tr_group)
+	, $rowspan9 = $('td.col_9', tr_group), $rowspan10 = $('td.col_10', tr_group), $rowspan11 = $('td.col_11', tr_group)
+	, $rowspan12 = $('td.col_12', tr_group), $rowspan13 = $('td.col_13', tr_group), $rowspan14 = $('td.col_14', tr_group)
+	, $rowspan15 = $('td.col_15', tr_group), $rowspan16 = $('td.col_16', tr_group), $rowspan17 = $('td.col_17', tr_group)
+	, $rowspan18 = $('td.col_18', tr_group);
+  
+  $($rowspan0[0]).removeAttr('rowspan');
+  $($rowspan1[0]).removeAttr('rowspan');
+  $($rowspan2[0]).removeAttr('rowspan');
+  $($rowspan3[0]).removeAttr('rowspan');
+  $($rowspan4[0]).removeAttr('rowspan');
+  $($rowspan5[0]).removeAttr('rowspan');
+  $($rowspan6[0]).removeAttr('rowspan');
+  $($rowspan7[0]).removeAttr('rowspan');
+  $($rowspan8[0]).removeAttr('rowspan');
+  $($rowspan9[0]).removeAttr('rowspan');
+  $($rowspan10[0]).removeAttr('rowspan');
+  $($rowspan11[0]).removeAttr('rowspan');
+  $($rowspan12[0]).removeAttr('rowspan');
+  $($rowspan13[0]).removeAttr('rowspan');
+  $($rowspan14[0]).removeAttr('rowspan');
+  $($rowspan15[0]).removeAttr('rowspan');
+  $($rowspan16[0]).removeAttr('rowspan');
+  $($rowspan17[0]).removeAttr('rowspan');
+  $($rowspan18[0]).removeAttr('rowspan');
+
+};
+
+function eventonclick(arg) {
+  var $tr = $(arg).closest("tr");
+  var groupId = $tr.attr("data-groupId");
+  var tr_data = $('#stat_table tr[data-groupId=' + groupId + '][data-first=0]');
+  var tr_group = $('#stat_table tr[data-groupId=' + groupId + ']');
+
+  if (tr_data.css('display') == 'none') {
+    $(arg).text('-');
+    tr_data.show();
+    tableRowspan(tr_group);
+  } else {
+    $(arg).text('+');
+    tr_data.hide()
+    removeRowspan(tr_group);
+  };
+};
+
+function portMaxValue(arg) {
+  arg.value = arg.value.replace(/\D/g, '');
+  if (arg.value > 65535) {
+    alert ("Port 범위는 1 ~ 65535")
+    arg.value = "";
+  } else if (arg.value == 0) {
+    arg.value = "";
+  }
+};
+
+/*
+function ipCheckValidation(arg) {
+  if(((/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+    (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(arg.value)) ||
+  (/^$/.test(arg.value))) == false)
+  {
+    alert ("IP Version 4 형식으로 입력 하세요 \nex) \"xxx.xxx.xxx.xxx\" or \"xxx.xxx.xxx\" or \"xxx.xxx\" or \"xxx\"");
+    arg.value=""
+  }
+}
+*/
+function dateCheckValidation(arg) {
+  if(((/^([0-9][0-9][0-9][0-9])\-(0[0-9]|1[0-2])\-(0[1-9]|[1-2][0-9]|3[0-1])\ ([0-1][0-9]|2[0-3])\:([0-5][0-9])\:([0-5][0-9])$/.test(arg.value)) ||
+    (/^$/.test(arg.value))) == false)
+  {
+    alert ("날짜 형식은 연-월-일 시:분:초 입니다 \nex) \"YYYY-MM-DD hh:mm:ss\"");
+    arg.value=""
+  }
+}
+
+function uuidCheckValidation(arg){
+if(((/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,13}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,8}-[0-9a-zA-Z]{1,8}-[0-9a-zA-Z]{1,6}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}-[0-9a-zA-Z]{1,6}$/.test(arg.value))||(/^[0-9a-zA-Z]{1,9}$/.test(arg.value))||(/^$/.test(arg.value))) == false)
+  {
+   alert ( "uuid 8-8-5-5-12 형식으로 입력하세요 \nex) \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\" or \"xxxxxxxx-xxxx-xxxx-xxxx\" or \"xxxxxxxx-xxxx-xxxx\" or \"xxxxxxxx-xxxx\" or \"xxxxxxxx\"");
+   arg.value=""
+  }
+}
+
+function showNodeCfgDetail(node_id){	
+  var addr = "/node_cfg_detail/"
+ str = location.href;
+ lastidx = str.lastIndexOf("/node_cfg_list");
+
+ url = str.substring(0,lastidx+1);
+ 
+ currenturl= addr + "?node_id=" + node_id;
+
+ //alert ("currenturl : " + currenturl);
+//   url += "?node_id=" + node_id
+   location.href = currenturl;
+//   alert ("url : " + location.href);
+}
+
+// function CancelDetail() {
+// 	var addr = "/node_cfg_list";
+//  str = location.href;
+ 
+//  lastidx = str.lastIndexOf("/node_cfg_detail/");
+
+//  url = str.substring(0,lastidx+1);
+ 
+//  currenturl= addr + "?node_id=" + node_id;
+
+//  alert ("currenturl : " + currenturl);
+// //   url += "?node_id=" + node_id
+//    location.href = currenturl;
+// //   alert ("url : " + location.href);
+
+// }
+
+	</script>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" 	media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>Node Control Server</h1>               
+	</header>
+    <section>    	
+        <nav>
+        	<h1>Node Control Server</h1>
+            <ul>
+				{{.NodeClientStatMenu}}
+            	{{.NodeServerStatMenu}}
+            	{{.NodeSettingsList}}
+            </ul>
+        </nav>
+        <article id ="main">        	
+			<h1>Node Setting Detail</h1>			
+			<h2>Templet</h2>
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+				<tr>				
+					<th>Templet to be applied</th>
+					<td>
+						<select class="s100" id="TempletName" TempletList>
+							<option value="None">None</option>
+							{{ range .TempletSelectHTMLList }}
+							{{.Value_HTML }}
+							{{ end }}
+						</select>
+					</td>					
+				</tr>
+			</tbody>
+			</table>
+			<hr>
+			<div id="PasswordChange">
+			<h2>Node Setting</h2>
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>				
+				<tr>
+					<th>Password to Change</th>
+					<td><input id="Password" type="text" class="s100" reserve="length" min="6" max="20" msg="패스워드는 6자 이상 20자 이하로 입력하세요" value="{{.Password}}" /></td>
+				</tr>
+				<!-- <tr>
+					<th>Verifying Password to Change</th>
+					<td><input id="Verifying_Password" type="text" class="s100" group="all" value="{{.VerifyingPassword}}"/></td>
+				</tr> -->
+			</tbody>			
+			</table>
+			</div>
+			<hr>
+			<div id="Default">
+				<h2>Default</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Maximum Connections</th>
+							<td><input id="Maximum_ConnectionCount" type="text" class="s100" reserve="between" min="128" max="16384" msg="숫자 128 - 16384 까지만 입력이 가능 합니다." group="all" value="{{.Max_Conn}}"/></td>
+						</tr>
+						<tr>
+							<th>Receive Buffer Size</th>
+							<td class="unit">
+							  <input id="Recv_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="2147483647" msg="숫자 16384 - 2147483647 까지만 입력이 가능 합니다." group="all" value="{{.Recv_Buffer_Size}}" />
+								<span>byte</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Send Buffer Size</th>
+							<td class="unit">
+							  <input  id="Send_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="2147483647" msg="숫자 16384 - 2147483647 까지만 입력이 가능 합니다." group="all" value="{{.Send_Buffer_Size}}" />
+								<span>byte</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Timeout of Connect</th>
+							<td class="unit">
+							  <input id="Connection_Timeout"  type="text" class="s100" reserve="between" min="1" max="60" msg="숫자 1 - 60 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Connect}}" />
+								<span>sec</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Timeout of Client</th>
+							<td class="unit">
+							  <input id="Client_Reconnect_Timeout" type="text" class="s100" reserve="between" min="1" max="4294967295" msg="숫자 1 - 4294967295 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Client}}" />
+								<span>sec</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Timeout of Server</th>
+							<td class="unit">
+							  <input id="Server_Reconnect_Timeout" type="text" class="s100" reserve="between" min="1" max="4294967295" msg="숫자 1 - 4294967295 까지만 입력이 가능 합니다." group="all" value="{{.Timeout_Server}}"/>
+								<span>sec</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div id="LogFile">
+				<h2>Log File</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Limit Size of Storage for Log</th>
+							<td class="unit">
+							  <input id="Limit_Size_Log_Storage" type="text" class="s100" reserve="between" min="0" max="100" msg="숫자 0 - 100 까지만 입력이 가능 합니다." group="all" value="{{.Disk_Limit}}" />
+								<span>%</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Max Size of 1 Log file</th>
+							<td class="unit">
+							  <input id="Maxsize_Per_Logfile" type="text" class="s100" reserve="between" min="1" max="1024" msg="숫자 1 - 1024 까지만 입력이 가능 합니다." group="all" value="{{.Max_Size}}" />
+								<span>MB</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Log file Path</th>
+							<td class="unit word">
+							  <input id="Logfile_Path" type="text" class="s100" reserve="special ko en number space length" min="3" max="100" msg="숫자 3 - 100 까지만 입력이 가능 합니다." group="all" value="{{.Log}}"/>
+								<span>/app.log</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Error log file Path</th>
+							<td class="unit word">
+							  <input id="Err_Logfile_Path" type="text" class="s100" reserve="ko en number space length" min="3" max="100" msg="글자 3 - 100 까지만 입력이 가능 합니다." group="all" value="{{.Error}}"/>
+								<span>/app_err.log</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div id="Statistics">
+				<h2>Statistics</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col>
+						<col width="150">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Statistics Collection Cycle</th>
+							<td class="unit" colspan="2">
+							  <input id="Statistic_Collection_Cycle" type="text" class="s100" reserve="between" min="1" max="60" msg="숫자 1 - 60 까지만 입력이 가능 합니다." group="all" value="{{.Interval}}"/>
+								<span>sec</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Statistics Send Control Server</th>
+							<td colspan="2">
+								<select id="Statistic_Send_Control_Server" >
+									{{ range .StatSelectHTMLList }}
+									{{.Value_HTML}}
+									{{ end }}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Statistics Server IP</th>
+							<td><input id="Statistic_Server_Ip" type="text" class="s100" placeholder="IP" reserve="ipv4" min="7" max="15" msg="IP만 입력이 가능 합니다." group="all" value="{{.Control_Server_IP}}"/></td>
+							<td><input id="Statistic_Server_Port" type="text" class="s100" placeholder="Port" reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all" value="{{.Control_Server_Port}}"/></td>
+						</tr>
+						<tr>
+							<th>Statistics Data Send Cycle</th>
+							<td class="unit" colspan="2">
+							  <input id="Statistic_Send_Cycle" type="text" class="s100" reserve="between" min="1" max="3600" msg="숫자 1 - 3600 까지만 입력이 가능 합니다." group="all" value="{{.Control_Server_Send_Interval}}"/>
+								<span>sec</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div id="NodeSetting">
+				<h2>Node Setting</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col>
+					</colgroup>
+					<tbody>
+						
+						<tr>
+							<th>Node Buffer Size</th>
+							<td class="unit">
+							  <input id="Bridge_Buf_Size" type="text" class="s100" reserve="between" min="16384" max="52428800" msg="숫자 16384 - 52428800 까지만 입력이 가능 합니다." group="all" value="{{.Buffer_Size}}"/>
+								<span>byte</span>
+							</td>
+						</tr>
+						<tr>
+							<th>Encrypt Mode</th>
+							<td>
+								<select id="Encrypt_Mode">
+									{{ range .EncModeSelectHTMLList}}
+									{{.Value_HTML}}
+									{{ end }}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Change IP for Client Mode</th>
+							<td>
+								<select id="Change_Client_Ip" >
+									{{ range .ChangeIPSelectHTMLList }}
+									{{.Value_HTML}}
+									{{ end }}
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div id="NodeID">
+				<h2>Node ID Setting</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>Node ID</th>
+							<td class="unit">
+							  <input id="Node_ID" type="text" class="s100"
+							  reserve="uuid" maxlength="42" msg="uuid만 입력이
+							  가능 합니다. ex) 00000000-00000000-00000-00000-000000000000" group="all" value="{{.Node_ID}}" readonly/>
+							</td>
+							  <input id="DeviceID" type="hidden" class="s100" value="{{.DeviceID}}"/>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div id="kms">
+				<h2>KMS Address</h2>
+				<table class="input">
+					<colgroup>
+						<col width="250">
+						<col width="210">
+						<col>
+						<col width="150">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>KMS Address</th>
+							<td><select id="KMS"/><option value="ip">ip</option>
+							<option value="domain">domain</option></select>
+							</td>
+							<td><input id="KMS_Address" type="text" class="s100" min="7"
+							  max="15" msg="IP와 Domain만 입력 가능합니다." group="all" value="{{.KMS_Address}}"/></td>
+							<td><input id="KMS_Port" type="text" class="s100" placeholder="Port" min="1"
+							  max="65535" msg="PORT만 입력이 가능 합니다." group="all" value="{{.KMS_Port}}"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			{{ range .FrontBackHTMLList }}
+			{{ .Value_HTML }}
+			{{ end }}			
+            <div class="paginate_group">
+				<div class="bg_r">
+					<button type="button" act="btnCancel" >cancel</button>
+					<button type="button" class="green" act="btnSave" >save</button>
+				</div>
+			</div>
+        </article>
+    </section></div>
+<footer>
+    <span>Copyright ⓒ 2019 innogskorea.crop. All right reserved.</span>
+</footer>
+<script type="text/x-jquery-tmpl" id="tmplFrontend">
+	<div data-SiteType="1">
+		<hr />
+		<h2>Frontend
+			<div>
+				<button type="button" act="btnFrontEndRemove">Delete</button>
+			</div>
+		</h2>
+		<table class="input">
+			<colgroup>
+				<col width="250">
+				<col>
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>Symbol</th>
+					<td><input type="text" class="s100" Frontendsymbol reserve="ko en number space length" min="2" max="32" msg="글자 2 - 32 까지만 입력이 가능 합니다." group="all" /></td>
+				</tr>
+				<tr>
+					<th>Bind Port</th>
+					<td><input type="text" class="s100" FrontendPort reserve="between" min="1" max="65535" msg="숫자 1 - 65535 까지만 입력이 가능 합니다." group="all" /></td>
+				</tr>
+				<tr>
+					<th>Node Mode</th>
+					<td>
+						<select Node_Mode>
+							{{.FrontendNodeMode}}
+						</select>
+						<button type="button" act="btnFrontendConfirm" >Confirm</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</script>
+
+<!--BackOffice Binding-->
+<script type="text/x-jquery-tmpl" id="Backend">
+	<div data-SiteType="2" Node_mode="1">
+		<h2>
+			Backend
+			<div>
+				<button type="button" act="btnBackEndAdd" class="green">+</button>
+				<button type="button" act="btnBackEndDelete" >-</button>
+			</div>
+		</h2>
+		<table class="input">
+			<colgroup>
+				<col width="250">
+				<col width="210">
+				<col>
+				<col width="150">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>Server</th>
+					<td>
+						<select class="s100" LAN_interface>
+							<option value="OS_Default">OS Default</option>
+							{{ range .NICNAMEHTMLList }}
+							{{.Value_HTML }}
+							{{ end }}
+						</select>
+					</td>
+					<td><input type="text" class="s100" placeholder="IPAddress" BackendIP reserve="ipv4 " min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+					<td><input type="text" class="s100" placeholder="Bind Port" BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all" /> </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</script>
+
+	<!--BackOffice Binding-->
+	<script type="text/x-jquery-tmpl" id="Backend2">
+		<div data-SiteType="2" Node_mode="2">
+			<h2>Backend</h2>
+			<table class="input">
+				<colgroup>
+					<col width="250">
+					<col width="210">
+					<col>
+					<col width="150">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>Server</th>
+						<td>
+							<select class="s100" LAN_interface >
+								<option value="OS_Default">OS Default</option>
+								{{ range .NICNAMEHTMLList }}
+								{{.Value_HTML }}
+								{{ end }}
+							</select>
+						</td>
+						<td><input type="text" class="s100" placeholder="IPAddress" BackendIP  reserve="ipv4" min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+						<td><input type="text" class="s100" placeholder="Bind Port" BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all"/></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</script>
+
+<!--BackOffice Server Add--> 
+<script type="text/x-jquery-tmpl" id="tmplBackendServerList">
+	<tr>
+		<th>Server</th>		
+		<td>
+			<select class="s100" LAN_interface>
+				<option value="OS_Default">OS Default</option>
+				{{ range .NICNAMEHTMLList }}
+				{{.Value_HTML }}
+				{{ end }}
+			</select>
+		</td>
+		<td><input type="text" class="s100" placeholder="IP Address" BackendIP reserve="ipv4" min="7" max="15" msg="IP만 입력이 가능 합니다." group="all"/></td>
+		<td><input type="text" class="s100" placeholder="Bind Port"  BackendPort reserve="between" min="1" max="65535" msg="PORT만 입력이 가능 합니다." group="all"/></td>
+	</tr>
+</script>
+
+
+</body>
+</html>

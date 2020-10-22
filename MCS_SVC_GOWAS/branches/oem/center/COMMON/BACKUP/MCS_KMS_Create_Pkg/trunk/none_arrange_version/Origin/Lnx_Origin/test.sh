@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ARGC=$#
+CUR_PATH=$PWD
+SOURCE_TEMP_PATH=$CUR_PATH
+SOURCE_FILE_USERKEY_PATH=$SOURCE_TEMP_PATH/userkey.txt
+SOURCE_FILE_CFG_PATH=$SOURCE_TEMP_PATH/lbsvc/etc/init.d/cfg
+
+echo $CUR_PATH
+echo $SOURCE_TEMP_PATH
+echo $SOURCE_FILE_USERKEY_PATH
+echo $SOURCE_FILE_CFG_PATH
+
+mv  $SOURCE_FILE_USERKEY_PATH $SOURCE_FILE_CFG_PATH 
+tar -zcvf lbsvc.tar.gz ./lbsvc
+mv $SOURCE_TEMP_PATH/lbsvc.tar.gz ../
+#rm -rf ./lbsvc
+
+
+exit 0

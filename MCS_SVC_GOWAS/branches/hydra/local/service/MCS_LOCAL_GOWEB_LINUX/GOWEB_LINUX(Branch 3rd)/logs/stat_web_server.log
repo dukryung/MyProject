@@ -1,0 +1,828 @@
+2020/08/21 15:12:19.615290 stat_web_server.go:7948: Start Logger
+2020/08/21 15:12:19.734970 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:12:19.745971 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:12:19.756940 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:12:19.769877 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:12:19.781845 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:12:19.793815 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:12:19.793815 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:12:19.793815 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:12:19.793815 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:12:19.794811 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:12:19.801793 sqlite.go:108: Insert DB Affected column count: 1
+2020/08/21 15:12:19.833734 stat_web_server.go:3904: Insert Configure INSERT INTO StatIdxTbl (ClntIdx, ServIdx) VALUES ('1r','1r')
+2020/08/21 15:12:19.839691 sqlite.go:108: Insert DB Affected column count: 1
+2020/08/21 15:12:19.844678 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:12:19.844678 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:12:19.845705 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:12:19.845705 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:12:19.845705 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:12:24.375796 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:12:27.047648 stat_web_server.go:2959: Login POST
+2020/08/21 15:12:27.047648 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:12:27.047648 stat_web_server.go:2809: admin123
+2020/08/21 15:12:27.047648 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:12:27.048645 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:12:27.109482 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:12:27.109482 stat_web_server.go:1006: [admin=MTU5Nzk5MDM0N3xEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18TniBYrYPufWRuKFoj4vBN4pLR-NMn_f_IN7DpK6oyw0=]
+2020/08/21 15:12:27.109482 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:12:27.110482 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:12:27.110482 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:12:27.110482 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:12:27.110482 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:12:27.110482 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:12:27.110482 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:12:27.110482 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:12:27.110482 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:12:27.110482 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:14:29.030635 stat_web_server.go:7948: Start Logger
+2020/08/21 15:14:29.142336 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:14:29.153334 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:14:29.163278 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:14:29.174253 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:14:29.184250 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:14:29.195193 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:14:29.196218 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:14:29.196218 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:14:29.196218 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:14:29.196218 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:14:29.199211 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:14:29.199211 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:14:29.199211 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:14:29.200208 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:14:29.200208 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:14:36.308251 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:14:39.593476 stat_web_server.go:2959: Login POST
+2020/08/21 15:14:39.593476 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:14:39.593476 stat_web_server.go:2809: admin123
+2020/08/21 15:14:39.593476 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:14:39.594469 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:14:39.660293 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:14:39.660293 stat_web_server.go:1006: [admin=MTU5Nzk5MDQ3OXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18D7rpmDA62qcJBMtvVZ5kCIDp2xToOCzyODAqcd_lRX0=]
+2020/08/21 15:14:39.660293 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:14:39.660293 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:14:39.660293 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:14:39.660293 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:14:39.660293 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:14:39.660293 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:14:39.660293 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:14:39.661289 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:14:39.661289 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:14:39.661289 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:14:59.202040 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:15:29.201711 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:15:29.201711 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:15:29.203706 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:15:59.205373 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:16:29.203435 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:16:29.203435 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:16:29.205430 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:16:59.205663 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:17:29.203685 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:17:29.203685 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:17:29.205679 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:17:59.205701 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:18:29.204329 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:18:29.204329 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:18:29.206337 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:18:59.208258 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:28:05.836443 stat_web_server.go:7948: Start Logger
+2020/08/21 15:28:05.951139 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:28:05.962136 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:28:05.976071 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:28:05.989067 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:28:06.001004 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:28:06.013000 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:28:06.013000 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:28:06.013000 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:28:06.013000 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:28:06.013000 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:28:06.016962 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:28:06.016962 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:28:06.017961 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:28:06.017961 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:28:06.017961 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:28:08.357133 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:28:11.975540 stat_web_server.go:2959: Login POST
+2020/08/21 15:28:11.976537 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:28:11.976537 stat_web_server.go:2809: admin123
+2020/08/21 15:28:11.976537 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:28:11.976537 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:28:12.023420 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:28:12.023420 stat_web_server.go:1006: [admin=MTU5Nzk5MTI5MXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT187SH1Fxl5__V4oB1wVeVtcrOsEC9a7JNfTKMmQ5-siWo=]
+2020/08/21 15:28:12.023420 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:28:12.023420 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:28:12.023420 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:28:12.023420 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:28:12.023420 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:28:12.023420 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:28:12.023420 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:28:12.023420 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:28:12.023420 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:28:12.023420 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:31:51.915055 stat_web_server.go:7948: Start Logger
+2020/08/21 15:31:52.083604 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:31:52.099562 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:31:52.116516 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:31:52.128484 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:31:52.139455 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:31:52.151425 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:31:52.151425 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:31:52.151425 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:31:52.151425 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:31:52.151425 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:31:52.154415 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:31:52.155412 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:31:52.155412 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:31:52.155412 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:31:52.155412 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:31:54.010689 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:31:57.876429 stat_web_server.go:2959: Login POST
+2020/08/21 15:31:57.877424 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:31:57.877424 stat_web_server.go:2809: admin123
+2020/08/21 15:31:57.877424 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:31:57.877424 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:31:57.948235 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:31:57.949232 stat_web_server.go:1006: [admin=MTU5Nzk5MTUxN3xEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18Fv3KbvdNM8sfsfB3jaIeNCXTwpOi8iK8USCcQ8yB_gE=]
+2020/08/21 15:31:57.949232 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:31:57.949232 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:31:57.949232 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:31:57.949232 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:31:57.949232 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:31:57.949232 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:31:57.949232 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:31:57.949232 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:31:57.950251 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:31:57.950251 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:33:35.077162 stat_web_server.go:7948: Start Logger
+2020/08/21 15:33:35.192852 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:33:35.203822 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:33:35.214793 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:33:35.225765 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:33:35.236734 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:33:35.247706 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:33:35.247706 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:33:35.247706 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:33:35.247706 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:33:35.247706 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:33:35.250697 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:33:35.250697 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:33:35.251695 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:33:35.251695 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:33:35.251695 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:33:38.905709 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:33:42.300737 stat_web_server.go:2959: Login POST
+2020/08/21 15:33:42.300737 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:33:42.300737 stat_web_server.go:2809: admin123
+2020/08/21 15:33:42.300737 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:33:42.300737 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:33:42.368565 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:33:42.368565 stat_web_server.go:1006: [admin=MTU5Nzk5MTYyMnxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18xh8euH3wb68K70cyTx1tOMEYy2J_TI_fzEE72Ikpvts=]
+2020/08/21 15:33:42.368565 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:33:42.368565 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:33:42.368565 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:33:42.368565 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:33:42.368565 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:33:42.368565 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:33:42.368565 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:33:42.369553 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:33:42.369553 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:33:42.369553 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:34:25.226574 stat_web_server.go:7948: Start Logger
+2020/08/21 15:34:25.347255 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:34:25.359220 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:34:25.372189 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:34:25.384153 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:34:25.396121 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:34:25.409088 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:34:25.409088 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:34:25.409088 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:34:25.409088 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:34:25.410088 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:34:25.413100 stat_web_server.go:5321: Node_Flag : Node_FLAG_NONE
+2020/08/21 15:34:25.413100 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:34:25.413100 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:34:25.413100 stat_web_server.go:7498: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:34:25.414077 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:34:29.516332 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:34:32.112488 stat_web_server.go:2959: Login POST
+2020/08/21 15:34:32.113485 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:34:32.113485 stat_web_server.go:2809: admin123
+2020/08/21 15:34:32.113485 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:34:32.113485 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:34:32.179310 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:34:32.179310 stat_web_server.go:1006: [admin=MTU5Nzk5MTY3MnxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18HGifs8PegdPoYjLVy4nCpeeaVPvbfExuvw_lHq4c4_k=]
+2020/08/21 15:34:32.179310 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:34:32.179310 stat_web_server.go:6102: [ERR] :  open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:34:32.179310 stat_web_server.go:1847: [LOG] : 
+2020/08/21 15:34:32.179310 stat_web_server.go:1848: [LOG] : 
+2020/08/21 15:34:32.179310 stat_web_server.go:1849: [ERR] : open ./cfg/addr.dat: The system cannot find the file specified.
+2020/08/21 15:34:32.179310 stat_web_server.go:1851: [LOG] : 
+2020/08/21 15:34:32.179310 stat_web_server.go:1852: [LOG] : 
+2020/08/21 15:34:32.179310 stat_web_server.go:1992: open ./cfg/nodeid.key: The system cannot find the file specified.
+2020/08/21 15:34:32.179310 stat_web_server.go:1996: not exist nodeidinfo
+2020/08/21 15:34:32.180309 stat_web_server.go:2133: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:34:55.416029 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:35:25.413417 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:35:25.413417 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:35:25.416411 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:35:55.416465 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:36:25.413464 stat_web_server.go:4042: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:36:25.413464 stat_web_server.go:4387: [ERR] GetAuthData err : open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:36:25.416480 stat_web_server.go:5823: open ./cfg/userkey.key: The system cannot find the file specified.
+2020/08/21 15:37:44.086474 stat_web_server.go:7948: Start Logger
+2020/08/21 15:37:44.208147 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:37:44.219146 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:37:44.230090 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:37:44.241059 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:37:44.252032 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:37:44.264000 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:37:44.264000 stat_web_server.go:7958: OS : General OS
+2020/08/21 15:37:44.264000 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:37:44.264000 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:37:44.265017 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:37:44.269012 stat_web_server.go:5323: Node_Flag : Node_FLAG_CLIENT
+2020/08/21 15:37:44.269992 stat_web_server.go:7494: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:37:44.269992 stat_web_server.go:7501: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/21 15:37:44.269992 stat_web_server.go:7502: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/21 15:37:44.270980 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/21 15:37:44.271995 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/21 15:37:44.271995 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/21 15:37:44.271995 stat_web_server.go:7544: authReqProto.NodeID: dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni
+2020/08/21 15:37:44.271995 stat_web_server.go:7545: authReqProto.UserKeyID: 1cri
+2020/08/21 15:37:44.285940 stat_web_server.go:7565: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/21 15:37:44.575166 stat_web_server.go:7592: [LOG] : Success client do
+2020/08/21 15:37:44.575166 stat_web_server.go:7519: [ERR] ProvisioninguploadAuthRequest: invailed auth protocol AuthKey
+2020/08/21 15:37:44.576167 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:37:45.568513 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:37:48.988598 stat_web_server.go:2959: Login POST
+2020/08/21 15:37:48.988598 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:37:48.988598 stat_web_server.go:2809: admin123
+2020/08/21 15:37:48.988598 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:37:48.989596 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:37:49.052432 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:37:49.053427 stat_web_server.go:1006: [admin=MTU5Nzk5MTg2OHxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18uYv5V2OxPRwiGRWu5zKGO-5zNlmTiaVMzWzAI-Y0G3M=]
+2020/08/21 15:37:49.053427 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:37:49.053427 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/21 15:37:49.053427 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/21 15:37:49.054422 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/21 15:37:49.054422 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/21 15:37:49.054422 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/21 15:37:49.054422 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/21 15:37:49.066418 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/21 15:44:36.446254 stat_web_server.go:7686: Start Logger
+2020/08/21 15:44:36.579897 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/21 15:44:36.590868 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/21 15:44:36.601866 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/21 15:44:36.611839 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/21 15:44:36.621815 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/21 15:44:36.632769 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/21 15:44:36.632769 stat_web_server.go:7696: OS : General OS
+2020/08/21 15:44:36.632769 stat_web_server.go:3975: Run Local Web Server..
+2020/08/21 15:44:36.632769 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/21 15:44:36.633753 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/21 15:44:36.640734 sqlite.go:108: Insert DB Affected column count: 1
+2020/08/21 15:44:36.642729 stat_web_server.go:5323: Node_Flag : Node_FLAG_CLIENT
+2020/08/21 15:44:36.642729 stat_web_server.go:7232: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/21 15:44:36.643726 stat_web_server.go:7239: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/21 15:44:36.643726 stat_web_server.go:7240: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/21 15:44:36.644723 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/21 15:44:36.644723 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/21 15:44:36.644723 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/21 15:44:36.645748 stat_web_server.go:7282: authReqProto.NodeID: dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni
+2020/08/21 15:44:36.645748 stat_web_server.go:7283: authReqProto.UserKeyID: 1cri
+2020/08/21 15:44:36.657688 stat_web_server.go:7303: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/21 15:44:37.031217 stat_web_server.go:7330: [LOG] : Success client do
+2020/08/21 15:44:37.032180 stat_web_server.go:7257: [ERR] ProvisioninguploadAuthRequest: invailed auth protocol AuthKey
+2020/08/21 15:44:37.032180 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/21 15:44:37.369274 stat_web_server.go:986: Local Web Server GET
+2020/08/21 15:44:40.062290 stat_web_server.go:2959: Login POST
+2020/08/21 15:44:40.062290 stat_web_server.go:2802: Forbidden String: false
+2020/08/21 15:44:40.062290 stat_web_server.go:2809: admin123
+2020/08/21 15:44:40.062290 stat_web_server.go:2820: Valid Password: admin123
+2020/08/21 15:44:40.062290 stat_web_server.go:3014:  Result count :  1
+2020/08/21 15:44:40.106175 stat_web_server.go:1834: Setting /setting/
+2020/08/21 15:44:40.106175 stat_web_server.go:1006: [admin=MTU5Nzk5MjI4MHxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18066Ki_GnHtuPEr9R9JU_5etxo8MHf91ntI-t33UstPc=]
+2020/08/21 15:44:40.106175 stat_web_server.go:1016: Cookies Name: admin
+2020/08/21 15:44:40.106175 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/21 15:44:40.106175 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/21 15:44:40.107169 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/21 15:44:40.107169 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/21 15:44:40.107169 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/21 15:44:40.107169 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/21 15:44:40.118165 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:47:40.305080 stat_web_server.go:7686: Start Logger
+2020/08/26 14:47:40.429746 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/26 14:47:40.440745 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/26 14:47:40.450719 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/26 14:47:40.462686 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/26 14:47:40.473656 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/26 14:47:40.483631 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/26 14:47:40.484600 stat_web_server.go:7696: OS : General OS
+2020/08/26 14:47:40.484600 stat_web_server.go:3975: Run Local Web Server..
+2020/08/26 14:47:40.484600 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/26 14:47:40.484600 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/26 14:47:40.492579 stat_web_server.go:5323: Node_Flag : Node_FLAG_CLIENT
+2020/08/26 14:47:40.492579 stat_web_server.go:7232: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/26 14:47:40.493609 stat_web_server.go:7239: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:47:40.493609 stat_web_server.go:7240: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:47:40.494574 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:47:40.497566 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:47:40.497566 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:47:40.497566 stat_web_server.go:7282: authReqProto.NodeID: dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni
+2020/08/26 14:47:40.497566 stat_web_server.go:7283: authReqProto.UserKeyID: 1cri
+2020/08/26 14:47:40.510537 stat_web_server.go:7303: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:47:40.819706 stat_web_server.go:7330: [LOG] : Success client do
+2020/08/26 14:47:40.820703 stat_web_server.go:7257: [ERR] ProvisioninguploadAuthRequest: invailed auth protocol AuthKey
+2020/08/26 14:47:40.820703 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/26 14:47:47.995699 stat_web_server.go:986: Local Web Server GET
+2020/08/26 14:48:08.802730 stat_web_server.go:986: Local Web Server GET
+2020/08/26 14:48:10.821574 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:10.822542 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:10.822542 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:10.823535 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:48:10.823535 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:48:10.852476 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:48:10.876393 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:48:10.876393 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:48:12.889080 stat_web_server.go:2959: Login POST
+2020/08/26 14:48:12.889080 stat_web_server.go:2802: Forbidden String: false
+2020/08/26 14:48:12.889080 stat_web_server.go:2809: admin123
+2020/08/26 14:48:12.889080 stat_web_server.go:2820: Valid Password: admin123
+2020/08/26 14:48:12.889080 stat_web_server.go:3014:  Result count :  1
+2020/08/26 14:48:12.957897 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:48:12.957897 stat_web_server.go:1006: [admin=MTU5ODQyMDg5MnxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18EjyWyKn3Q0b3rKe5g7pGkuELiPIsTsYEHtMM15UICQs=]
+2020/08/26 14:48:12.957897 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:48:12.957897 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:48:12.957897 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:48:12.958924 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:48:12.958924 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:12.958924 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:12.958924 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:12.971860 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:48:40.820846 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:40.820846 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:40.820846 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:40.821843 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:40.821843 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:40.821843 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:40.821843 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:48:40.821843 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:48:40.821843 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:48:40.821843 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:48:40.821843 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:48:40.821843 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:48:40.822806 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:48:40.822806 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:48:40.822806 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:48:40.822806 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:48:40.876719 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:40.876719 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:40.876719 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:40.877718 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:48:40.877718 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:48:40.901684 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:48:40.926586 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:48:40.926586 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:48:49.053428 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:48:49.053428 stat_web_server.go:1006: [admin=MTU5ODQyMDg5MnxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18EjyWyKn3Q0b3rKe5g7pGkuELiPIsTsYEHtMM15UICQs=]
+2020/08/26 14:48:49.053428 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:48:49.053428 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:48:49.053428 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:48:49.054426 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:48:49.054426 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:49.054426 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:49.054426 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:49.067392 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:48:57.279795 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:48:57.279795 stat_web_server.go:1006: [admin=MTU5ODQyMDkyOXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18X42eJFtwHqpEXe627Ux3zliZSQC3NeCMDaPlXhifigA=]
+2020/08/26 14:48:57.279795 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:48:57.279795 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:48:57.279795 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:48:57.280795 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:48:57.280795 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:48:57.280795 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:48:57.280795 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:48:57.294756 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:49:14.550147 stat_web_server.go:7686: Start Logger
+2020/08/26 14:49:14.697754 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/26 14:49:14.712714 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/26 14:49:14.724682 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/26 14:49:14.735652 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/26 14:49:14.746622 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/26 14:49:14.757594 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/26 14:49:14.757594 stat_web_server.go:7696: OS : General OS
+2020/08/26 14:49:14.757594 stat_web_server.go:3975: Run Local Web Server..
+2020/08/26 14:49:14.757594 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/26 14:49:14.757594 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/26 14:49:14.760586 stat_web_server.go:5323: Node_Flag : Node_FLAG_CLIENT
+2020/08/26 14:49:14.760586 stat_web_server.go:7232: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/26 14:49:14.761583 stat_web_server.go:7239: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:49:14.761583 stat_web_server.go:7240: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:49:14.761583 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:49:14.761583 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:49:14.761583 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:49:14.761583 stat_web_server.go:7282: authReqProto.NodeID: dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni
+2020/08/26 14:49:14.761583 stat_web_server.go:7283: authReqProto.UserKeyID: 1cri
+2020/08/26 14:49:14.774549 stat_web_server.go:7303: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:49:15.075742 stat_web_server.go:7330: [LOG] : Success client do
+2020/08/26 14:49:15.076739 stat_web_server.go:7257: [ERR] ProvisioninguploadAuthRequest: invailed auth protocol AuthKey
+2020/08/26 14:49:15.076739 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/26 14:49:16.275539 stat_web_server.go:986: Local Web Server GET
+2020/08/26 14:49:19.251594 stat_web_server.go:2959: Login POST
+2020/08/26 14:49:19.251594 stat_web_server.go:2802: Forbidden String: false
+2020/08/26 14:49:19.251594 stat_web_server.go:2809: admin123
+2020/08/26 14:49:19.251594 stat_web_server.go:2820: Valid Password: admin123
+2020/08/26 14:49:19.252580 stat_web_server.go:3014:  Result count :  1
+2020/08/26 14:49:19.332817 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:49:19.332817 stat_web_server.go:1006: [admin=MTU5ODQyMDk1OXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18TXTDwrx6HfWxBu4a9-cH4LoUdVbRCx2OBodiTzF6PiY=]
+2020/08/26 14:49:19.332817 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:49:19.332817 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:49:19.332817 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:49:19.333814 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:49:19.333814 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:49:19.333814 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:49:19.333814 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:49:19.346805 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:49:45.076818 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:49:45.076818 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:49:45.076818 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:49:45.076818 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:49:45.076818 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:49:45.088815 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:49:45.120701 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:49:45.120701 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:50:15.077259 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:50:15.077259 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:50:15.077259 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:50:15.077259 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:50:15.077259 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:50:15.077259 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:50:15.077259 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:50:15.077259 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:50:15.077259 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:50:15.077259 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:50:15.077259 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:50:15.078229 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:50:15.078229 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:50:15.078229 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:50:15.078229 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:50:15.078229 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:50:15.121139 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:50:15.121139 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:50:15.121139 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:50:15.121139 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:50:15.121139 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:50:15.138070 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:50:15.163005 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:50:15.163005 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:50:45.163363 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:50:45.163363 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:50:45.163363 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:50:45.164358 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:50:45.164358 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:50:45.178320 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:50:45.202284 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:50:45.202284 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:51:15.079063 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:51:15.079063 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:51:15.079063 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:51:15.079063 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:51:15.079063 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:51:15.079063 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:51:15.079063 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:51:15.079063 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:51:15.080061 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:51:15.080061 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:51:15.080061 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:51:15.080061 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:51:15.080061 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:51:15.080061 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:51:15.080061 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:51:15.080061 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:51:15.202735 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:51:15.202735 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:51:15.202735 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:51:15.202735 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:51:15.202735 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:51:15.216696 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:51:15.241630 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:51:15.241630 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:51:45.242274 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:51:45.242274 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:51:45.242274 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:51:45.242274 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:51:45.242274 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:51:45.257236 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:51:45.289148 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:51:45.289148 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:52:15.080926 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:52:15.080926 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:52:15.080926 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:52:15.080926 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:52:15.080926 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:52:15.080926 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:52:15.081924 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:52:15.080926 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:52:15.081924 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:52:15.081924 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:52:15.081924 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:52:15.081924 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:52:15.081924 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:52:15.081924 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:52:15.081924 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:52:15.081924 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:52:15.290373 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:52:15.290373 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:52:15.290373 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:52:15.291363 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:52:15.291363 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:52:15.304330 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:52:15.333251 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:52:15.333251 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:52:45.333910 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:52:45.333910 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:52:45.333910 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:52:45.334907 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:52:45.334907 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:52:45.348870 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:52:45.391755 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:52:45.391755 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:53:15.083633 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:53:15.083633 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:53:15.083633 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:53:15.083633 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:53:15.083633 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:53:15.083633 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:53:15.083633 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:53:15.083633 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:53:15.083633 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:53:15.083633 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:53:15.083633 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:53:15.083633 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:53:15.083633 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:53:15.083633 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:53:15.083633 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:53:15.083633 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:53:15.391810 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:53:15.391810 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:53:15.391810 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:53:15.391810 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:53:15.391810 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:53:15.405754 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:53:15.433698 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:53:15.433698 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:53:45.434189 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:53:45.434189 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:53:45.434189 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:53:45.434189 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:53:45.434189 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:53:45.446157 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:53:45.471090 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:53:45.471090 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:54:15.084024 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:15.084024 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:15.084024 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:15.084024 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:15.084024 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:54:15.084024 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:15.084024 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:15.084024 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:54:15.085023 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:54:15.085023 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:54:15.085023 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:54:15.085023 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:54:15.085023 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:54:15.085023 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:54:15.085023 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:54:15.085023 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:54:15.169796 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:54:15.169796 stat_web_server.go:1006: [admin=MTU5ODQyMDk1OXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18TXTDwrx6HfWxBu4a9-cH4LoUdVbRCx2OBodiTzF6PiY=]
+2020/08/26 14:54:15.170794 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:54:15.170794 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:54:15.170794 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:54:15.171793 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:54:15.171793 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:15.171793 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:15.172787 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:15.186749 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:54:15.471988 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:15.472985 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:15.472985 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:15.472985 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:54:15.472985 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:54:15.487945 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:54:15.507891 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:54:15.507891 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:54:43.119309 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:54:43.119309 stat_web_server.go:1006: [admin=MTU5ODQyMTI1NXxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18umX-dyBXxHEmIWvrggTjKynyQ5KBnNbHYBbMDqrh5NI=]
+2020/08/26 14:54:43.119309 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:54:43.119309 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:54:43.119309 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:54:43.119309 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:54:43.120305 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:43.120305 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:43.120305 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:43.134268 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:54:45.507923 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:45.507923 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:45.507923 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:45.507923 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:54:45.507923 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:54:45.520890 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:54:45.541833 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:54:45.541833 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:54:52.563516 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:54:52.563516 stat_web_server.go:1006: [admin=MTU5ODQyMTI4M3xEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18uchmyiXvT6XssoHMDLCccONCjDtmh3bDKWmZ-QK4wxI=]
+2020/08/26 14:54:52.563516 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:54:52.563516 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:54:52.563516 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:54:52.564514 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:54:52.564514 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:54:52.564514 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:54:52.564514 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:54:52.577478 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08
+2020/08/26 14:55:15.085087 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:55:15.085087 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:55:15.085087 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:55:15.085087 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:55:15.085087 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:55:15.085087 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:55:15.085087 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:55:15.085087 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:55:15.085087 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:55:15.085087 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:55:15.085087 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:55:15.085087 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:55:15.085087 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:55:15.085087 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:55:15.085087 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:55:15.086064 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:55:15.541873 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:55:15.541873 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:55:15.541873 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:55:15.541873 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:55:15.541873 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:55:15.553842 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:55:15.574785 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:55:15.574785 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:55:45.575581 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:55:45.575581 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:55:45.575581 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:55:45.575581 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:55:45.575581 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:55:45.589557 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:55:45.610489 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:55:45.610489 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:56:15.087052 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:15.087052 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:15.087052 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:15.087052 stat_web_server.go:4052: [LOG] QueryStr :  select ifnull(ClntIdx , '1r') from StatIdxTbl
+2020/08/26 14:56:15.087052 stat_web_server.go:4072: [LOG] encryptidxcnt :  1r
+2020/08/26 14:56:15.087052 stat_web_server.go:4076: [LOG] decryptidxcnt :  0
+2020/08/26 14:56:15.087052 stat_web_server.go:4259: [LOG] QueryStr :  select Count(*)
+from Client_Statistics_Common A, Client_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:56:15.087052 stat_web_server.go:4099: [LOG] Select Client statistic Count is Zero
+2020/08/26 14:56:15.088049 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:15.088049 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:15.088049 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:15.088049 stat_web_server.go:4396: [LOG] QueryStr :  select ifnull(ServIdx , '1r') from StatIdxTbl
+2020/08/26 14:56:15.088049 stat_web_server.go:4416: [LOG] encryptidxcnt: 1r
+2020/08/26 14:56:15.088049 stat_web_server.go:4419: [LOG] decryptidxcnt: 0
+2020/08/26 14:56:15.088049 stat_web_server.go:4597: [LOG] QueryStr :  select Count(*)
+from Server_Statistics_Common A, Server_Statistics_Data B where A.ID = B.ID AND A.ID > 0
+2020/08/26 14:56:15.088049 stat_web_server.go:4438: [LOG] Select Server statistic Count is Zero
+2020/08/26 14:56:15.610683 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:15.610683 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:15.610683 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:15.610683 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:56:15.610683 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:56:15.622621 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:56:15.644561 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:56:15.644561 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:56:45.644945 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:45.645948 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:45.645948 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:45.645948 stat_web_server.go:5847: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:56:45.645948 stat_web_server.go:5848: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:56:45.671903 stat_web_server.go:5887: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:56:45.692843 stat_web_server.go:5914: [LOG] : Success client do
+2020/08/26 14:56:45.692843 stat_web_server.go:5853: invailed auth protocol AuthKey
+2020/08/26 14:56:56.092018 stat_web_server.go:7686: Start Logger
+2020/08/26 14:56:56.206713 stat_web_server.go:5053: NIC Name : 이더넷 NIC IP : 169.254.198.90
+2020/08/26 14:56:56.217683 stat_web_server.go:5053: NIC Name : Npcap Loopback Adapter NIC IP : 169.254.78.72
+2020/08/26 14:56:56.229679 stat_web_server.go:5053: NIC Name : 이더넷 4 NIC IP : 192.168.17.29
+2020/08/26 14:56:56.240651 stat_web_server.go:5053: NIC Name : 로컬 영역 연결 NIC IP : 169.254.151.21
+2020/08/26 14:56:56.252618 stat_web_server.go:5053: NIC Name : VMware Network Adapter VMnet8 NIC IP : 192.168.174.1
+2020/08/26 14:56:56.263562 stat_web_server.go:5053: NIC Name : Loopback Pseudo-Interface 1 NIC IP : 127.0.0.1
+2020/08/26 14:56:56.263562 stat_web_server.go:7696: OS : General OS
+2020/08/26 14:56:56.263562 stat_web_server.go:3975: Run Local Web Server..
+2020/08/26 14:56:56.263562 stat_web_server.go:5175: DBPATH ./db/ DBName traffic.db
+2020/08/26 14:56:56.263562 stat_web_server.go:898: Web Config File (web.cfg) -> WEB Listener port:9559
+2020/08/26 14:56:56.266553 stat_web_server.go:5323: Node_Flag : Node_FLAG_CLIENT
+2020/08/26 14:56:56.267581 stat_web_server.go:7232: [LOG] here is in ProvisioningUploadLocalPorcess
+2020/08/26 14:56:56.267581 stat_web_server.go:7239: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:56:56.267581 stat_web_server.go:7240: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:56:56.267581 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:56.267581 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:56.267581 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:56.267581 stat_web_server.go:7282: authReqProto.NodeID: dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni
+2020/08/26 14:56:56.267581 stat_web_server.go:7283: authReqProto.UserKeyID: 1cri
+2020/08/26 14:56:56.280516 stat_web_server.go:7303: json {"version":"1.0","method":"Auth","sessiontype":"ConfigData","msgtype":"request","userkey":"1cs676kjut7yibnqgnshabtff57m67yhbc6akptxjsxlbshsu4m3lmt1pe","userkeyid":"1cri","nodeid":"dl1ne6drk8y7a7jlamb8gh7jeammvfas57c64k4ycl6itm1h1tni","deviceid":"1ykup","ip":"192.168.17.29","mactotal":"10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08","authkey":"","authtoken":"","data":null}
+2020/08/26 14:56:56.654756 stat_web_server.go:7330: [LOG] : Success client do
+2020/08/26 14:56:56.655722 stat_web_server.go:7257: [ERR] ProvisioninguploadAuthRequest: invailed auth protocol AuthKey
+2020/08/26 14:56:56.655722 stat_web_server.go:5815: [LOG] : here is in ProvisioningDownloadLocalPorcess
+2020/08/26 14:56:56.980279 stat_web_server.go:1834: Setting /setting/
+2020/08/26 14:56:56.980279 stat_web_server.go:1006: [admin=MTU5ODQyMTI5MnxEdi1CQkFFQ180SUFBUkFCRUFBQUpmLUNBQUVHYzNSeWFXNW5EQThBRFdGMWRHaGxiblJwWTJGMFpXUUVZbTl2YkFJQ0FBRT18k-FJDUuSH_s-ez7wUpIkZa7BAol0wDG4Lbswcj8w9kI=]
+2020/08/26 14:56:56.980279 stat_web_server.go:1016: Cookies Name: admin
+2020/08/26 14:56:56.980279 stat_web_server.go:1851: [LOG] : mcsservice.uxcloud.net:9094
+2020/08/26 14:56:56.980279 stat_web_server.go:1852: [LOG] : mcsupdate.uxcloud.net:9093
+2020/08/26 14:56:56.981279 stat_web_server.go:1999: [Log]  [NodeID]
+NodeID = "jbkCtujj-0044-dvPJ-siDl-MLh58nqn"
+[UserKeyID]
+UserKeyID = "44"
+[DeviceID]
+DeviceID = "115"
+
+
+2020/08/26 14:56:56.981279 stat_web_server.go:5732: userkey COD$_fp5v5kuaqftciw7e2drrnkcxnvsvjqbpegcxxpic7ed2f4bwybnmyb2ctrb1n8cbpthauk25evie6p13mhweb5wgbifcakisu2dlv
+2020/08/26 14:56:56.981279 stat_web_server.go:5765: [LOG] USERKEYID : 44
+2020/08/26 14:56:56.981279 stat_web_server.go:5766: [LOG] DEVICEID : 115
+2020/08/26 14:56:56.994270 stat_web_server.go:2140: Mac: 10:7b:44:47:9c:31-02:00:4c:4f:4f:50-00:e0:63:34:32:42-00:ff:2a:a5:98:14-00:50:56:c0:00:08

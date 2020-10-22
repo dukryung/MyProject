@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+  <!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+function showNodeIDAuthDetail(node_id){
+  var url = "/monitoring/node_auth_detail/"
+  url += "?node_id=" + node_id
+  location.href = url;
+}
+
+function showGroupNodeID(){
+  location.href = "/monitoring/node_auth/?search_type=group";
+}
+
+function showNoGroupNodeID(){
+  location.href = "/monitoring/node_auth/?search_type=nogroup";
+}
+
+</script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <h1>KMS</h1>
+    </header>
+    <section>
+      <div class="path">
+        <ul>
+				<li>KMS</li>
+				<li>Monitoring Auth</li>
+        </ul>
+      </div>
+      <nav>
+        <h1>KMS</h1>
+        <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+        </ul>
+      </nav>
+      <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>Node Authentication Log</h1>			
+        <table class="table_fixed">
+          <colgroup>
+            <col width="4%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Node ID</th>
+              <th>Node Server IP</th>
+              <th>Authentication Time</th>
+              <th>Detail Log</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range .MonitoringItem }}
+            <tr>
+              <td>{{.Num}}</td>
+              <td>{{.NodeID}}</td>
+              <td>{{.NodeIP}}</td>
+              <td>{{.AuthenticationTime}}</td>
+              <td><button type="button" onClick="showNodeIDAuthDetail({{.NodeID}});" class="green">show Log</button></td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+        <div class="paginate_group">
+          <div class="bg_l">
+            <button type="button" onClick="showGroupNodeID();" class="green">Show Auth Time of each Node Server</button>
+          </div>
+
+          <span class="paginate_complex">
+            <a class="direction prev" href={{.TempletePage.TempleteViewBeginPage}}><span></span><span></span> 처음</a>
+            <a class="direction prev" href={{.TempletePage.TempleteViewPrevPage}}><span></span> 이전</a>
+            {{ range .TempletePage.TempleteViewPageList}}
+              {{.}}
+            {{ end }}
+            <a class="direction next" href={{.TempletePage.TempleteViewNextPage}}>다음 <span></span></a>
+            <a class="direction next" href={{.TempletePage.TempleteViewEndPage}}>끝 <span></span><span></span></a>
+          </span>
+
+          <div class="bg_r">
+            <button type="button" onClick="showNoGroupNodeID();" class="green">show All log</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+  <footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+  </footer>
+</body></html>

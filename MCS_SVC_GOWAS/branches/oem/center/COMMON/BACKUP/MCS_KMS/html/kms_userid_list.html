@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $("#user_property").val(document.getElementById('selected_user_property').value).prop("selected", true);
+  $("#user_status").val(document.getElementById('selected_user_status').value).prop("selected", true);
+
+});
+
+
+function userid_list_search() {
+  document.getElementById("search_form").action = "/userid/management/";
+  document.getElementById('search_form').submit();
+}
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>User ID Management</h1>
+          <form id="search_form">
+			<div class="search_area">                
+          <label>
+					<strong>User ID</strong>					
+					<input id="user_id" name="user_id" type="text" class="s10" value="{{.SearchParamUserID}}">
+				</label>
+				<label>
+					<strong>E-mail</strong>
+					<input id="user_email" name="user_email" type="text" clsss="s20" value="{{.SearchParamUserEmail}}">	
+				</label>
+				<label>
+					<strong>Property</strong>					
+					<select id="user_property" name="user_property" class="s15">
+						<option value="">---- No Select ----</option>
+						<option value="admin">admin</option>
+						<option value="normal">normal</option>
+					</select>					
+					<input id="selected_user_property" name="selected_user_property" type="hidden" clsss="s20" value="{{.SearchParamUserProperty}}">	
+
+				</label>
+				<label>
+					<strong>Status</strong>					
+					<select id="user_status" name="user_status" class="s15">
+						<option value="">---- No Select ----</option>
+						<option value="ENABLE">ENABLE</option>
+						<option value="DISABLE">DISABLE</option>
+					</select>					
+					<input id="selected_user_status" name="selected_user_status" type="hidden" clsss="s20" value="{{.SearchParamUserStatus}}">	
+				</label>				
+				<button id="search" onclick="userid_list_search();" type="button">Search</button>				
+            </div>
+        </form>
+			<hr />
+			<table class="table_fixed">
+            <colgroup>
+            <!--
+          <col width="4%">
+          -->
+          <col width="10%">
+          <col width="10%">
+          <col width="10%">
+          <col width="10%">
+          <col width="10%">
+          <col width="8%">
+          <col width="86">
+          <col width="86">
+          <col width="86">
+            </colgroup>
+			<thead>
+				<tr>
+          <!--
+					<th></th>
+          -->
+					<th>User ID</th>
+					<th>E-mail</th>
+					<th>Property</th>
+					<th>Create Date</th>
+					<th>Update Date</th>
+					<th>Status</th>
+					<th>User Key</th>
+					<th>Modify</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+        {{ range .UserID }}
+				<tr>
+        <!--
+					<td><input type="checkbox" name="user_id_checkbox[]" value="{{.UserID}}"></td>
+          -->
+					<td> {{.UserID}} </td>
+					<td> {{.UserEmail}} </td>
+					<td> {{.UserProperty}} </td>
+					<td> {{.CreateDate}} </td>
+					<td> {{.UpdateDate}} </td>
+					<td> {{.UserStatus}} </td>
+					<td><button type="button" class="s" onClick="location.href='{{.UserKeyLinkURL}}'">User Key</button></td>
+					<td><button type="button" class="s" onClick="location.href='{{.UserIDModifyLinkURL}}'">Modify</button></td>
+					<td><button type="button" class="s" onClick="location.href='{{.UserIDDeleteLinkURL}}'">Delete</button></td>
+				</tr>
+        {{ end }}
+			</tbody>
+			</table>
+            <div class="paginate_group">
+            <!--
+				<div class="bg_l">
+					<button type="button">Delete</button>
+				</div>
+        -->
+                <span class="paginate_complex">
+                  <a class="direction prev" href={{.TempletePage.TempleteViewBeginPage}}><span></span><span></span> 처음</a>
+                  <a class="direction prev" href={{.TempletePage.TempleteViewPrevPage}}><span></span> 이전</a>
+                  {{ range .TempletePage.TempleteViewPageList}}
+                    {{.}}
+                  {{ end }}
+                  <a class="direction next" href={{.TempletePage.TempleteViewNextPage}}>다음 <span></span></a>
+                  <a class="direction next" href={{.TempletePage.TempleteViewEndPage}}>끝 <span></span><span></span></a>
+                </span>
+				<div class="bg_r">
+					<button type="button" class="green" onClick="location.href='/userid/create_input/'">Create</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

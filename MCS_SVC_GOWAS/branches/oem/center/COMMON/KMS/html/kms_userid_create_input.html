@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#user_id_check').on('click',function() {
+    user_id_check_query ();
+  })
+});
+
+var refChildWindowPopup;
+
+function popup_child_window_set_text (message)
+{
+  if (refChildWindowPopup != null){
+    refChildWindowPopup.document.getElementById("popup_message").value = message;
+    refChildWindowPopup.document.getElementById("popup_message").innerHTML = message;
+  }
+}
+
+function popup_child_window_valid_id(code){
+  var pupupW = 1000;
+  var pupupH = 500;
+  var popupX = (document.body.offsetWidth / 2) - (pupupW / 2);
+  var popupY = (document.body.offsetHeight / 2) - (pupupH / 2);
+
+  if (refChildWindowPopup == null) {
+    refChildWindowPopup = window.open ('/popup/', 'IDCheck Window', 'width=' + pupupW + ', height=' + pupupH + ', left=' + popupX + ', top=' + popupY + ', toolbar=no, menubar=no, location=no, scrollbars=yes, status=no, resizable=yes')
+    //popup_child_window_set_text ("test");
+  } else {
+    if (refChildWindowPopup.closed == false){
+      refChildWindowPopup.focus();
+      //popup_child_window_set_text ("test");
+    } else {
+      refChildWindowPopup = window.open ('/popup/', 'IDCheck Window', 'width=200, height=300, left='+popupX+', top='+popupY+', toolbar=no, menubar=no, location=no, scrollbars=yes, status=no, resizable=yes')
+      //popup_child_window_set_text ("test");
+    }
+  }
+}
+
+
+function user_id_check_query () {
+
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("유효하지 않은 ID 입니다.\n(최소 길이는 4자리 이상)");
+    document.getElementById("user_id").value = "";
+    document.getElementById("id_duplication").value = "unset"
+    document.getElementById("user_id").focus();
+    return;
+  }
+
+  var send_json_data = {"user_id" : $('#user_id').val(),
+                        "action_mode" : "CREATE_USERID"};
+
+  $.ajax({
+      async: false,
+      url: "/userid/ajax/userid_check/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          //$("#div_ajax_load_image").hide();
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            //alert ("parsing return data (succ) :" + jsonObject.MsgValue);
+
+            if (jsonObject.MsgCode == "1000") {
+              alert("사용 가능한 ID 입니다.")
+              document.getElementById("id_duplication").value = "set"
+            } else if (jsonObject.MsgCode == "1090") {
+              alert("사용자 생성 권한이 없는 계정입니다.")
+              document.getElementById("id_duplication").value = "unset"
+            } else if (jsonObject.MsgCode == "1100") {
+              alert("Cookie Session이 만료되었습니다.\n다시 로그인 하십시오.")
+              document.getElementById("id_duplication").value = "unset"
+            } else {
+              alert("사용 불가한 ID 입니다.")
+              document.getElementById("id_duplication").value = "unset"
+            }
+          } else {
+            document.getElementById("id_duplication").value = "unset"
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("User ID 체크를 할 수 없습니다. \nNetwork 상태를 확인하여 주시기 바랍니다.");
+          document.getElementById("id_duplication").value = "unset"
+        },
+
+      beforeSend: 
+        function () {
+          document.getElementById("id_duplication").value = "unset"
+        }
+  });
+}
+
+
+function userCreate () {
+
+  if (document.getElementById("user_id").value.length < 4) {
+    alert ("유효하지 않은 ID 입니다.\n(최소 길이는 4자리 이상");
+    document.getElementById("user_id").value = "";
+    document.getElementById("id_duplication").value = "unset"
+    document.getElementById("user_id").focus();
+    return;
+  }
+
+  if (document.getElementById("id_duplication").value != "set") {
+    alert ("생성 가능한 User ID 검증을 해야 합니다.");
+    document.getElementById("id_duplication").value = "unset";
+    document.getElementById("user_id").value = "";
+    document.getElementById("user_id").focus();
+    return;
+  }
+
+  if (document.getElementById("user_password").value.length < 8) {
+    alert ("유효하지 않은 패스워드 입니다. \n(최소 길이는 8자리 이상)");
+    document.getElementById("user_password").value = "";
+    document.getElementById("user_password").focus();
+    return;
+  }
+
+  if (document.getElementById("user_email").value.length <= 0) {
+    alert ("Email을 입력하시기 바랍니다.");
+    document.getElementById("user_email").value = "";
+    document.getElementById("user_email").focus();
+    return;
+  }
+
+  if (document.getElementById("user_property").value != "admin" && document.getElementById("user_property").value != "normal") {
+    alert ("유효하지 않은 사용자 권한이 입력되었습니다. \n다시 선택하여 주시기 바랍니다.");
+    document.getElementById("user_property").focus();
+    return;
+  }
+  /*
+  if (document.getElementById("user_program_name").value.length <= 0) {
+    alert ("invlaid user program name length");
+    document.getElementById("user_program_name").value = "ServiceNode";
+    document.getElementById("user_program_name").focus();
+    return;
+  }
+  */
+
+  document.getElementById("userid_create_form").submit();
+  return;
+}
+
+
+function userCreateCancel () {
+  document.getElementById("user_id").value = "";
+  document.getElementById("user_password").value = "";
+  document.getElementById("user_email").value = "";
+  document.getElementById("user_program_name").value = "OptimalConnectNode";
+  document.getElementById("user_property").options[0].selected = true;
+  document.getElementById("id_duplication").value = "unset"
+}
+</script>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>User ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+            </div>
+        	<h1>User Management Create</h1>
+          
+		  <form id="userid_create_form" action="/userid/create_proc/" method="post">
+			<table class="input">
+        <colgroup>
+        <col width="25%"><col>
+        </colgroup>
+          <tbody>
+            <tr>
+              <th>User ID</th>
+              <td>
+                <div class="float_btn">
+                <div id="idcheck_loading"></div>
+                <input id="user_id" name="user_id" type="text" class="s100" value="">
+                <input id="id_duplication" name="id_duplication" type="hidden" value="unset" class="s100">
+                <button id="user_id_check" type="button" class="gray">check</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <td><input id="user_password" name="user_password" type="password" class="s100"></td>
+            </tr>
+            <tr>
+              <th>E-mail</th>
+              <td><input id="user_email" name="user_email" type="email" class="s100"></td>
+            </tr>
+            <tr>
+              <th>Property</th>
+              <td>
+                <select id="user_property" name="user_property" class="s100">
+                  <option value="novalue">---- Choice User Property ----</option>
+                  <option value="admin">ADMIN</option>
+                  <option value="normal">GENERAL</option>
+                </select>
+              </td>
+            </tr>            
+            <!--
+            <tr>
+              <th>Program Name</th>
+              <td><input id="user_program_name" name="user_program_name" type="text" value="OptimalConnectNode" class="s100"></td>
+            </tr>
+            -->
+              <input id="user_program_name" name="user_program_name" type="hidden" value="OptimalConnectNode" class="s100">
+          </tbody>
+      </table>
+		  </form>
+        <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="userCreateCancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button type="button" onClick="userCreate();" class="green">Create</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

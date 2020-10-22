@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+ARGC=$#
+CUR_PATH=$PWD
+SOURCE_TEMP_PATH=$CUR_PATH
+SOURCE_FILE_USERKEY_PATH=$SOURCE_TEMP_PATH/userkey.key
+SOURCE_FILE_CFG_PATH=$SOURCE_TEMP_PATH/MCSE/cfg
+
+
+mv  $SOURCE_FILE_USERKEY_PATH $SOURCE_FILE_CFG_PATH 
+mv  ./mcse ./MCSE
+
+tar -zcvf mcse.tar.gz ./MCSE
+mv $SOURCE_TEMP_PATH/mcse.tar.gz ../
+#rm -rf ./MCSE
+
+exit 0

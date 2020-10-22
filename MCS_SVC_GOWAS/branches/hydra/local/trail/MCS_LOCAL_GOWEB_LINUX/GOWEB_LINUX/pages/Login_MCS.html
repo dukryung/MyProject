@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/pages/css/jquery.validate.css" media="all" />
+<script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+<script type="text/javascript" src="/pages/jquery.validate.js"></script>
+<script type="text/javascript" src="/pages/Login_MCS.html.js"></script>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+	<div class="login_wrap">
+		<div class="login_bg">
+			<div class="login_con">
+				<h1>HydraDNS</h1>
+				<form>
+					<div class="login_input hydra">
+						<input type="text" name="id" id="id" placeholder="ID"  />
+						<input type="password" name="pwd" id="pwd" placeholder="Password"/>
+						<input type="text" name="ordernum" id="ordernum" placeholder="MCS Sevice Order Number" />
+					</div>
+					<div class="btn_group">
+						<p class="btn_cancel"><span><button type="button" act="btnsvccancel">Cancel</button></span></p>
+						<p class="btn_login"><span><button type="button" act="btnsvc" >Confirm</button></span></p>
+					</div>
+				</form>
+					<input id="SL_Version" type="hidden" name="sl_version" value="{{.SL_Version}}" readonly>
+					<input id="SL_Method" type="hidden" name="sl_method" value="{{.SL_Method}}" readonly>
+				    <input id="SL_SessionType" type="hidden" name="sl_sessiontype" value="{{.SL_SessionType}}" readonly>
+				    <input id="SL_Seperator" type="hidden" name="sl_seperator" value="{{.SL_Seperator}}" readonly>
+				    <input id="SL_MessageType" type="hidden" name="sl_messagetype" value="{{.SL_MessageType}}" readonly>
+					<input id="SL_MsgSeq" type="hidden" name="sl_msgseq" value="{{.SL_MsgSeq}}" readonly>
+					<input id="SL_ControlServerAddress" type="hidden" name="sl_controladdress" value="{{.SL_ControlServerAddress}}" readonly>
+					<input id="SL_SVCtype" type="hidden" name="sl_svctype" value="{{.SL_SVCtype}}" readonly>
+					<input id="SL_Scenariostate" type="hidden" name="sl_scenariostate" value="{{.SL_Scenariostate}}" readonly>
+					<input id="SL_ID" type="hidden" name="sl_id" value="{{.SL_ID}}" readonly>
+					<input id="SL_Ordernum" type="hidden" name="sl_ordernum" value="{{.SL_Ordernum}}" readonly>
+					<input id="SL_AuthKey" type="hidden" value="">
+					<input id="SL_AuthToken" type="hidden" value="">
+					<input id="SL_ResponseCode" type="hidden" value="" readonly>
+					<input id="SL_Userkey" type="hidden" value="" readonly>
+					<input id="SL_Nodeid" type="hidden" value="" readonly>
+					<input id="SL_GowasAddr" type="hidden" value="" readonly>
+					<input id="SL_UpdateGowasAddr" type="hidden" value="" readonly>
+					<input id="SL_Checksum" type="hidden" value="" readonly>
+			</div>
+		</div>	
+	</div>
+</div>
+</body>
+</html>

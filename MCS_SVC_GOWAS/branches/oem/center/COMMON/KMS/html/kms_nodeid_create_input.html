@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#nodeid_tmp_generate').on('click',function() {
+    nodeIDGenerateAddProc ()
+  })
+
+  $('#nodeid_new_confirm_license').on('click',function() {
+    nodeIDListConfirmLicense()
+  })
+
+  $('#nodeid_new_confirm').on('click',function() {
+    nodeIDListConfirm()
+  })
+});
+
+function newAllNodeList() {
+  var tmpGenerateNodeIDList = "";
+  var rows = document.getElementById("addNodeIDTable").rows;
+  if (rows.length > 0) {
+    for (var i=0; i < rows.length; i++){
+      var myrow = rows[i];
+      for (j = 0; j < myrow.cells.length; j++) {
+        var mytd = myrow.cells[j];
+        tmpGenerateNodeIDList += mytd.children[0].value + ";";
+      }
+    }
+
+    return tmpGenerateNodeIDList;
+  } else {
+    return "";
+  }
+}
+
+function nodeIDGenerateAddProc () {
+  var currentNodeIDCount = parseInt($('#current_count_node_id').val()) + parseInt(document.getElementById("addNodeIDTable").rows.length);
+  if (currentNodeIDCount >= 100) {
+    alert ("Node ID는 100개를 초과할 수 없습니다.");
+    return;
+  }
+
+  $('#nodeid_tmp_generate').attr('disabled', true);
+  var newGenerateNodeIDList = newAllNodeList();
+  var send_json_data = {"action_mode" : "ADD",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_list": newGenerateNodeIDList}
+  $.ajax({
+      async: false,
+      url: "/nodeid/ajax/generate_nodeid/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              var nodeIDTag = "";
+              nodeIDTag += "<input type=text name=addText value=" + jsonObject.MsgValue + " readonly style=width:400px;>&nbsp;";
+              //nodeIDTag += "<input type=button value='삭제' onClick='nodeIDGenerateDeleteProc()' style='cursor:hand'>&nbsp;";
+
+              oTbl = document.getElementById("addNodeIDTable");
+              var oRow = oTbl.insertRow();
+              oRow.onmouseover=function(){oTbl.clickedRowIndex=this.rowIndex};
+              var oCell = oRow.insertCell();
+              oCell.innerHTML = nodeIDTag;
+
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            } else {
+              alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              $("#addNodeIDTable tr").remove(); 
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            $("#addNodeIDTable tr").remove(); 
+            $('#nodeid_tmp_generate').attr('disabled', false);
+            return;
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          $("#addNodeIDTable tr").remove(); 
+          $('#nodeid_tmp_generate').attr('disabled', false);
+        },
+  });
+}
+
+function nodeIDGenerateDeleteProc () {
+  oTbl = document.getElementById("addNodeIDTable");
+  oTbl.deleteRow(oTbl.clickedRowIndex);
+  // TODO Sync DB Checking
+  /*
+  var send_json_data = {"action_mode" : "DEL",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_list": newGenerateNodeIDList}
+  $.ajax({
+      async: false,
+      url: "/nodeid/ajax/generate_nodeid/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              var nodeIDTag = "";
+              nodeIDTag += "<input type=text name=addText value=" + jsonObject.MsgValue + " readonly style=width:400px;>&nbsp;";
+              nodeIDTag += "<input type=button value='삭제' onClick='nodeIDGenerateDeleteProc()' style='cursor:hand'>&nbsp;";
+
+              oTbl = document.getElementById("addNodeIDTable");
+              var oRow = oTbl.insertRow();
+              oRow.onmouseover=function(){oTbl.clickedRowIndex=this.rowIndex};
+              var oCell = oRow.insertCell();
+              oCell.innerHTML = nodeIDTag;
+
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            } else {
+              alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            }
+            //popup_child_window_valid_id ();
+          } else {
+            alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            $('#nodeid_tmp_generate').attr('disabled', false);
+            return;
+            //popup_child_window_invalid_id ();
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          $('#nodeid_tmp_generate').attr('disabled', false);
+        },
+  });
+  */
+}
+
+function nodeIDListConfirmLicense() {
+  var currentNodeIDCount = parseInt($('#current_count_node_id').val()) + parseInt(document.getElementById("addNodeIDTable").rows.length);
+  if (currentNodeIDCount > 100) {
+    alert ("Node ID는 100개를 초과할 수 없습니다.");
+    return;
+  }
+
+  $('#nodeid_tmp_generate').attr('disabled', true);
+  var newGenerateNodeIDList = newAllNodeList();
+  var send_json_data = {"action_mode" : "SET",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_list": newGenerateNodeIDList}
+  $.ajax({
+      async: false,
+      url: "/nodeid/create_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              $("#addNodeIDTable tr").remove(); 
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              //alert ("[complete succ] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+              alert ("Node ID가 추가되었습니다.\n(license page로 이동합니다.)");
+              location.href = "/nodekey/license/?user_id=" + $('#user_id').val() + "&node_key=" + $('#node_key').val();
+              return;
+            } else {
+              //alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              alert ("Node ID가 추가 처리하는데 실패하였습니다.");
+              $("#addNodeIDTable tr").remove(); 
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            }
+          } else {
+            //alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            alert ("Node ID가 추가 처리하는데 실패하였습니다.");
+            $("#addNodeIDTable tr").remove(); 
+            $('#nodeid_tmp_generate').attr('disabled', false);
+            return;
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          //alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          alert ("Node ID가 추가 처리하는데 실패하였습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          $("#addNodeIDTable tr").remove(); 
+          $('#nodeid_tmp_generate').attr('disabled', false);
+          return;
+        },
+  });
+}
+
+function nodeIDListConfirm() {
+  var currentNodeIDCount = parseInt($('#current_count_node_id').val()) + parseInt(document.getElementById("addNodeIDTable").rows.length);
+  if (currentNodeIDCount > 100) {
+    alert ("Node ID는 100개를 초과할 수 없습니다.");
+    return;
+  }
+
+  $('#nodeid_tmp_generate').attr('disabled', true);
+  var newGenerateNodeIDList = newAllNodeList();
+  var send_json_data = {"action_mode" : "SET",
+                        "user_id" : $('#user_id').val(),
+                        "node_key" : $('#node_key').val(),
+                        "node_id_list": newGenerateNodeIDList}
+  $.ajax({
+      async: false,
+      url: "/nodeid/create_proc/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            if (jsonObject.MsgCode == "1000") {
+              $("#addNodeIDTable tr").remove(); 
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              //alert ("[complete succ] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+              alert ("Node ID가 추가되었습니다.");
+              location.href = "/nodeid/create_input/?user_id=" + $('#user_id').val() + "&node_key=" + $('#node_key').val();
+              return;
+            } else {
+              //alert ("parsing return data (fail) :" + jsonObject.MsgValue);
+              alert ("Node ID가 추가 처리하는데 실패하였습니다.");
+              $("#addNodeIDTable tr").remove(); 
+              $('#nodeid_tmp_generate').attr('disabled', false);
+              return;
+            }
+          } else {
+            //alert ("[complete fail] rsp status:" + response.status + " | response msg = " + response.responseText + " | Data:" + textStatus);
+            alert ("Node ID가 추가 처리하는데 실패하였습니다.");
+            $("#addNodeIDTable tr").remove(); 
+            $('#nodeid_tmp_generate').attr('disabled', false);
+            return;
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          //alert ("[error] code = " + xml_request.status + " message = " + xml_request.responseText + " error = " + error_thrown);
+          alert ("Node ID가 추가 처리하는데 실패하였습니다.\n(Network 상태를 확인하여 주시기 바랍니다.)");
+          $("#addNodeIDTable tr").remove(); 
+          $('#nodeid_tmp_generate').attr('disabled', false);
+          return;
+        },
+  });
+}
+
+function nodeidCreateCancel (){
+  location.href = "/nodeid/management/";
+}
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>KMS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+				<li>KMS</li>
+				<li>Node ID</li>
+            </ul>
+        </div>
+        <nav>
+        	<h1>KMS</h1>
+            <ul>
+            {{.MainMenu.Setting}}
+            {{.MainMenu.UserIDMenu}}
+            {{.MainMenu.UserKeyIDMenu}}
+            {{.MainMenu.NodeIDMenu}}
+            {{.MainMenu.ServerAuthDashboardMenu}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+            <div class="fr">                
+            <button type="button" class="green" onclick="location.href='/logout/'">Logout</button>
+            </div>        
+          </div>
+        	<h1>Node ID Management Create</h1>			
+			<table class="input">
+            <colgroup>
+            <col width="25%"><col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>User ID</th>
+                <td>
+					<div class="float_btn">
+						<input id="user_id" name="user_id" type="text" class="s100" value="{{.NodeData.UserID}}" readonly>
+						<!-- <button type="button" class="gray">check</button> -->
+					</div>
+				</td>
+            </tr>
+            <tr>
+				<th>User Key</th>
+				<td>
+					<div class="float_btn">
+						<input id="node_key" name="node_key" type="text" class="s100" value="{{.NodeData.NodeKey}}" readonly>
+						<!-- <button type="button" class="gray">check</button> -->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>Node ID Count</th>
+				<td> 
+          {{.NodeData.NodeIDOldCount}} / 100 
+				  <input id="current_count_node_id" name="current_count_node_id" type="hidden" class="s100" value="{{.NodeData.NodeIDOldCount}}">
+        </td>
+			</tr>
+			<tr>
+				<th>Node ID Generate</th>
+				<td><button id="nodeid_tmp_generate" type="button" class="green">New Node ID</button></td>
+			</tr>				
+			<tr>
+				<th>Node ID Add List</th>
+				<td>
+					<!-- <div class="ol_list"> --> 
+          <table id="currentNodeIDTable">
+            <tr>
+						<ol id="ol_node_id">
+              {{ range .NodeData.NodeIDDetail }}
+							  <li>{{.NodeID}}</li>
+              {{ end }}
+						</ol>
+            </tr>
+            <tr>
+            <table id="addNodeIDTable" width="400" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" border="0"></table>
+            </tr>
+          </table> 
+					<!-- </div> -->
+				</td>
+			</tr>
+      </tbody>
+      </table>
+        <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="nodeidCreateCancel();">Cancel</button>
+			  </div>                
+			  <div class="bg_r">
+					<button id="nodeid_new_confirm_license" type="button" class="green">Create &amp; License</button>
+					<button id="nodeid_new_confirm" type="button" class="green">Create</button>
+	      </div>
+        </div>
+      </article>
+    </section>
+</div>
+<footer>
+    <span>{{.OEMData.OEMWEBTailInfo}}</span>
+</footer>
+</body>
+</html>

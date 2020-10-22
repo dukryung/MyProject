@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/html/css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/html/css/contents.css" media="all" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/html/javascript/jquery-3.4.0.js"></script>
+
+<script type="text/javascript">
+function query_encript_encode_user_key_id () {
+  if (document.getElementById("user_key_id").value.length == 0) {
+    alert ("유효하지 않은 user_key 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#user_key_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("user_key_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_user_key () {
+  if (document.getElementById("user_key").value.length == 0) {
+    alert ("유효하지 않은 user_key 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#user_key').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("user_key_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_node_id () {
+  if (document.getElementById("node_id").value.length == 0) {
+    alert ("유효하지 않은 node_id 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#node_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("node_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_device_id () {
+  if (document.getElementById("device_id").value.length == 0) {
+    alert ("유효하지 않은 device_id 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#device_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("device_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_via_node_id () {
+  if (document.getElementById("via_node_id").value.length == 0) {
+    alert ("유효하지 않은 via_node_id 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#via_node_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("via_node_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_via_device_id () {
+  if (document.getElementById("via_device_id").value.length == 0) {
+    alert ("유효하지 않은 via_device_id 입니다.");
+    return;
+  }
+
+  var send_json_data = {"input" : $('#via_device_id').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/encoding/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n" +
+                    "input:" + jsonObject.input + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("via_device_id_encode").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_auth_key() {
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgseq").value.length == 0) {
+    alert ("유효하지 않은 msgseq 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_id_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 node_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 device_id_encode 입니다.");
+    return;
+  }
+
+  /*---------------------------------------------------------------------
+  if (document.getElementById("via_node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_node_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("via_device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_device_id_encode 입니다.");
+    return;
+  }
+  ---------------------------------------------------------------------*/
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "msgseq" : $('#msgseq').val(),
+                        "user_key" : $('#user_key_encode').val(),
+                        "userkeyid" : $('#user_key_id_encode').val(),
+                        "userkey" : $('#user_key_encode').val(),
+                        "deviceid" : $('#device_id_encode').val(),
+                        "nodeid" : $('#node_id_encode').val(),
+                        "via_deviceid" : $('#via_device_id_encode').val(),
+                        "via_nodeid" : $('#via_node_id_encode').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            response_json_msg = "[ json response information ]\n\n" +
+                                "version:" + jsonObject.version + "\n" +
+                                "method:" + jsonObject.method + "\n" +
+                                "sessiontype:" + jsonObject.sessiontype + "\n" +
+                                "seperator:" + jsonObject.seperator+ "\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n" +
+                                "msgseq:" + jsonObject.msgseq+ "\n" +
+                                "code:" + jsonObject.code + "\n" +
+                                "message:" + jsonObject.msg + "\n" +
+                                "authkey:" + jsonObject.auth_key + "\n" +
+                                "expiretime:" + jsonObject.expiretime + "\n" +
+                                "event:" + jsonObject.event+ "\n";
+
+            document.getElementById("response_all_message").value = response_json_msg;
+            document.getElementById("auth_key").value = jsonObject.auth_key;
+
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function query_encript_encode_auth_token() {
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgseq").value.length == 0) {
+    alert ("유효하지 않은 msgseq 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_id_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 node_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 device_id_encode 입니다.");
+    return;
+  }
+
+  /*---------------------------------------------------------------------
+  if (document.getElementById("via_node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_node_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("via_device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_device_id_encode 입니다.");
+    return;
+  }
+  ---------------------------------------------------------------------*/
+
+  if (document.getElementById("auth_key").value.length == 0) {
+    alert ("유효하지 않은 auth_key 입니다.");
+    return;
+  }
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "user_key_id" : $('#user_key_id').val(),
+                        "user_key" : $('#user_key').val(),
+                        "device_id" : $('#device_id').val(),
+                        "mcse_id" : $('#node_id').val(),
+                        "auth_key" : $('#auth_key').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/key_derivation/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            alert ("json data \n" + 
+                    "code:" + jsonObject.code + "\n" +
+                    "msg:" + jsonObject.message + "\n");
+            if (jsonObject.code == "200") {
+              document.getElementById("auth_token").value = jsonObject.output;
+            }
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+
+function Send() {
+
+  if (document.getElementById("version").value.length == 0) {
+    alert ("유효하지 않은 version 입니다.");
+    return;
+  }
+
+  if (document.getElementById("method").value.length == 0) {
+    alert ("유효하지 않은 method 입니다.");
+    return;
+  }
+
+  if (document.getElementById("sessiontype").value.length == 0) {
+    alert ("유효하지 않은 sessiontype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("seperator").value.length == 0) {
+    alert ("유효하지 않은 seperator 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgtype").value.length == 0) {
+    alert ("유효하지 않은 msgtype 입니다.");
+    return;
+  }
+
+  if (document.getElementById("msgseq").value.length == 0) {
+    alert ("유효하지 않은 msgseq 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_id_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("user_key_encode").value.length == 0) {
+    alert ("유효하지 않은 user_key_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 device_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 node_id_encode 입니다.");
+    return;
+  }
+
+  /*------------------------------------------------------------------------
+  if (document.getElementById("via_device_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_device_id_encode 입니다.");
+    return;
+  }
+
+  if (document.getElementById("via_node_id_encode").value.length == 0) {
+    alert ("유효하지 않은 via_node_id_encode 입니다.");
+    return;
+  }
+  ------------------------------------------------------------------------*/
+
+  if (document.getElementById("auth_key").value.length == 0) {
+    alert ("유효하지 않은 auth_key 입니다.");
+    return;
+  }
+
+  if (document.getElementById("auth_token").value.length == 0) {
+    alert ("유효하지 않은 auth_token 입니다.");
+    return;
+  }
+
+  var send_json_data = {"version" : $('#version').val(),
+                        "method" : $('#method').val(),
+                        "sessiontype" : $('#sessiontype').val(),
+                        "seperator" : $('#seperator').val(),
+                        "msgtype" : $('#msgtype').val(),
+                        "msgseq" : $('#msgseq').val(),
+                        "userkeyid" : $('#user_key_id_encode').val(),
+                        "userkey" : $('#user_key_encode').val(),
+                        "deviceid" : $('#device_id_encode').val(),
+                        "nodeid" : $('#node_id_encode').val(),
+                        "via_deviceid" : $('#via_device_id_encode').val(),
+                        "via_nodeid" : $('#via_node_id_encode').val(),
+                        "auth_key" : $('#auth_key').val(),
+                        "auth_token" : $('#auth_token').val()}
+
+  $.ajax({
+      async: false,
+      url: "/auth_api/association/v1.0/",
+      timeout:5000,
+      type: "POST",
+      dataType: "json",
+      contentType: 'application/json; charset=UTF-8',
+      data: JSON.stringify(send_json_data),
+      complete: 
+        function (response, textStatus) {
+          var jsonObject = JSON.parse(response.responseText);
+
+          if (response.status == "200") {
+            //alert ("[complete succ] rsp status:" + response.status + "\n response msg = " + response.responseText + "\n Data:" + textStatus);
+            /*--------------------------------------------------------------------------
+            response_json_msg = "[ json response information ]\n\n" +
+                                "method:" + jsonObject.method + "\n\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n\n" +
+                                "code:" + jsonObject.code + "\n\n" +
+                                "msg:" + jsonObject.msg + "\n\n" +
+                                "authkey:" + jsonObject.authkey + "\n\n" +
+                                "expiretime:" + jsonObject.expiretime + "\n\n" +
+                                "event:\n" + jsonObject.event + "\n";
+            ---------------------------------------------------------------------------*/                    
+            response_json_msg = "[ json response information ]\n\n" +
+                                "method:" + jsonObject.method + "\n\n" +
+                                "msgtype:" + jsonObject.msgtype + "\n\n" +
+                                "code:" + jsonObject.code + "\n\n" +
+                                "msg:" + jsonObject.msg + "\n\n" +
+                                "authkey:" + jsonObject.authkey + "\n\n" +
+                                "expiretime:" + jsonObject.expiretime + "\n\n";
+
+            document.getElementById("response_all_message").value = response_json_msg;
+
+          } else {
+            alert("HTTP Response Fail")
+          }
+        },
+      error: 
+        function(xml_request, text_status, error_thrown) {
+          alert("오류발생\n(Network 상태를 확인하여 주시기 바랍니다.)");
+        },
+
+      beforeSend: 
+        function () {
+        }
+  });
+}
+
+function Cancel () {
+  document.getElementById("user_key_id").value = "";
+  document.getElementById("user_key_id_encode").value = "";
+  document.getElementById("user_key").value = "";
+  document.getElementById("user_key_encode").value = "";
+  document.getElementById("device_id").value = "";
+  document.getElementById("device_id_encode").value = "";
+  document.getElementById("node_id").value = "";
+  document.getElementById("node_id_encode").value = "";
+  document.getElementById("via_device_id").value = "";
+  document.getElementById("via_device_id_encode").value = "";
+  document.getElementById("via_node_id").value = "";
+  document.getElementById("via_node_id_encode").value = "";
+
+  document.getElementById("auth_key").value = "";
+  document.getElementById("auth_token").value = "";
+  document.getElementById("response_all_message").value = "";
+}
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>        
+        <h1>Service GoWAS</h1>               
+	</header>
+    <section>
+    	<div class="path">
+        	<ul>            
+            <li>Service Debugger</li>
+            <li>Auth Association</li>
+          </ul>
+        </div>
+        <nav>
+        	<h1>Auth Association</h1>
+            <ul>
+            {{.MainMenu.Provisioning}}
+            {{.MainMenu.Statistics}}
+            {{.MainMenu.Package}}
+            {{.MainMenu.AuthAssociation}}
+            {{.MainMenu.AuthAssociationDashboard}}
+            </ul>
+        </nav>
+        <article>
+        	<div class="button_area">                
+          </div>
+        	<h1>Auth Association Debugger</h1>
+          
+		  <form id="userid_create_form" action="/userid/create_proc/" method="post">
+			<table class="input">
+        <colgroup>
+        <col width="15%"><col>
+        </colgroup>
+          <tbody>
+            <tr>
+              <th>Version</th>
+              <td><input id="version" name="version" type="text" class="s100" value="1.0"></td>
+            </tr>
+            <tr>
+              <th>Method</th>
+              <td><input id="method" name="method" type="text" class="s100" value="auth"></td>
+            </tr>
+            <tr>
+              <th>Session Type</th>
+              <td><input id="sessiontype" name="sessiontype" type="text" class="s100" value="register"></td>
+            </tr>
+            <tr>
+              <th>Seperator</th>
+              <td><input id="seperator" name="seperator" type="text" class="s100" value="create"></td>
+            </tr>
+            <tr>
+              <th>Message Type</th>
+              <td><input id="msgtype" name="msgtype" type="text" class="s100" value="request"></td>
+            </tr>
+            <tr>
+              <th>Message Sequence</th>
+              <td><input id="msgseq" name="msgseq" type="text" class="s100" value="1"></td>
+            </tr>
+            <tr>
+              <th>UserKeyID</th>
+              <td>
+                <div class="float_btn">
+              <input id="user_key_id" name="user_key_id" type="text" class="s100" value="23">
+              <button type="button" class="gray" onClick="query_encript_encode_user_key_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="user_key_id_encode" name="user_key_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>UserKey</th>
+              <td>
+                <div class="float_btn">
+              <input id="user_key" name="user_key" type="text" class="s100" value="f5a2642c-0d46-4f3f-a7ea-236e1d281cb0">
+              <button type="button" class="gray" onClick="query_encript_encode_user_key();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="user_key_encode" name="user_key_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>DeviceID</th>
+              <td>
+                <div class="float_btn">
+              <input id="device_id" name="device_id" type="text" class="s100" value="15">
+              <button type="button" class="gray" onClick="query_encript_encode_device_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="device_id_encode" name="device_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>NodeID</th>
+              <td>
+                <div class="float_btn">
+              <input id="node_id" name="node_id" type="text" class="s100" value="39faaaa1-3a87-4339-8d83-069d34637da1">
+              <button type="button" class="gray" onClick="query_encript_encode_node_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="node_id_encode" name="node_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>ViaDeviceID</th>
+              <td>
+                <div class="float_btn">
+              <input id="via_device_id" name="via_device_id" type="text" class="s100" value="">
+              <button type="button" class="gray" onClick="query_encript_encode_via_device_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="via_device_id_encode" name="via_device_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>ViaNodeID</th>
+              <td>
+                <div class="float_btn">
+              <input id="via_node_id" name="via_node_id" type="text" class="s100" value="">
+              <button type="button" class="gray" onClick="query_encript_encode_via_node_id();">ENCRIPT & Encodeing (Local Query)</button>
+              <input id="via_node_id_encode" name="via_node_id_encode" type="text" class="s100" value="" readonly>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Auth Key</th>
+              <td>
+                <div class="float_btn">
+                  <input id="auth_key" name="auth_key" type="text" class="s100" value="" readonly>
+                  <button type="button" class="gray" onClick="query_encript_encode_auth_key();">Query Auth Key (Remote SVC GoWAS Query)</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Auth Token</th>
+              <td>
+                <div class="float_btn">
+                  <input id="auth_token" name="auth_token" type="text" class="s100" value="" readonly>
+                  <button type="button" class="gray" onClick="query_encript_encode_auth_token();">Hasing AuthToken (Local Query)</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Response All Message</th>
+              <td>
+                <textarea id="response_all_message" name="content" cols="100" rows="20" value=""></textarea> 
+              </td>
+            </tr>
+            <tr>
+              <th>Response Code Description</th>
+              <td>
+                <textarea id="response_code_message" name="content" cols="100" rows="20" value="" readonly>
+                [ Response Code Class ]
+                200: auth success
+
+                610: json parameter parsing error
+                611: json parameter is null
+                612: json parameter is invalid
+
+                620: json parameter decript error
+
+                630: db processing error (reason: not founded tuple)
+                631: db processing error (reason: empty value)
+                632: db processing error (reason: not founed oem expiretime)
+
+                640: auth error (reason: auth token already exist)
+                641: auth error (reason: token is not exist)
+                642: auth error (reason: token is mismatching)
+                643: auth error (reason: authtoken has expired)
+                643: failed to generate auth key
+                644: failed to generate auth token
+
+                651: service start waiting period (서비스 시작 대기 시간)
+                652: end of service period (서비스 기간 종료)
+                </textarea> 
+              </td>
+            </tr>
+          </tbody>
+      </table>
+		  </form>
+        <div class="paginate_group">
+				<div class="bg_l">
+					<button type="button" onClick="Cancel();">Cancel</button>
+				</div>                
+				<div class="bg_r">
+					<button type="button" onClick="Send();" class="green">Send</button>
+				</div>
+            </div>
+        </article>
+    </section>
+</div>
+<footer>
+    <span>KMS Auth Test</span>
+</footer>
+</body>
+</html>

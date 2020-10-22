@@ -1,0 +1,49 @@
+[global]
+max_conn = "1024"
+timeout_connect = "5"
+timeout_client = "30"
+timeout_server = "30"
+
+[logfile]
+disk_limit = "95"
+max_size = "150MB"
+log = "./log"
+error = "./log"
+
+[conf]
+libs = "./modules"
+
+[statistics]
+use = "disable"
+interval = "1"
+dbpath = "./db/traffic.db"
+
+[mcs]
+position = "wan"
+interval_retry = "5s"
+buffer_size = "524288"
+encrypt = "aes256"
+
+### Example Client Mode ###
+[frontend]
+[frontend.clientmode]
+bind = "11111"
+mcs_mode = "client"
+backend = "clientmode"
+
+[backend]
+[backend.clientmode]
+server = ["1.1.1.72:10001", "1.1.1.73:10001", "1.1.1.74:10001"]
+
+
+### Example Server Mode ###
+[frontend.servermode]
+bind = "22222"
+mcs_mode = "server"
+backend = "servermode"
+
+[backend]
+[backend.servermode]
+server = ["1.1.1.85:11000"]
+
+
