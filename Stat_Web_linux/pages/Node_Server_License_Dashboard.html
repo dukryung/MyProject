@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>  
+    <script type="text/javascript" src="/pages/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/pages/jquery.tmpl.js"></script>
+  <script type="text/javascript">  
+
+  function tableRowspan(tr_group) {
+    var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 = $('td.col_3');
+    $($rowspan0[0]).attr('rowspan', tr_group.length);
+    $($rowspan1[0]).attr('rowspan', tr_group.length);
+    $($rowspan2[0]).attr('rowspan', tr_group.length);
+    $($rowspan3[0]).attr('rowspan', tr_group.length);   
+
+    if(tr_group.length > 1){
+      $($rowspan0).not($rowspan0[0]).remove();
+      $($rowspan1).not($rowspan1[0]).remove();
+      $($rowspan2).not($rowspan2[0]).remove();
+      $($rowspan3).not($rowspan3[0]).remove();
+    };
+  };
+
+  function removeRowspan(tr_group){
+    var $rowspan0 = $('td.col_0', tr_group), $rowspan1 = $('td.col_1', tr_group), $rowspan2 = $('td.col_2', tr_group), $rowspan3 = $('td.col_3', tr_group);
+    $($rowspan0[0]).removeAttr('rowspan');
+    $($rowspan1[0]).removeAttr('rowspan');
+    $($rowspan2[0]).removeAttr('rowspan');
+    $($rowspan3[0]).removeAttr('rowspan');
+  };
+
+  </script>  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/pages/css/base.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/common.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/contents.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/pages/css/fontium.css" media="all"/>
+
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1>Node</h1>
+    </header>
+    <section>
+      <div class="path">
+        <ul>
+          <li><a href="">Node</a></li>
+          <li><a href="">Setting</a></li>
+        </ul>
+      </div>
+      <nav>
+        <h1>Node</h1>
+        <ul>
+          <li><a href="/setting">Setting</a></li>
+          {{.NodeClientStatMenu}}
+				  {{.NodeServerStatMenu}}	
+				  {{.LicenseManagement}}	
+        </ul>
+      </nav>
+      <article >
+        <h1>Setting</h1>
+          <form id='search' action="/license/?page_num=1&sort=0" method="post">
+        <h2><strong>End Date : 2020. 12. 10</strong>
+          <th>Insert directory</th>
+          <td><input id="Password" type="text" class="s30" reserve="length" min="6" max="20" msg="패스워드는 6자 이상 20자 이하로 입력하세요" value="hello" /></td>
+          <div>
+            <button type="button" class="green">Get New License</button>
+          </div>
+        </h2>
+          <table class="table_fixed" id="lic_table">
+          <colgroup>
+            <col width="10%">
+            <col width="40%">
+            <col width="40%">
+            <col width="10%">
+          </colgroup>
+          <thead>
+              <tr>
+                <!--<th></th>-->
+                {{.No}}
+                {{.NodeID}}
+                {{.LastConnTime}}
+                {{.ETC}}
+              </tr>
+          </thead>
+          <tbody>
+ {{ range .LicInfo }}
+            <tr style="display:{{.TrInfo.Style}};" data-groupId="{{.TrInfo.DataGroupID}}" data-first="{{.TrInfo.DataFirst}}">
+              <td class="col_0">{{.No}}</td>
+              <td class="col_1">{{.NodeID}}</td>
+              <td class="col_2">{{.LastConnTime}}</td>
+              <td class="col_3">{{.ETC}}</td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>        
+        <div class="paginate_group">                
+                <span class="paginate_complex">
+                  <a class="direction prev" href="{{.FirstPage}}"><span></span><span></span> 처음</a>
+                  <a class="direction prev" href="{{.PrevPage}}"><span></span> 이전</a> 
+                  {{ range .PageNumInfo }}
+                    {{.TagStart}}{{.PageNum}}{{.TagEnd}}
+                  {{ end }}
+                  <!--
+                  <strong>2</strong> 
+                  <a href="#">3</a> 
+                  -->
+                  <a class="direction next" href="{{.NextPage}}">다음 <span></span></a> 
+                  <a class="direction next" href="{{.LastPage}}">끝 <span></span><span></span></a>
+                </span>                
+            </div>
+        </article>
+    </section>
+</div>
+  <footer>
+    <span>Copyright ⓒ 2019 innogskorea.crop. All right reserved.</span>
+  </footer>
+</body>
+</html>
